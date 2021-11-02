@@ -1,0 +1,134 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - GAME WAVE - SUA LOJA GEEKER FAVORITA</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <style>
+        .sidebar {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #919191;
+            overflow-x: hidden;
+            transition: 0.2s;
+            padding-top: 60px;
+        }
+
+        .sidebar button {
+            padding: 6px 6px 6px 18px;
+            text-decoration: none;
+            font-size: 23px;
+            background-color: white;
+            display: block;
+            width: 100%;
+            height: 100px;
+        }
+
+        .sidebar button:hover{
+            color: #545454;
+        }
+
+        .sidebar .fechabtn{
+            position: absolute;
+            top:0;
+            right: 25px;
+            font-size: 40px;
+            margin-left: 100px;
+        }
+
+        .abrebtn {
+            font-size: 20px;
+            cursor: pointer;
+            background-color: #545454;
+            color: white;
+            padding: 10px;
+            border: none;
+        }
+
+        
+
+    </style>
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+
+                </button>
+                <!--
+                    @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                -->
+                <button id="lateral" class="abrebtn"  onClick="openNav()">☰</button>
+                </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("About", "About", "Home")</li>
+                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div id="barralateral" class="sidebar">
+        <a href="javascript:void(0)" class="fechabtn" onclick="closeNav()">X</a>
+        <button>SEILA MANO KK</button>
+        <button>SEILA MANO KK</button>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; GAME WAVE @DateTime.Now.Year - TODOS OS DIREITOS RESERVADOS </p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+
+    <script>
+        function openNav() {
+            var L = true;
+
+            if (L == true) {
+                L = false;
+                document.getElementById("barralateral").style.width = "250px";
+
+            } else {
+                L = true;
+                document.getElementById("barralateral").style.width = "0px";
+
+            }
+        }
+
+        var tecla = document.getElementById("lateral");
+
+        tecla.addEventListener("keyup", function (event) {
+            if (event.keyCode === 27) {
+                event.preventDefault();
+                document.getElementById("lateral").click();
+            }
+        });
+        /*
+        document.getElementById("lateral").onkeypress = function (e) {
+            if (e.keyCode == 27) {
+                document.getElementById("lateral").click();
+            }
+        }
+        */
+        
+    </script>
+</body>
+</html>
