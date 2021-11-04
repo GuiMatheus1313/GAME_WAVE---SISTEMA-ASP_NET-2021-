@@ -83,8 +83,8 @@
 
     <div id="barralateral" class="sidebar">
         <a href="javascript:void(0)" class="fechabtn" onclick="closeNav()">X</a>
-        <button>SEILA MANO KK</button>
-        <button>SEILA MANO KK</button>
+        <button>Botão 1</button>
+        <button>Botão 2</button>
     </div>
     <div class="container body-content">
         @RenderBody()
@@ -100,6 +100,16 @@
 
     <script>
         function openNav() {
+                var tecla = document.getElementById("lateral");
+
+                tecla.addEventListener("keyup", function (event) {
+                    if (event.keyCode === 27) {
+                        event.preventDefault();
+                        document.getElementById("lateral").click();
+                        }
+                     });
+            
+            
             var L = true;
 
             if (L == true) {
@@ -113,14 +123,7 @@
             }
         }
 
-        var tecla = document.getElementById("lateral");
-
-        tecla.addEventListener("keyup", function (event) {
-            if (event.keyCode === 27) {
-                event.preventDefault();
-                document.getElementById("lateral").click();
-            }
-        });
+        
         /*
         document.getElementById("lateral").onkeypress = function (e) {
             if (e.keyCode == 27) {
