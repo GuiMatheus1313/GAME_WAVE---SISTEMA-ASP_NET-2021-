@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -6,6 +6,9 @@
     <title>@ViewBag.Title - GAME WAVE - SUA LOJA GEEKER FAVORITA</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+
+
+    
     <style>
         .sidebar {
             height: 100%;
@@ -20,27 +23,27 @@
             padding-top: 60px;
         }
 
-        .sidebar button {
-            padding: 6px 6px 6px 18px;
-            text-decoration: none;
-            font-size: 23px;
-            background-color: white;
-            display: block;
-            width: 100%;
-            height: 100px;
-        }
+            .sidebar button {
+                padding: 6px 6px 6px 18px;
+                text-decoration: none;
+                font-size: 23px;
+                background-color: white;
+                display: block;
+                width: 100%;
+                height: 100px;
+            }
 
-        .sidebar button:hover{
-            color: #545454;
-        }
+                .sidebar button:hover {
+                    color: #545454;
+                }
 
-        .sidebar .fechabtn{
-            position: absolute;
-            top:0;
-            right: 25px;
-            font-size: 40px;
-            margin-left: 100px;
-        }
+            .sidebar .fechabtn {
+                position: absolute;
+                top: 0;
+                right: 25px;
+                font-size: 40px;
+                margin-left: 100px;
+            }
 
         .abrebtn {
             font-size: 20px;
@@ -51,8 +54,24 @@
             border: none;
         }
 
-        
+        #cadastrobarra {
+            position: relative;
+            float: right;
+            margin-top: -110px;
+            width: 50px;
+            background-color: #222222;
+        }
 
+            #cadastrobarra button {
+                width: 150px;
+                height: 40px;
+                text-decoration: none;
+                color: #ffffff;
+                background-color: #262626;
+                border: none;
+                
+
+            }
     </style>
 </head>
 <body>
@@ -67,10 +86,10 @@
 
                 </button>
                 <!--
-                    @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-                -->
-                <button id="lateral" class="abrebtn"  onClick="openNav()">☰</button>
-                </div>
+            @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+        -->
+                <button id="lateral" class="abrebtn" onClick="openNav()">☰</button>
+            </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
@@ -78,16 +97,47 @@
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                 </ul>
             </div>
-        </div>
-    </div>
 
-    <div id="barralateral" class="sidebar">
-        <a href="javascript:void(0)" class="fechabtn" onclick="closeNav()">X</a>
-        <div class="btn-group dropdown-menu-right">
-        <button class="btn btn-warning dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Botão 1</button>
-        <div class="dropdown-menu""></div>
-         </div>
-        <button>Botão 2</button>
+
+            <div id="barralateral" class="sidebar">
+                <a href="javascript:void(0)" class="fechabtn" onclick="closeNav()">X</a>
+                Utilize os botões abaixo para realizar as funções necessárias!
+                <div class="dropdown dropdown-menu-right">
+                    <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="width: 300px; text-align: left;">
+                        Cadastrar
+                    </button>
+                    <div id="cadastrobarra" class="dropdown-menu" style="margin-right: 10px;">
+                        <button class="dropdown-item">@Html.ActionLink("Cliente", "CadProduto", "Home")</button><br />
+                        <button class="dropdown-item">Produto</button><br>
+                        <button class="dropdown-item">Funcionário</button>
+                    </div>
+                </div>
+                <br />
+                <div class="dropdown dropdown-menu-right">
+                    <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="width: 300px; text-align: left;">
+                        Alterar
+                    </button>
+                    <div id="cadastrobarra" class="dropdown-menu" style="margin-right: 10px;">
+                        <button class="dropdown-item">@Html.ActionLink("Cliente", "AltProduto", "Home")</button><br />
+                        <button class="dropdown-item ">Produto</button><br>
+                        <button class="dropdown-item">Func</button>
+                    </div>
+                </div>
+                <br />
+                <div class="dropdown dropdown-menu-right">
+                    <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="width: 300px; text-align: left;
+">
+                        Consultar<br >------------<br />Deletar
+                    </button>
+                    <div id="cadastrobarra" class="dropdown-menu" style="margin-right: 10px;">
+                        <button class="dropdown-item">@Html.ActionLink("Cliente", "Del_Con_Produto", "Home")</button><br />
+                        <button class="dropdown-item ">Produto</button><br>
+                        <button class="dropdown-item">Func</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
     </div>
     <div class="container body-content">
         @RenderBody()
@@ -103,38 +153,21 @@
 
     <script>
         function openNav() {
-                var tecla = document.getElementById("lateral");
+                document.getElementById("barralateral").style.width = "350px";
 
-                tecla.addEventListener("keyup", function (event) {
-                    if (event.keyCode === 27) {
-                        event.preventDefault();
-                        document.getElementById("lateral").click();
-                        }
-                     });
+          
+
             
-            
-            var L = true;
-
-            if (L == true) {
-                L = false;
-                document.getElementById("barralateral").style.width = "250px";
-
-            } else {
-                L = true;
-                document.getElementById("barralateral").style.width = "0px";
-
-            }
         }
 
-        
-        /*
-        document.getElementById("lateral").onkeypress = function (e) {
-            if (e.keyCode == 27) {
-                document.getElementById("lateral").click();
-            }
+        function closeNav() {
+            document.getElementById("barralateral").style.width = "0px";
+
         }
-        */
-        
+
+
+                    
+
     </script>
 </body>
 </html>

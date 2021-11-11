@@ -21,7 +21,7 @@ namespace GAME_WAVE___SISTEMA_ASP_NET.Repositorio
             {
                 msg = "Ocorreu um erro ao se conectar" + erro.Message;
             }
-            return conexao
+            return conexao;
           }
         
         public MySqlConnection DesconectarBD()
