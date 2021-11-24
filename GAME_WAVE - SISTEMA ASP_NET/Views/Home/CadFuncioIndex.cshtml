@@ -1,0 +1,55 @@
+﻿@model GAME_WAVE___SISTEMA_ASP_NET.Models.Classe_Funcionario
+@{
+    ViewBag.Title = "CadFuncioIndex";
+}
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="~/Content/background_imagens.css" />
+
+
+</head>
+<legend> Cadastro do Funcionário</legend>
+<div class="container" id="bgcadfuncio">
+    @using (Html.BeginForm("CadFuncio", "Home", FormMethod.Post))
+    {
+        @Html.ValidationSummary(true)
+        <fildset>
+            <div class="editor-label" style="font-size: 30px;">
+                @Html.LabelFor(m => m.Func_nome)
+            </div>
+
+            <div class="editor-field">
+                @Html.EditorFor(m => m.Func_nome)
+                @Html.ValidationMessageFor(m => m.Func_nome)
+            </div>
+
+            <div class="editor-label" style="font-size: 30px; margin-left: 400px; margin-top: -73px;">
+                @Html.LabelFor(m => m.Func_num_end)
+            </div>
+
+            <div class="editor-field" style="margin-left: 400px; ">
+                @Html.EditorFor(m => m.Func_num_end)
+                @Html.ValidationMessageFor(m => m.Func_num_end)
+            </div>
+
+            <div class="editor-label" style="font-size: 30px; margin-top: 50px;">
+                @Html.LabelFor(m => m.Func_cargo)
+            </div>
+
+            <div class="editor-field">
+                @Html.EditorFor(m => m.Func_cargo)
+                @Html.ValidationMessageFor(m => m.Func_cargo)
+            </div>
+
+            <div class="editor-label" style="font-size: 30px; margin-left: 400px; margin-top: -73px;">
+                @Html.LabelFor(m => m.Func_datanasc)
+            </div>
+
+            <div class="editor-field" style="margin-left: 400px; ">
+                @Html.EditorFor(m => m.Func_datanasc)
+                @Html.ValidationMessageFor(m => m.Func_datanasc)
+            </div>
+        </fildset>
+    }
+</div>
+

@@ -1,0 +1,57 @@
+﻿@model GAME_WAVE___SISTEMA_ASP_NET.Models.Classe_Cliente
+@{
+    ViewBag.Title = "AltCliente";
+}
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="~/Content/background_imagens.css" />
+
+
+</head>
+<legend> Alteração do Cliente</legend>
+
+<div class="container" id="bgaltcliente">
+    @using (Html.BeginForm("AltCliente", "Home", FormMethod.Post))
+    {
+        @Html.ValidationSummary(true)
+        <fildset>
+            <div class="editor-label" style="font-size: 30px;">
+                @Html.LabelFor(m => m.Cli_nome)
+            </div>
+
+            <div class="editor-field">
+                @Html.EditorFor(m => m.Cli_nome)
+                @Html.ValidationMessageFor(m => m.Cli_nome)
+            </div>
+
+            <div class="editor-label" style="font-size: 30px; margin-left: 400px; margin-top: -73px;">
+                @Html.LabelFor(m => m.Cli_numEnd)
+            </div>
+
+            <div class="editor-field" style="margin-left: 400px; ">
+                @Html.EditorFor(m => m.Cli_numEnd)
+                @Html.ValidationMessageFor(m => m.Cli_numEnd)
+            </div>
+
+            <div class="editor-label" style="font-size: 30px; margin-top: 50px;">
+                @Html.LabelFor(m => m.Cli_datanasc)
+            </div>
+
+            <div class="editor-field">
+                @Html.EditorFor(m => m.Cli_datanasc)
+                @Html.ValidationMessageFor(m => m.Cli_datanasc)
+            </div>
+
+            <div class="editor-label" style="font-size: 30px; margin-left: 400px; margin-top: -73px;">
+                @Html.LabelFor(m => m.Cli_numEnd)
+            </div>
+
+            <div class="editor-field" style="margin-left: 400px; ">
+                @Html.EditorFor(m => m.Cli_numEnd)
+                @Html.ValidationMessageFor(m => m.Cli_numEnd)
+            </div>
+        </fildset>
+    }
+
+
+</div>

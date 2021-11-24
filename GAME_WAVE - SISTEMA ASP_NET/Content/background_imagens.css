@@ -1,0 +1,70 @@
+﻿#bgcadcliente {
+    background-image: url(Images/Cliente_adicionar.png);
+    background-repeat: no-repeat;
+    background-size: 150px;
+    background-position-x: 230px;
+    background-position-y: 60px;
+}
+#bgaltcliente {
+    background-image: url(Images/Cliente_Alterar.png);
+    background-repeat: no-repeat;
+    background-size: 150px;
+    background-position-x: 230px;
+    background-position-y: 60px;
+}
+#bgdelconcliente {
+    background-image: url('Images/Cliente_Deletar e Consultar.png');
+    background-repeat: no-repeat;
+    background-size: 150px;
+    background-position-x: 230px;
+    background-position-y: 60px;
+}
+#bgcadfuncio {
+    background-image: url('Images/Funcionário_Adicionar.png');
+    background-repeat: no-repeat;
+    background-size: 150px;
+    background-position-x: 230px;
+    background-position-y: 60px;
+}
+#bgaltfuncio {
+    background-image: url('Images/Funcionário_ Alterar.png');
+    background-repeat: no-repeat;
+    background-size: 150px;
+    background-position-x: 230px;
+    background-position-y: 60px;
+}
+#bgdelconfuncio {
+    background-image: url('Images/Funcionário_ Alterar.png');
+    background-repeat: no-repeat;
+    background-size: 150px;
+    background-position-x: 230px;
+    background-position-y: 60px;
+}
+#bgcadproduto {
+    background-image: url('Images/Produto_Adicionar.png');
+    background-repeat: no-repeat;
+    background-size: 150px;
+    background-position-x: 230px;
+    background-position-y: 60px;
+}
+#bgaltproduto {
+    background-image: url('Images/Produto_Altera.png');
+    background-repeat: no-repeat;
+    background-size: 150px;
+    background-position-x: 230px;
+    background-position-y: 60px;
+}
+#bgdelconproduto {
+    background-image: url('Images/Produto_deleta e consulta.png');
+    background-repeat: no-repeat;
+    background-size: 150px;
+    background-position-x: 230px;
+    background-position-y: 60px;
+}
+#bgvalidacao {
+    background-image: url('Images/Validação.png');
+    background-repeat: no-repeat;
+    background-size: 150px;
+    background-position-x: 230px;
+    background-position-y: 60px;
+}

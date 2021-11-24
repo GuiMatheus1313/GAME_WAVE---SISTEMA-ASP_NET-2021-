@@ -17,7 +17,7 @@
             z-index: 1;
             top: 0;
             left: 0;
-            background-color: #919191;
+            background-color: #3d3d3d;
             overflow-x: hidden;
             transition: 0.2s;
             padding-top: 60px;
@@ -62,16 +62,23 @@
             background-color: #222222;
         }
 
-            #cadastrobarra button {
-                width: 150px;
-                height: 40px;
-                text-decoration: none;
-                color: #ffffff;
-                background-color: #262626;
-                border: none;
-                
-
+        #cadastrobarra button {
+            width: 150px;
+            height: 40px;
+            text-decoration: none;
+            color: #ffffff;
+            background-color: #262626;
+            border: none;
+            font-family: Calibri;
+            font-weight: bold;
             }
+
+        #barralateral p {
+            font-family: Calibri;
+            font-weight: bold;
+            color: #ffffff;
+            font-size: 20px;
+        }
     </style>
 </head>
 <body>
@@ -101,38 +108,37 @@
 
             <div id="barralateral" class="sidebar">
                 <a href="javascript:void(0)" class="fechabtn" onclick="closeNav()">X</a>
-                Utilize os botões abaixo para realizar as funções necessárias!
+                  <p>Utilize os botões abaixo para realizar as funções necessárias! </p>
                 <div class="dropdown dropdown-menu-right">
-                    <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="width: 300px; text-align: left;">
+                    <button type="button" class="btn btn-glyphicon glyphicon-plus dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="width: 300px; text-align: left; font-family: Calibri; font-weight: bold;">
                         Cadastrar
                     </button>
                     <div id="cadastrobarra" class="dropdown-menu" style="margin-right: 10px;">
-                        <button class="dropdown-item">@Html.ActionLink("Cliente", "CadProduto", "Home")</button><br />
-                        <button class="dropdown-item">Produto</button><br>
-                        <button class="dropdown-item">Funcionário</button>
+                        <button class="dropdown-item">@Html.ActionLink("Cliente", "CadClienteIndex", "Home")</button><br />
+                        <button class="dropdown-item">@Html.ActionLink("Produto", "CadProdutoIndex", "Home")</button><br>
+                        <button class="dropdown-item">@Html.ActionLink("Funcionário", "CadFuncioIndex", "Home")</button>
                     </div>
                 </div>
                 <br />
                 <div class="dropdown dropdown-menu-right">
-                    <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="width: 300px; text-align: left;">
+                    <button type="button" class="btn btn-glyphicon glyphicon-pencil dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="width: 300px; text-align: left; font-family: Calibri; font-weight: bold;">
                         Alterar
                     </button>
                     <div id="cadastrobarra" class="dropdown-menu" style="margin-right: 10px;">
-                        <button class="dropdown-item">@Html.ActionLink("Cliente", "AltProduto", "Home")</button><br />
-                        <button class="dropdown-item ">Produto</button><br>
-                        <button class="dropdown-item">Func</button>
+                        <button class="dropdown-item">@Html.ActionLink("Cliente", "AltCliente", "Home")</button><br />
+                        <button class="dropdown-item">@Html.ActionLink("Produto", "AltProduto", "Home")</button><br>
+                        <button class="dropdown-item">@Html.ActionLink("Funcionário", "AltFuncio", "Home")</button>
                     </div>
                 </div>
                 <br />
                 <div class="dropdown dropdown-menu-right">
-                    <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="width: 300px; text-align: left;
-">
+                    <button type="button" class="btn btn-glyphicon glyphicon-search dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="width: 300px; text-align: left; font-family: Calibri; font-weight: bold;">
                         Consultar<br >------------<br />Deletar
                     </button>
                     <div id="cadastrobarra" class="dropdown-menu" style="margin-right: 10px;">
-                        <button class="dropdown-item">@Html.ActionLink("Cliente", "Del_Con_Produto", "Home")</button><br />
-                        <button class="dropdown-item ">Produto</button><br>
-                        <button class="dropdown-item">Func</button>
+                        <button class="dropdown-item">@Html.ActionLink("Cliente", "Del_Con_Cliente", "Home")</button><br />
+                        <button class="dropdown-item">@Html.ActionLink("Produto", "Del_Con_Produto", "Home")</button><br>
+                        <button class="dropdown-item">@Html.ActionLink("Funcionário", "Del_Con_Funcio", "Home")</button>
                     </div>
                 </div>
             </div>

@@ -133,10 +133,21 @@
     <Compile Include="Repositorio\Conexaosql.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\background_imagens.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Images\Cliente_adicionar.png" />
+    <Content Include="Content\Images\Cliente_Alterar.png" />
+    <Content Include="Content\Images\Cliente_Deletar e Consultar.png" />
+    <Content Include="Content\Images\Funcionário_ Alterar.png" />
+    <Content Include="Content\Images\Funcionário_ Deletar e Consultar.png" />
+    <Content Include="Content\Images\Funcionário_Adicionar.png" />
+    <Content Include="Content\Images\Produto_Adicionar.png" />
+    <Content Include="Content\Images\Produto_Altera.png" />
+    <Content Include="Content\Images\Produto_deleta e consulta.png" />
+    <Content Include="Content\Images\Validação.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -166,12 +177,19 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Home\CadProduto.cshtml" />
+    <Content Include="Views\Home\AltCliente.cshtml" />
+    <Content Include="Views\Home\Del_Con_Cliente.cshtml" />
+    <Content Include="Views\Home\AltFuncio.cshtml" />
+    <Content Include="Views\Home\Del_Con_Funcio.cshtml" />
     <Content Include="Views\Home\AltProduto.cshtml" />
     <Content Include="Views\Home\Del_Con_Produto.cshtml" />
+    <Content Include="Views\Home\CadClienteIndex.cshtml" />
+    <Content Include="Views\Home\CadFuncioIndex.cshtml" />
+    <Content Include="Views\Home\CadProdutoIndex.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Imagens\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

@@ -16,15 +16,14 @@ namespace GAME_WAVE___SISTEMA_ASP_NET.Controllers
         Acoes ac = new Acoes();
         [HttpPost]
 
-        public ActionResult CadProduto()
+        public ActionResult CadClienteIndex(Classe_Cliente cliente)
         {
-            var cliente = new Classe_Cliente();
             return View(cliente);
         }
 
-        //CADPRODUTO FOI CRIADO COM A ACTION ABAIXO
+        //CADPRODUTO FOI CRIADO COM A ACTION acima
         
-        public ActionResult CadProduto(Classe_Cliente cliente)
+        public ActionResult CadCliente(Classe_Cliente cliente)
         {
             return View(cliente);
         }
@@ -32,17 +31,65 @@ namespace GAME_WAVE___SISTEMA_ASP_NET.Controllers
         //ALTPRODUTO FOI CRIADO COM A ACTION ABAIXO
 
 
-        public ActionResult AltProduto(Classe_Cliente cliente)
+        public ActionResult AltCliente(Classe_Cliente cliente)
         {
             return View(cliente);
         }
 
         //DELETAR E CONSULTAR PROD FOI CRIADO COM A ACTION ABAIXO
 
-        public ActionResult Del_Con_Produto()
+        public ActionResult Del_Con_Cliente()
         {
             return View();
         }
+
+        [HttpPost]
+
+        public ActionResult CadFuncioIndex()
+        {
+            var funf = new Classe_Funcionario();
+            return View(funf);
+        }
+
+
+        public ActionResult CadFuncio(Classe_Funcionario funf) 
+        {
+            return View(funf);
+        }
+
+        public ActionResult AltFuncio(Classe_Funcionario funf)
+        {
+            return View(funf);
+        }
+
+        public ActionResult Del_Con_Funcio()
+        {
+            return View();
+        }
+        [HttpPost]
+
+        public ActionResult CadProdutoIndex()
+        {
+            var pro = new Classe_Produto();
+            return View(pro);
+        }
+
+        public ActionResult CadProduto(Classe_Produto pro)
+        {
+            return View(pro);
+        }
+
+        public ActionResult AltProduto(Classe_Produto pro)
+        {
+            return View(pro);
+        }
+
+        public ActionResult Del_Con_Produto(Classe_Produto pro)
+        {
+            return View(pro);
+        }
+
+
 
         public ActionResult AtividadeSucedida()
         {
