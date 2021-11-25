@@ -76,15 +76,21 @@ namespace GAME_WAVE___SISTEMA_ASP_NET.Controllers
         
         public void AltFuncio(Classe_Funcionario funci)
         {
-            MySqlCommand cmd = new MySqlCommand("update TBFuncionario set func_Nome=@func_Nome, func_Tel=@func_Tel, func_Email=@func_Email, func_DataNasc=@func_DataNasc, func_Cargo=@func_Cargo, fk_Cep_cep=@fk_Cep_cep where Func_CPF=@func_Cpf", con.ConectarBD());
+            MySqlCommand cmd = new MySqlCommand("update TBFuncionario set func_Nome=@func_Nome, func_Tel=@func_Tel, func_Email=@func_Email, func_DataNasc=@func_DataNasc, func_Num_End=@func_Num_End, func_Cargo=@func_Cargo, fk_Cep_cep=@fk_Cep_cep where Func_CPF=@func_Cpf", con.ConectarBD());
             cmd.Parameters.Add("@func_Nome", MySQLDbType.varchar).Value = funci.Func_nome;
             cmd.Parameters.Add("@func_Tel", MySQLDbType.Tel).Value = funci.Func_tel;
             cmd.Parameters.Add("@func_Email", MySQLDbType.varchar).Value = funci.Func_email;
-            cmd.Parameters.Add("@func_Nome", MySQLDbType.varchar).Value = funci.Func_nome;
-
-
-
-            
+            cmd.Parameters.Add("@func_DataNasc", MySQLDbType.DataNasc).Value = funci.Func_datanasc;
+            cmd.Parameters.Add("@func_Num_End", MySQLDbType.int).Value = funci.Func_num_end;
+            cmd.Parameters.Add("@func_Cargo", MySQLDbType.varchar).Value = funci.Func_cargo;
+            cmd.Parameters.Add("@fk_Cep_cep", MySqlDbType.int).Value = ;
+            cmd.ExecuteNonqQuery();
+            cmd.Desconectar();
+        }
+        
+        public void AltProduto(Classe_Produto produ)
+        {
+            MySqlCommand cmd = new MySqlCommand("update TBProduto set prod_Nome=@prod_Nome, prod_Tipo=@prod_Tipo, prod_Quant_Estoque=@prod_Quant_Estoque, prod_Desc=@prod_Desc, prod_AnoLanc=@prod_AnoLanc, prod_FaixaEta=@prod_FaixaEta, prod_Valor=@prod_Valor where Cod_pro=@
         }
 
     }
