@@ -52,11 +52,39 @@ namespace GAME_WAVE___SISTEMA_ASP_NET.Controllers
             cmd.Parameters.Add("@prod_Nome", MySqlDbType.varchar).Value = prod.Prod_nome;
             cmd.Parameters.Add("@prod_Tipo", MySqlDbType.varchar).Value = prod.Prod_tipo;
             cmd.Parameters.Add("@prod_Quant_Estoque", MySqlDbType.int).Value = prod.Prod_quant_estoque;
-            cmd.Parameters.Add("@prod_Desc", MySqlDbType.varchar).Value = prod.Prod_nome;
+            cmd.Parameters.Add("@prod_Desc", MySqlDbType.varchar).Value = prod.Prod_desc;
+            cmd.Parameters.Add("@prod_AnoLanc", MySqlDbType.varchar).Value = prod.Prod_anolanc;
+            cmd.Parameters.Add("@prod_FaixaEta", MySqlDbType.varchar).Value = prod.Prod_nome;
+            cmd.Parameters.Add("@prod_Valor", MySqlDbType.decimal).Value = prod.Prod_valor;
+            cmd.ExecuteNonQuery();
+            cmd.DesconectarBD();
+        }
+        
+        //ABAIXO ESTÁ OS MÉTODOS DE ALTERAÇÕES DAS CLASSES DISPONÍVEIS
+        
+        public void AltCliente(Classe_Cliente clien)
+        {
+            MySqlCommand cmd = new MySqlCommand("update TBCliente set cli_Nome=@cli_Nome, cli_NumEnd=@cli_NumEnd, cli_Tel=@cli_Tel, fk_Fidelidade_Brinde_cod=@fk_Fidelidade_Brinde_cod, fk_Cep_cep=@fk_Cep_cep where Cli_cpf=@cli_Cpf", con.ConectarBD());
+            cmd.Parameters.Add("@cli_Nome", MySqlDbType.numeric).Value = clien.Cli_Nome;
+            cmd.Parameters.Add("@cli_NumEnd", MySqlDbType.int).Value = clien.Cli_numEnd;
+            cmd.Parameters.Add("@cli_Tel", MySqlDbType.numeric).Value = clien.Cli_tel;
+            cmd.Parameters.Add("@fk_fidelidade_Brinde_cod", MySqlDbType.int).Value = ;
+            cmd.Parameters.Add("@fk_Cep_cep", MySqlDbType.int).Value = ;
+            cmd.ExecuteNonQuery();
+            cmd.DesconectarBD();
+        }
+        
+        public void AltFuncio(Classe_Funcionario funci)
+        {
+            MySqlCommand cmd = new MySqlCommand("update TBFuncionario set func_Nome=@func_Nome, func_Tel=@func_Tel, func_Email=@func_Email, func_DataNasc=@func_DataNasc, func_Cargo=@func_Cargo, fk_Cep_cep=@fk_Cep_cep where Func_CPF=@func_Cpf", con.ConectarBD());
+            cmd.Parameters.Add("@func_Nome", MySQLDbType.varchar).Value = funci.Func_nome;
+            cmd.Parameters.Add("@func_Tel", MySQLDbType.Tel).Value = funci.Func_tel;
+            cmd.Parameters.Add("@func_Email", MySQLDbType.varchar).Value = funci.Func_email;
+            cmd.Parameters.Add("@func_Nome", MySQLDbType.varchar).Value = funci.Func_nome;
 
 
 
-
+            
         }
 
     }
