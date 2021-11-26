@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -14,11 +14,10 @@ namespace GAME_WAVE___SISTEMA_ASP_NET.Controllers
             return View();
         }
         Acoes ac = new Acoes();
-        [HttpPost]
 
-        public ActionResult CadClienteIndex(Classe_Cliente cliente)
+        public ActionResult CadClienteIndex(Classe_Cliente clie)
         {
-            return View(cliente);
+            return View(clie);
         }
 
         //CADPRODUTO FOI CRIADO COM A ACTION acima
@@ -43,11 +42,9 @@ namespace GAME_WAVE___SISTEMA_ASP_NET.Controllers
             return View();
         }
 
-        [HttpPost]
 
-        public ActionResult CadFuncioIndex()
+        public ActionResult CadFuncioIndex(Classe_Funcionario funf)
         {
-            var funf = new Classe_Funcionario();
             return View(funf);
         }
 
@@ -66,11 +63,9 @@ namespace GAME_WAVE___SISTEMA_ASP_NET.Controllers
         {
             return View();
         }
-        [HttpPost]
 
-        public ActionResult CadProdutoIndex()
+        public ActionResult CadProdutoIndex(Classe_Produto pro)
         {
-            var pro = new Classe_Produto();
             return View(pro);
         }
 
