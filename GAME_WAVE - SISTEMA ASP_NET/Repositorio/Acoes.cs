@@ -131,7 +131,32 @@ namespace GAME_WAVE___SISTEMA_ASP_NET.Controllers
                                          
         public List<Classe_Cliente> ListarCliente()
         {
-            MySqlCommand cmd = new MySqlCommand("Select*from TB
+            MySqlCommand cmd = new MySqlCommand("Select*from TBCliente", con.ConectarBD());
+            var dadoscli = cmd.ExecuteReader();
+            return ListarCliente(dadoscli);
+        }
+                                         
+        //LISTA COM O CPF
+        public Produto ListarCliCod(int cpfcli)
+        {
+            MySqlCommand cmd = new MySqlCommand("Select*from TBCliente where cli_Cpf = {0}", cpfcli)
+            cmd.ExecuteReader();
+        }
+                                         
+        //MÉTODO PARA LISTAR TODOS OS CLIENTES DO BD
+                                         
+        public List<Classe_Funcionario> ListarFuncio()
+        {
+            MySqlCommand cmd = new MySqlCommand("Select*from TBFuncionario", con.ConectarBD());
+            var dadosfun = cmd.ExecuteReader();
+            return ListarFuncio(dadoscli);
+        }
+                                         
+        public List<Classe_Produto> ListarProduto()
+        {
+            MySqlCommand cmd = new MySqlCommand("Select*from TBProduto", con.ConectarBD());
+            var dadospro = cmd.ExecuteReader();
+            return ListarProduto(dadospro);
         }
         
 
