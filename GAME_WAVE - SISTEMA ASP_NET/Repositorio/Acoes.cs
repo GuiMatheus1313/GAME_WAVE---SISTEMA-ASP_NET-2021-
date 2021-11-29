@@ -127,38 +127,108 @@ namespace GAME_WAVE___SISTEMA_ASP_NET.Controllers
         
         //INÍCIO DAS CONSULTAS DAS CLASSES DISPONÍVEIS
          
-        //Ínicio à bCliente
-                                         
-        public List<Classe_Cliente> ListarCliente()
+        //Ínicio à Cliente
+        //APENAS LISTA OS CLIENTES                                 
+        public List<Classe_Cliente> ListarCli()
         {
             MySqlCommand cmd = new MySqlCommand("Select*from TBCliente", con.ConectarBD());
             var dadoscli = cmd.ExecuteReader();
             return ListarCliente(dadoscli);
         }
-                                         
-        //LISTA COM O CPF
-        public Produto ListarCliCod(int cpfcli)
+        
+        //MÉTODO PARA LISTAR OS CLIENTES POR CPF
+
+        public Classe_Cliente ListarCliCpf(numeric cpf)
         {
-            MySqlCommand cmd = new MySqlCommand("Select*from TBCliente where cli_Cpf = {0}", cpfcli)
+            MySqlCommand cmd = new MySqlCommand("select * from TBCliente where cli_cpf = {0}", cpf, con.ConectarBD());
             cmd.ExecuteReader();
         }
                                          
         //MÉTODO PARA LISTAR TODOS OS CLIENTES DO BD
+        public List<Classe_Cliente> ListarCliente(MySqlDataReader dr)                                
+        {
+            var ListCli = new List <Classe_Cliente>();
+            while (dr.Read())
+            {
+                var CliTemp = new Classe_Cliente()
+                {
+                    cli_cpf = numeric.Parse(dr["Cli_cpf"].ToString()),
+                    cli_Nome = dr["Cli_nome"].ToString(),
+                    cli_NumEnd = int.Parse(dr["Cli_numEnd"].ToString()),
+                    cli_email = dr["Cli_tel"].ToString(),
+                    fk_Cep_cep = dr["Cep"].ToString(),
+                };
+                ListCli.Add(CliTemp);
+            }
+            dr.Close();
+            return ListCli;
+        }
+        
                                          
+        //FIM DA CLASSE CLIENTE
+        //ÍNICIO DA CLASSE FUNCIONÁRIO
+        
+        //APENAS O MÉTODO DA LISTA DE FUNCIONÁRIO                                
         public List<Classe_Funcionario> ListarFuncio()
         {
             MySqlCommand cmd = new MySqlCommand("Select*from TBFuncionario", con.ConectarBD());
             var dadosfun = cmd.ExecuteReader();
             return ListarFuncio(dadoscli);
         }
+        
+        //MÉTODO PARA LISTAR O FUNCIONÁRIO COM SEU COD
+        public Classe_Funcionario ListarFuncProd(int cdfun)
+        {
+            MySqlCommand cmd = new MySqlCommand("Select * from TBFuncionario where func_Cod = {0}", cdfun, con.ConectarBD());
+            cmd.ExecuteReader();
+        }
                                          
-        public List<Classe_Produto> ListarProduto()
+        //MÉTODO PARA LISTAR TODOS OS FUNCIONÁRIOS do bd
+        public List<Classe_Funcionario> ListarFuncionario(MySqlDataReader dr)
+        {
+            var ListFun = new List <Classe_Funcionario>();
+            while (dr.Read())
+            {
+                var FunTemp new Classe_Funcionario()
+                {
+                    func_Cod = default,
+                    func_Nome = dr["Func_nome"].ToString(),
+                    func_CPF = numeric.Parse(dr["Func_cpf"].ToString()),
+                    func_Tel = numeric.Parse(dr["Func_tel"].ToString()),
+                    func_Email = dr["Func_email"].ToString(),
+                    func_DataNasc = DateTime.Parse(dr["Func_datanasc"].ToString()),
+                    func_Num_End = int.Parse(dr["Func_num_end"].ToString()),
+                    func_Cargo = dr["Func_cargo"].ToString()),
+                    fk_Cep_cep = dr["Cep"].ToString()),
+                };
+                ListFun.Add(FunTemp)
+            }
+            dr.Close();
+            return ListFun;
+        }
+                                         
+        //FIM DA CLASSE FUNCIONÁRIO
+                                         
+        //Ínicio da Classe Produto
+        
+                                         
+        //Apenas O método para listar a classe produtos                                 
+        public List<Classe_Produto> ListarProd()
         {
             MySqlCommand cmd = new MySqlCommand("Select*from TBProduto", con.ConectarBD());
             var dadospro = cmd.ExecuteReader();
             return ListarProduto(dadospro);
-        }
+        }        
         
-
+        //MÉTODO PARA LISTAR OS PRODUTOS COM O CÓDIGO
+        public Classe_Produto ListarProdCod(int cdpro)
+        {
+            MySqlCommand cmd = new MySqlCommand("select*from TBProduto where cod_Prod = {0}", cdpro, con.ConectarBD());
+            var DadosProdCod = cmd.ExecuteReader();
+            return ListarProduto(DadosProdCod).FirstOrDefault();
+        }
+                                         
+        //LISTAR TODOS OS PRODUTOS DO BANCO
+        public List<Classe_Produto> Listar
     }
 }
