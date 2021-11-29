@@ -7,15 +7,13 @@ namespace GAME_WAVE___SISTEMA_ASP_NET.Models
 {
     public class Classe_Cliente
     {
-        private long Cli_cpf { get; set; }
+        public long Cli_cpf { get; set; }
 
         public string Cli_nome { get; set; }
 
-        public DateTime Cli_datanasc { get; set; }
+        public string Cli_email { get; set; }
 
-        private string Cli_email { get; set; }
-
-        private long Cli_tel { get; set; }
+        public long Cli_tel { get; set; }
 
         public string Nome_uf { get; set; }
 
