@@ -229,6 +229,26 @@ namespace GAME_WAVE___SISTEMA_ASP_NET.Controllers
         }
                                          
         //LISTAR TODOS OS PRODUTOS DO BANCO
-        public List<Classe_Produto> Listar
+         public List<Classe_Produto> ListarProduto(MySqlDataReader dr)
+        {
+            var ListProd = new List<Classe_Produto>();
+            while (dr.Read())
+            {
+                var ProdTemp = new Classe_Produto()
+                {
+                    cod_Prod = int.Parse(dr["Cod_prod"].ToString()),
+                    prod_Nome = dr["Prod_nome"].ToString(),
+                    prod_Tipo = dr["Prod_tipo"].ToString(),
+                    prod_Quant_Estoque = int.Parse(dr["Prod_quant_estoque"],ToString()),
+                    prod_Desc = dr["Prod_desc"].ToString(),
+                    prod_AnoLanc = dr["Prod_anolanc"].ToString(),
+                    prod_FaixaEta = dr["...".ToString(),
+                    prod_Valor = decimal.Parse(dr["Prod_valor"].ToString()  
+                };
+                ListProd.Add(ProdTemp)
+            }
+            dr.Close();
+            return ListProd;
+        }
     }
 }
