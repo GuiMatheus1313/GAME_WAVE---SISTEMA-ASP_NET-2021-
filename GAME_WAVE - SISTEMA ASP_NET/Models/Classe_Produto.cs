@@ -18,6 +18,8 @@ namespace GAME_WAVE___SISTEMA_ASP_NET.Models
         public string Prod_desc { get; set; }
 
         public string Prod_anolanc { get; set; }
+        
+        public string Prod_faixaeta {get; set; }
 
         public decimal Prod_valor { get; set; }
     }
