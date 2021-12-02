@@ -19,11 +19,11 @@ namespace GAME_WAVE___SISTEMA_ASP_NET.Repositorio
         public void CadastrarCliente(Classe_Cliente cli)
         {
             MySqlCommand cmd = new MySqlCommand("insert into TBCliente values(@cli_Cpf,@cli_Nome,@cli_NumEnd,@cli_Email,@cli_Tel)", conectar.ConectarBD());
-            cmd.Parameters.Add("@cli_Cpf", MySqlDbType.Decimal).Value = cli.Cli_cpf;
+            cmd.Parameters.Add("@cli_Cpf", MySqlDbType.decimal).Value = cli.Cli_cpf;
             cmd.Parameters.Add("@cli_Nome", MySqlDbType.VarChar).Value = cli.Cli_nome;
             cmd.Parameters.Add("@cli_NumEnd", MySqlDbType.Int32).Value = cli.Cli_numEnd;
             cmd.Parameters.Add("@cli_Email", MySqlDbType.VarChar).Value = cli.Cli_email;
-            cmd.Parameters.Add("@cli_Tel", MySqlDbType.Decimal).Value = cli.Cli_tel;
+            cmd.Parameters.Add("@cli_Tel", MySqlDbType.decimal).Value = cli.Cli_tel;
             /*cmd.Parameters.Add("@fk_fidelidade_Brinde_cod", MySqlDbType.int).Value = ;
             cmd.Parameters.Add("@fk_Cep_cep", MySqlDbType.int).Value = ;
             */
@@ -31,81 +31,81 @@ namespace GAME_WAVE___SISTEMA_ASP_NET.Repositorio
             conectar.DesconectarBD();
         }
         
-        /*
+        
         public void CadastrarFuncio(Classe_Funcionario fun)
         {
-            MySqlCommand cmd = new MySqlCommand("insert into TBFuncionario values(default,@func_Nome,@func_CPF,@func_Tel,@func_Email,@func_DataNasc,@func_Num_End,@func_Cargo,@fk_Cep_cep")", con.ConectarBD());
-            cmd.Parameters.Add("@func_Nome", MySqlDbType.varchar).Value = fun.Func_nome;
-            cmd.Parameters.Add("@func_CPF", MySqlDbType.numeric).Value = fun.Func_cpf;
-            cmd.Parameters.Add("@func_Tel", MySqlDbType.numeric).Value = fun.Func_tel;
-            cmd.Parameters.Add("@func_Email", MySqlDbType.varchar).Value = fun.Func_email;
+            MySqlCommand cmd = new MySqlCommand("insert into TBFuncionario values(default,@func_Nome,@func_CPF,@func_Tel,@func_Email,@func_DataNasc,@func_Num_End,@func_Cargo)", conectar.ConectarBD());
+            cmd.Parameters.Add("@func_Nome", MySqlDbType.VarChar).Value = fun.Func_nome;
+            cmd.Parameters.Add("@func_CPF", MySqlDbType.decimal).Value = fun.Func_cpf;
+            cmd.Parameters.Add("@func_Tel", MySqlDbType.decimal).Value = fun.Func_tel;
+            cmd.Parameters.Add("@func_Email", MySqlDbType.VarChar).Value = fun.Func_email;
             cmd.Parameters.Add("@func_DataNasc", MySqlDbType.DateTime).Value = fun.Func_datanasc;
-            cmd.Parameters.Add("@func_Num_End", MySqlDbType.int).Value = fun.Func_num_end;
-            cmd.Parameters.Add("@func_Cargo", MySqlDbType.varchar).Value = fun.Func_cargp;
-            cmd.Parameters.Add("@fk_Cep_cep", MySqlDbType.varchar).Value = fun.Cep;
+            cmd.Parameters.Add("@func_Num_End", MySqlDbType.Int32).Value = fun.Func_num_end;
+            cmd.Parameters.Add("@func_Cargo", MySqlDbType.VarChar).Value = fun.Func_cargp;
+            //cmd.Parameters.Add("@fk_Cep_cep", MySqlDbType.varchar).Value = fun.Cep;
             cmd.ExecuteNonQuery();
-            cmd.DesconectarBD();
+            conectar.DesconectarBD();
         }
         
         public void CadastroProduto(Classe_Produto prod)
         {
-            MySqlCommand cmd = new MySqlCommand("insert into TBProduto values(default,@prod_Nome,@prod_Tipo,@prod_Quant_Estoque,@prod_Desc,@prod_AnoLanc,@prod_FaixaEta,@prod_Valor")", con.ConectarBD());
-            cmd.Parameters.Add("@prod_Nome", MySqlDbType.varchar).Value = prod.Prod_nome;
-            cmd.Parameters.Add("@prod_Tipo", MySqlDbType.varchar).Value = prod.Prod_tipo;
-            cmd.Parameters.Add("@prod_Quant_Estoque", MySqlDbType.int).Value = prod.Prod_quant_estoque;
-            cmd.Parameters.Add("@prod_Desc", MySqlDbType.varchar).Value = prod.Prod_desc;
-            cmd.Parameters.Add("@prod_AnoLanc", MySqlDbType.varchar).Value = prod.Prod_anolanc;
-            cmd.Parameters.Add("@prod_FaixaEta", MySqlDbType.varchar).Value = prod.Prod_nome;
+            MySqlCommand cmd = new MySqlCommand("insert into TBProduto values(default,@prod_Nome,@prod_Tipo,@prod_Quant_Estoque,@prod_Desc,@prod_AnoLanc,@prod_FaixaEta,@prod_Valor)", conectar.ConectarBD());
+            cmd.Parameters.Add("@prod_Nome", MySqlDbType.VarChar).Value = prod.Prod_nome;
+            cmd.Parameters.Add("@prod_Tipo", MySqlDbType.VarChar).Value = prod.Prod_tipo;
+            cmd.Parameters.Add("@prod_Quant_Estoque", MySqlDbType.Int32).Value = prod.Prod_quant_estoque;
+            cmd.Parameters.Add("@prod_Desc", MySqlDbType.VarChar).Value = prod.Prod_desc;
+            cmd.Parameters.Add("@prod_AnoLanc", MySqlDbType.VarChar).Value = prod.Prod_anolanc;
+            cmd.Parameters.Add("@prod_FaixaEta", MySqlDbType.VarChar).Value = prod.Prod_faixaeta;
             cmd.Parameters.Add("@prod_Valor", MySqlDbType.decimal).Value = prod.Prod_valor;
             cmd.ExecuteNonQuery();
-            cmd.DesconectarBD();
+            conectar.DesconectarBD();
         }
 
-        */
+        
         
         //ABAIXO ESTÁ OS MÉTODOS DE ALTERAÇÕES DAS CLASSES DISPONÍVEIS
         
         public void AltCliente(Classe_Cliente clien)
         {
-            MySqlCommand cmd = new MySqlCommand("update TBCliente set cli_Nome=@cli_Nome, cli_NumEnd=@cli_NumEnd, cli_Tel=@cli_Tel, fk_Fidelidade_Brinde_cod=@fk_Fidelidade_Brinde_cod, fk_Cep_cep=@fk_Cep_cep where Cli_cpf=@cli_Cpf", conectar.ConectarBD());
-            cmd.Parameters.Add("@cli_Nome", MySqlDbType.Decimal).Value = clien.Cli_nome;
+            MySqlCommand cmd = new MySqlCommand("update TBCliente set cli_Nome=@cli_Nome, cli_NumEnd=@cli_NumEnd, cli_Tel=@cli_Tel where Cli_cpf=@cli_Cpf", conectar.ConectarBD());
+            cmd.Parameters.Add("@cli_Nome", MySqlDbType.decimal).Value = clien.Cli_nome;
             cmd.Parameters.Add("@cli_NumEnd", MySqlDbType.Int32).Value = clien.Cli_numEnd;
-            cmd.Parameters.Add("@cli_Tel", MySqlDbType.Decimal).Value = clien.Cli_tel;
+            cmd.Parameters.Add("@cli_Tel", MySqlDbType.decimal).Value = clien.Cli_tel;
             //cmd.Parameters.Add("@fk_fidelidade_Brinde_cod", MySqlDbType.int).Value = ;
             //cmd.Parameters.Add("@fk_Cep_cep", MySqlDbType.int).Value = ;
             cmd.ExecuteNonQuery();
             conectar.DesconectarBD();
         }
         
-        /*
+        
         public void AltFuncio(Classe_Funcionario funci)
         {
-            MySqlCommand cmd = new MySqlCommand("update TBFuncionario set func_Nome=@func_Nome, func_Tel=@func_Tel, func_Email=@func_Email, func_DataNasc=@func_DataNasc, func_Num_End=@func_Num_End, func_Cargo=@func_Cargo, fk_Cep_cep=@fk_Cep_cep where Func_CPF=@func_Cpf", con.ConectarBD());
-            cmd.Parameters.Add("@func_Nome", MySqlDbType.varchar).Value = funci.Func_nome;
-            cmd.Parameters.Add("@func_Tel", MySqlDbType.Tel).Value = funci.Func_tel;
-            cmd.Parameters.Add("@func_Email", MySqlDbType.varchar).Value = funci.Func_email;
-            cmd.Parameters.Add("@func_DataNasc", MySqlDbType.DataNasc).Value = funci.Func_datanasc;
-            cmd.Parameters.Add("@func_Num_End", MySqlDbType.int).Value = funci.Func_num_end;
-            cmd.Parameters.Add("@func_Cargo", MySqlDbType.varchar).Value = funci.Func_cargo;
-            cmd.Parameters.Add("@fk_Cep_cep", MySqlDbType.int).Value = ;
+            MySqlCommand cmd = new MySqlCommand("update TBFuncionario set func_Nome=@func_Nome, func_Tel=@func_Tel, func_Email=@func_Email, func_DataNasc=@func_DataNasc, func_Num_End=@func_Num_End, func_Cargo=@func_Cargo where Func_CPF=@func_Cpf", conectar.ConectarBD());
+            cmd.Parameters.Add("@func_Nome", MySqlDbType.VarChar).Value = funci.Func_nome;
+            cmd.Parameters.Add("@func_Tel", MySqlDbType.decimal).Value = funci.Func_tel;
+            cmd.Parameters.Add("@func_Email", MySqlDbType.VarChar).Value = funci.Func_email;
+            cmd.Parameters.Add("@func_DataNasc", MySqlDbType.DateTime).Value = funci.Func_datanasc;
+            cmd.Parameters.Add("@func_Num_End", MySqlDbType.Int16).Value = funci.Func_num_end;
+            cmd.Parameters.Add("@func_Cargo", MySqlDbType.VarChar).Value = funci.Func_cargo;
+            //cmd.Parameters.Add("@fk_Cep_cep", MySqlDbType.int).Value = ;
             cmd.ExecuteNonQuery();
-            cmd.DesconectarBD();
+            conectar.DesconectarBD();
         }
         
         public void AltProduto(Classe_Produto produ)
         {
-            MySqlCommand cmd = new MySqlCommand("update TBProduto set prod_Nome=@prod_Nome, prod_Tipo=@prod_Tipo, prod_Quant_Estoque=@prod_Quant_Estoque, prod_Desc=@prod_Desc, prod_AnoLanc=@prod_AnoLanc, prod_FaixaEta=@prod_FaixaEta, prod_Valor=@prod_Valor where Cod_pro=@cod_pROD", con.ConectarBD());
-            cmd.Parameters.Add("@prod_Nome", MySqlDbType.varchar).Value = produ.Prod_nome;
-            cmd.Parameters.Add("@prod_Tipo", MySqlDbType.varchar).Value = produ.Prod_tipo;
-            cmd.Parameters.Add("@prod_Quant_Estoque", MySqlDbType.int).Value = produ.Prod_quant_estoque;
-            cmd.Parameters.Add("@prod_Desc", MySqlDbType.varchar).Value = produ.Prod_desc;
-            cmd.Parameters.Add("@prod_AnoLanc", MySqlDbType.varchar).Value = produ.Prod_anolanc;
-            cmd.Parameters.Add("@prod_FaixaEta", MySqlDbType.int).Value = produ.Prod_faixaeta;
+            MySqlCommand cmd = new MySqlCommand("update TBProduto set prod_Nome=@prod_Nome, prod_Tipo=@prod_Tipo, prod_Quant_Estoque=@prod_Quant_Estoque, prod_Desc=@prod_Desc, prod_AnoLanc=@prod_AnoLanc, prod_FaixaEta=@prod_FaixaEta, prod_Valor=@prod_Valor where Cod_pro=@cod_pROD", conectar.ConectarBD());
+            cmd.Parameters.Add("@prod_Nome", MySqlDbType.VarChar).Value = produ.Prod_nome;
+            cmd.Parameters.Add("@prod_Tipo", MySqlDbType.VarChar).Value = produ.Prod_tipo;
+            cmd.Parameters.Add("@prod_Quant_Estoque", MySqlDbType.Int32).Value = produ.Prod_quant_estoque;
+            cmd.Parameters.Add("@prod_Desc", MySqlDbType.VarChar).Value = produ.Prod_desc;
+            cmd.Parameters.Add("@prod_AnoLanc", MySqlDbType.VarChar).Value = produ.Prod_anolanc;
+            cmd.Parameters.Add("@prod_FaixaEta", MySqlDbType.VarChar).Value = produ.Prod_faixaeta;
             cmd.Parameters.Add("@prod_Valor", MySqlDbType.decimal).Value = produ.Prod_valor;
             cmd.ExecuteNonQuery;
             cmd.DesconectarBD();
         }
-        */
+        
         
         //ABAIXO ESTÁ OS MÉTODOS QUE DELETA DAS CLASSES DISPONÍVEIS
         
@@ -115,21 +115,22 @@ namespace GAME_WAVE___SISTEMA_ASP_NET.Repositorio
             MySqlCommand cmd = new MySqlCommand(deletacl, conectar.ConectarBD());
             cmd.ExecuteReader();
         }
-        /*
-        public void DelFuncionario(Classe_Funcionario funcio)
+        
+        public void DelFuncionario(Classe_Funcionario funciocod)
         {
-            var deletafn = String.Format("delete from TBFuncionario where func_Cod = {0}", codfn);
+            var deletafn = String.Format("delete from TBFuncionario where func_Cod = {0}", funciocod);
             MySqlCommand cmd = new MySqlCommand(deletafn, conectar.ConectarBD());
             cmd.ExecuteReader();
         }
         
-        public void DelProduto(Classe_Produto produt)
+        
+        public void DelProduto(Classe_Produto produtcod)
         {
-            var deletapd = String.Format("delete from TBProduto where Cod_Prod = {0}", codpd;
+            var deletapd = String.Format("delete from TBProduto where Cod_Prod = {0}", produtcod;
             MySqlCommand cmd = new MySqlCommand(deletapd, conectar.ConectarBD());
             cmd.ExecuteReader();
         }
-        */
+        
         
         //INÍCIO DAS CONSULTAS DAS CLASSES DISPONÍVEIS
          
@@ -176,20 +177,22 @@ namespace GAME_WAVE___SISTEMA_ASP_NET.Repositorio
                                          
         //FIM DA CLASSE CLIENTE
         //ÍNICIO DA CLASSE FUNCIONÁRIO
-        /*
+        
         //APENAS O MÉTODO DA LISTA DE FUNCIONÁRIO                                
         public List<Classe_Funcionario> ListarFuncio()
         {
             MySqlCommand cmd = new MySqlCommand("Select*from TBFuncionario", con.ConectarBD());
             var dadosfun = cmd.ExecuteReader();
-            return ListarFuncio(dadoscli);
+            return ListarFuncionario(dadosfun);
         }
         
         //MÉTODO PARA LISTAR O FUNCIONÁRIO COM SEU COD
         public Classe_Funcionario ListarFuncProd(int cdfun)
         {
-            MySqlCommand cmd = new MySqlCommand("Select * from TBFuncionario where func_Cod = {0}", cdfun, con.ConectarBD());
-            cmd.ExecuteReader();
+            var comando = String.Format("Select * from TBFuncionario where func_Cod = {0}". cdfun)
+            MySqlCommand cmd = new MySqlCommand(comando, conectar.ConectarBD());
+            var FuncCod = cmd.ExecuteReader();
+            return ListarFuncionario(FuncCod).FirstOrDefault();
         }
                                          
         //MÉTODO PARA LISTAR TODOS OS FUNCIONÁRIOS do bd
@@ -200,15 +203,15 @@ namespace GAME_WAVE___SISTEMA_ASP_NET.Repositorio
             {
                 var FunTemp new Classe_Funcionario()
                 {
-                    func_Cod = default,
-                    func_Nome = dr["Func_nome"].ToString(),
-                    func_CPF = numeric.Parse(dr["Func_cpf"].ToString()),
-                    func_Tel = numeric.Parse(dr["Func_tel"].ToString()),
-                    func_Email = dr["Func_email"].ToString(),
-                    func_DataNasc = DateTime.Parse(dr["Func_datanasc"].ToString()),
-                    func_Num_End = int.Parse(dr["Func_num_end"].ToString()),
-                    func_Cargo = dr["Func_cargo"].ToString()),
-                    fk_Cep_cep = dr["Cep"].ToString()),
+                    Func_Cod = default,
+                    Func_nome = dr["Func_nome"].ToString(),
+                    Func_cpf = decimal.Parse(dr["Func_cpf"].ToString()),
+                    Func_tel = decimal.Parse(dr["Func_tel"].ToString()),
+                    Func_email = dr["Func_email"].ToString(),
+                    Func_datanasc = DateTime.Parse(dr["Func_datanasc"].ToString()),
+                    Func_num_end = Int16.Parse(dr["Func_num_end"].ToString()),
+                    Func_cargo = dr["Func_cargo"].ToString(),
+                    //fk_Cep_cep = dr["Cep"].ToString()),
                 };
                 ListFun.Add(FunTemp)
             }
@@ -224,7 +227,7 @@ namespace GAME_WAVE___SISTEMA_ASP_NET.Repositorio
         //Apenas O método para listar a classe produtos                                 
         public List<Classe_Produto> ListarProd()
         {
-            MySqlCommand cmd = new MySqlCommand("Select*from TBProduto", con.ConectarBD());
+            MySqlCommand cmd = new MySqlCommand("Select*from TBProduto", conectar.ConectarBD());
             var dadospro = cmd.ExecuteReader();
             return ListarProduto(dadospro);
         }        
@@ -232,7 +235,8 @@ namespace GAME_WAVE___SISTEMA_ASP_NET.Repositorio
         //MÉTODO PARA LISTAR OS PRODUTOS COM O CÓDIGO
         public Classe_Produto ListarProdCod(int cdpro)
         {
-            MySqlCommand cmd = new MySqlCommand("select*from TBProduto where cod_Prod = {0}", cdpro, con.ConectarBD());
+            var comando = String.Format("select*from TBProduto where cod_Prod = {0}", cdpro);
+            MySqlCommand cmd = new MySqlCommand(comando, conectar.ConectarBD());
             var DadosProdCod = cmd.ExecuteReader();
             return ListarProduto(DadosProdCod).FirstOrDefault();
         }
@@ -245,20 +249,20 @@ namespace GAME_WAVE___SISTEMA_ASP_NET.Repositorio
             {
                 var ProdTemp = new Classe_Produto()
                 {
-                    cod_Prod = int.Parse(dr["Cod_prod"].ToString()),
-                    prod_Nome = dr["Prod_nome"].ToString(),
-                    prod_Tipo = dr["Prod_tipo"].ToString(),
-                    prod_Quant_Estoque = int.Parse(dr["Prod_quant_estoque"],ToString()),
-                    prod_Desc = dr["Prod_desc"].ToString(),
-                    prod_AnoLanc = dr["Prod_anolanc"].ToString(),
-                    prod_FaixaEta = dr["...".ToString(),
-                    prod_Valor = decimal.Parse(dr["Prod_valor"].ToString()  
+                    Cod_Prod = default,
+                    Prod_nome = dr["Prod_nome"].ToString(),
+                    Prod_tipo = dr["Prod_tipo"].ToString(),
+                    Prod_quant_estoque = Int32.Parse(dr["Prod_quant_estoque"],ToString()),
+                    Prod_desc = dr["Prod_desc"].ToString(),
+                    Prod_anolanc = dr["Prod_anolanc"].ToString(),
+                    Prod_faixaeta = dr["Prod_faixaeta".ToString(),
+                    Prod_valor = decimal.Parse(dr["Prod_valor"].ToString()),
                 };
                 ListProd.Add(ProdTemp)
             }
             dr.Close();
             return ListProd;
         }
-        */
+        
     }
 }
