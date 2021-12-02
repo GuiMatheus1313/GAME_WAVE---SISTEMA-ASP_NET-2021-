@@ -1,4 +1,6 @@
-﻿
+@model IEnumerable<GAME_WAVE___SISTEMA_ASP_NET.Models.Classe_Funcionario>
+<!DOCTYPE HTML>
+<html lang="pt-br">
 @{
     ViewBag.Title = "Del_Con_Funcio";
 }
@@ -8,6 +10,90 @@
 
 
 </head>
-
-<h2>Del_Con_Funcio</h2>
-
+<body>
+    <h2>Del_Con_Funcio</h2>
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Func_cod)
+                </th>
+                
+                <th>
+                    @Html.DisplayNameFor(model => model.Func_nome)
+                </th>
+                
+                <th>
+                    @Html.DisplayNameFor(model => model.Func_cpf)
+                </th>
+                
+                <th>
+                    @Html.DisplayNameFor(model => model.Func_nome)
+                </th>
+                
+                <th>
+                    @Html.DisplayNameFor(model => model.Func_tel)
+                </th>
+                
+                <th>
+                    @Html.DisplayNameFor(model => model.Func_email)
+                </th>
+                
+                <th>
+                    @Html.DisplayNameFor(model => model.Func_datanasc)
+                </th>
+                
+                <th>
+                    @Html.DisplayNameFor(model => model.Func_cargo)
+                </th>
+                
+                <th>
+                    @Html.DisplayNameFor(model => model.Cep)
+                </th>
+           </tr>
+            
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Func_cod)
+                    </td>
+                    
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Func_nome)
+                    </td>
+                    
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Func_cpf)
+                    </td>
+                    
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Func_tel)
+                    </td>
+                    
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Func_email)
+                    </td>
+                    
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Func_datanasc)
+                    </td>
+                    
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Func_cargo)
+                    </td>
+                    
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Cep)
+                    </td>
+                    
+                    <td>
+                        @Html.ActionLink("Alterar", "AltFuncioIndex", null, new { cd = item.Func_cod }, new { @class = "btn btn-primary-xs"})
+                        @Html.ActionLink("Excluir", "Del_Con_Funcionario", null, new { cd = item.Func_cod }, new { @class = "btn btn-danger-xs"})
+                    </td>
+            </tr>
+            }
+    </table>
+                      
+</body>
+</html>
+    
