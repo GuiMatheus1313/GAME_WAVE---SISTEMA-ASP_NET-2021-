@@ -11,9 +11,9 @@ namespace GAME_WAVE___SISTEMA_ASP_NET.Models
 
         public string Func_nome { get; set;}
 
-        private decimal(0,11) Func_cpf { get; set; }
+        public decimal(0,11) Func_cpf { get; set; }
 
-        private decimal(0,11) Func_tel { get; set; }
+        public decimal(0,11) Func_tel { get; set; }
 
         private string Func_email { get; set; }
 
