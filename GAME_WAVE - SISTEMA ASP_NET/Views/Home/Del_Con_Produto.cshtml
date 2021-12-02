@@ -1,7 +1,93 @@
-﻿
+@model IEnumerable<GAME_WAVE___SISTEMA_ASP_NET.Models.Classe_Produto>
+<!DOCTYPE HTML>
+<html lang="pt-br">
 @{
     ViewBag.Title = "Del_Con_Produto";
 }
+<head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="~/Content/background_imagens.css" />
 
-<h2>Del_Con_Produto</h2>
-
+</head>
+<body>
+    <h2>Del_Con_Produto</h2>
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Cod_prod)
+                </th>
+                
+                <th>
+                    @Html.DisplayNameFor(model => model.Prod_nome)
+                </th>
+                
+                <th>
+                    @Html.DisplayNameFor(model => model.Prod_tipo)
+                </th>
+                
+                <th>
+                    @Html.DisplayNameFor(model => model.Prod_quant_estoque)
+                </th>
+                
+                <th>
+                    @Html.DisplayNameFor(model => model.Prod_desc)
+                </th>
+                
+                <th>
+                    @Html.DisplayNameFor(model => model.Prod_anolanc)
+                </th>
+                
+                <th>
+                    @Html.DisplayNameFor(model => model.Prod_faixaeta)
+                </th>
+                
+                <th>
+                    @Html.DisplayNameFor(model => model.Prod_valor
+                </th>
+           </tr>
+            
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Cod_prod)
+                    </td>
+                    
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Prod_nome)
+                    </td>
+                    
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Prod_tipo)
+                    </td>
+                    
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Prod_quant_estoque)
+                    </td>
+                    
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Prod_desc)
+                    </td>
+                    
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Func_datanasc)
+                    </td>
+                    
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Func_cargo)
+                    </td>
+                    
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Cep)
+                    </td>
+                    
+                    <td>
+                        @Html.ActionLink("Alterar", "AltFuncioIndex", null, new { cd = item.Func_cod }, new { @class = "btn btn-primary-xs"})
+                        @Html.ActionLink("Excluir", "Del_Con_Funcionario", null, new { cd = item.Func_cod }, new { @class = "btn btn-danger-xs"})
+                    </td>
+            </tr>
+            }
+    </table>
+                      
+</body>
+</html>
