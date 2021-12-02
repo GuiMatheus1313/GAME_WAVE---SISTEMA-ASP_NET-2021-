@@ -21,9 +21,10 @@ namespace GAME_WAVE___SISTEMA_ASP_NET.Controllers
         }
 
         //CADPRODUTO FOI CRIADO COM A ACTION acima
-        
+        [HttpPost]
         public ActionResult CadCliente(Classe_Cliente cliente)
         {
+            ac.CadastrarCliente(cliente);
             return View(cliente);
         }
 
@@ -39,7 +40,9 @@ namespace GAME_WAVE___SISTEMA_ASP_NET.Controllers
 
         public ActionResult Del_Con_Cliente()
         {
-            return View();
+            var ExibiCliente = new Acoes();
+            var TodosClien = ExibiCliente.ListarCli();
+            return View(TodosClien);
         }
 
 

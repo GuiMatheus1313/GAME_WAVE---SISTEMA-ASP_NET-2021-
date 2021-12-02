@@ -1,4 +1,4 @@
-@model IEnumerable<Ga...
+﻿@model IEnumerable<GAME_WAVE___SISTEMA_ASP_NET.Models.Classe_Cliente>
 <!DOCTYPE HTML>
 <html lang="pt-br">
 @{
@@ -71,7 +71,7 @@
                 
                 <td>
                     @Html.ActionLink("Alterar", "AltClienteIndex", null, new { cd = item.Cli_cpf }, new { @class = "btn btn-primary-xs"})
-                    @Html.ActionLink("Excluir", "Den_Con_Cliente", null, new { cd = item.Cli_cpf }, new { @class = "btn btn-danger-xs})
+                    @Html.ActionLink("Excluir", "Den_Con_Cliente", null, new { cd = item.Cli_cpf }, new { @class = "btn btn-danger-xs"})
                 </td>
         </tr>
         }

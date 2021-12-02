@@ -19,43 +19,56 @@
         @using (Html.BeginForm("CadCliente", "Home", FormMethod.Post))
         {
             @Html.ValidationSummary(true)
-            <fildset>
-                <div class="editor-label" style="font-size: 30px;">
-                    @Html.LabelFor(m => m.Cli_nome)
-                </div>
+        <fildset>
+            <div class="editor-label" style="font-size: 30px;">
+                @Html.LabelFor(m => m.Cli_cpf)
+            </div>
 
-                <div class="editor-field">
-                    @Html.EditorFor(m => m.Cli_nome)
-                    @Html.ValidationMessageFor(m => m.Cli_nome)
-                </div>
+            <div class="editor-field">
+                @Html.EditorFor(m => m.Cli_cpf)
+                @Html.ValidationMessageFor(m => m.Cli_cpf)
+            </div>
 
-                <div class="editor-label" style="font-size: 30px; margin-left: 400px; margin-top: -73px;">
-                    @Html.LabelFor(m => m.Cli_numEnd)
-                </div>
+            <div class="editor-label" style="font-size: 30px; margin-left: 400px; margin-top: -73px;">
+                @Html.LabelFor(m => m.Cli_nome)
+            </div>
 
-                <div class="editor-field" style="margin-left: 400px; ">
-                    @Html.EditorFor(m => m.Cli_numEnd)
-                    @Html.ValidationMessageFor(m => m.Cli_numEnd)
-                </div>
+            <div class="editor-field" style="margin-left: 400px;">
+                @Html.EditorFor(m => m.Cli_nome)
+                @Html.ValidationMessageFor(m => m.Cli_nome)
+            </div>
 
-                <div class="editor-label" style="font-size: 30px; margin-top: 50px;">
-                    @Html.LabelFor(m => m.Cli_datanasc)
-                </div>
+            <div class="editor-label" style="font-size: 30px;">
+                @Html.LabelFor(m => m.Cli_numEnd)
+            </div>
 
-                <div class="editor-field">
-                    @Html.EditorFor(m => m.Cli_datanasc)
-                    @Html.ValidationMessageFor(m => m.Cli_datanasc)
-                </div>
+            <div class="editor-field">
+                @Html.EditorFor(m => m.Cli_numEnd)
+                @Html.ValidationMessageFor(m => m.Cli_numEnd)
+            </div>
 
-                <div class="editor-label" style="font-size: 30px; margin-left: 400px; margin-top: -73px;">
-                    @Html.LabelFor(m => m.Cli_numEnd)
-                </div>
+            <div class="editor-label" style="font-size: 30px; margin-left: 400px; margin-top: -73px;">
+                @Html.LabelFor(m => m.Cli_email)
+            </div>
 
-                <div class="editor-field" style="margin-left: 400px; ">
-                    @Html.EditorFor(m => m.Cli_numEnd)
-                    @Html.ValidationMessageFor(m => m.Cli_numEnd)
-                </div>
-            </fildset>
+            <div class="editor-field" style="margin-left: 400px; ">
+                @Html.EditorFor(m => m.Cli_email)
+                @Html.ValidationMessageFor(m => m.Cli_email)
+            </div>
+
+            <div class="editor-label" style="font-size: 30px;">
+                @Html.LabelFor(m => m.Cli_tel)
+            </div>
+
+            <div class="editor-field">
+                @Html.EditorFor(m => m.Cli_tel)
+                @Html.ValidationMessageFor(m => m.Cli_tel)
+            </div>
+
+            <div>
+                <br /> <input type="submit" value="Cadastrar" name="btnenviar" />
+            </div>
+        </fildset>
         }
     </div>
 </body>

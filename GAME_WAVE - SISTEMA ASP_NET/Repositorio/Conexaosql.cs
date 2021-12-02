@@ -11,7 +11,7 @@ namespace GAME_WAVE___SISTEMA_ASP_NET.Repositorio
         MySqlConnection conexao = new MySqlConnection("Server=localhost;Database=BDLojaJogos_tcm;user=root;pwd=guiguiba");
         public static string msg; 
         
-        MySqlConnection ConectarBD()
+        public MySqlConnection ConectarBD()
         {
             try
             {            

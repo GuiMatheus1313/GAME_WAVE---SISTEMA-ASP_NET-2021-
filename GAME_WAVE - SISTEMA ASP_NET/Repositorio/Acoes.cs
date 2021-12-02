@@ -2,12 +2,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using GAME_WAVE___SISTEMA_ASP_NET.Repositorio;
 using MySql.Data.MySqlClient;
 using GAME_WAVE___SISTEMA_ASP_NET.Models;
 
 
-namespace GAME_WAVE___SISTEMA_ASP_NET.Controllers
+namespace GAME_WAVE___SISTEMA_ASP_NET.Repositorio
 {
 
     public class Acoes
@@ -19,18 +18,20 @@ namespace GAME_WAVE___SISTEMA_ASP_NET.Controllers
         
         public void CadastrarCliente(Classe_Cliente cli)
         {
-            MySqlCommand cmd = new MySqlCommand("insert into TBCliente values(@cli_Cpf,@cli_Nome,@cli_NumEnd,@cli_Email,@cli_Tel,@fk_fidelidade_Brinde_cod,@fk_Cep_cep)", con.ConectarBD());
-            cmd.Parameters.Add("@cli_Cpf", MySqlDbType.numeric).Value = cli.Cli_cpf;
-            cmd.Parameters.Add("@cli_Nome", MySqlDbType.varchar).Value = cli.Cli_Nome;
-            cmd.Parameters.Add("@cli_NumEnd", MySqlDbType.int).Value = cli.Cli_numEnd;
-            cmd.Parameters.Add("@cli_Email", MySqlDbType.varchar).Value = cli.Cli_email;
-            cmd.Parameters.Add("@cli_Tel", MySqlDbType.numeric).Value = cli.Cli_tel;
-            cmd.Parameters.Add("@fk_fidelidade_Brinde_cod", MySqlDbType.int).Value = ;
+            MySqlCommand cmd = new MySqlCommand("insert into TBCliente values(@cli_Cpf,@cli_Nome,@cli_NumEnd,@cli_Email,@cli_Tel)", conectar.ConectarBD());
+            cmd.Parameters.Add("@cli_Cpf", MySqlDbType.Decimal).Value = cli.Cli_cpf;
+            cmd.Parameters.Add("@cli_Nome", MySqlDbType.VarChar).Value = cli.Cli_nome;
+            cmd.Parameters.Add("@cli_NumEnd", MySqlDbType.Int32).Value = cli.Cli_numEnd;
+            cmd.Parameters.Add("@cli_Email", MySqlDbType.VarChar).Value = cli.Cli_email;
+            cmd.Parameters.Add("@cli_Tel", MySqlDbType.Decimal).Value = cli.Cli_tel;
+            /*cmd.Parameters.Add("@fk_fidelidade_Brinde_cod", MySqlDbType.int).Value = ;
             cmd.Parameters.Add("@fk_Cep_cep", MySqlDbType.int).Value = ;
+            */
             cmd.ExecuteNonQuery();
-            cmd.DesconectarBD();
+            conectar.DesconectarBD();
         }
         
+        /*
         public void CadastrarFuncio(Classe_Funcionario fun)
         {
             MySqlCommand cmd = new MySqlCommand("insert into TBFuncionario values(default,@func_Nome,@func_CPF,@func_Tel,@func_Email,@func_DataNasc,@func_Num_End,@func_Cargo,@fk_Cep_cep")", con.ConectarBD());
@@ -59,21 +60,24 @@ namespace GAME_WAVE___SISTEMA_ASP_NET.Controllers
             cmd.ExecuteNonQuery();
             cmd.DesconectarBD();
         }
+
+        */
         
         //ABAIXO ESTÁ OS MÉTODOS DE ALTERAÇÕES DAS CLASSES DISPONÍVEIS
         
         public void AltCliente(Classe_Cliente clien)
         {
-            MySqlCommand cmd = new MySqlCommand("update TBCliente set cli_Nome=@cli_Nome, cli_NumEnd=@cli_NumEnd, cli_Tel=@cli_Tel, fk_Fidelidade_Brinde_cod=@fk_Fidelidade_Brinde_cod, fk_Cep_cep=@fk_Cep_cep where Cli_cpf=@cli_Cpf", con.ConectarBD());
-            cmd.Parameters.Add("@cli_Nome", MySqlDbType.numeric).Value = clien.Cli_Nome;
-            cmd.Parameters.Add("@cli_NumEnd", MySqlDbType.int).Value = clien.Cli_numEnd;
-            cmd.Parameters.Add("@cli_Tel", MySqlDbType.numeric).Value = clien.Cli_tel;
-            cmd.Parameters.Add("@fk_fidelidade_Brinde_cod", MySqlDbType.int).Value = ;
-            cmd.Parameters.Add("@fk_Cep_cep", MySqlDbType.int).Value = ;
+            MySqlCommand cmd = new MySqlCommand("update TBCliente set cli_Nome=@cli_Nome, cli_NumEnd=@cli_NumEnd, cli_Tel=@cli_Tel, fk_Fidelidade_Brinde_cod=@fk_Fidelidade_Brinde_cod, fk_Cep_cep=@fk_Cep_cep where Cli_cpf=@cli_Cpf", conectar.ConectarBD());
+            cmd.Parameters.Add("@cli_Nome", MySqlDbType.Decimal).Value = clien.Cli_nome;
+            cmd.Parameters.Add("@cli_NumEnd", MySqlDbType.Int32).Value = clien.Cli_numEnd;
+            cmd.Parameters.Add("@cli_Tel", MySqlDbType.Decimal).Value = clien.Cli_tel;
+            //cmd.Parameters.Add("@fk_fidelidade_Brinde_cod", MySqlDbType.int).Value = ;
+            //cmd.Parameters.Add("@fk_Cep_cep", MySqlDbType.int).Value = ;
             cmd.ExecuteNonQuery();
-            cmd.DesconectarBD();
+            conectar.DesconectarBD();
         }
         
+        /*
         public void AltFuncio(Classe_Funcionario funci)
         {
             MySqlCommand cmd = new MySqlCommand("update TBFuncionario set func_Nome=@func_Nome, func_Tel=@func_Tel, func_Email=@func_Email, func_DataNasc=@func_DataNasc, func_Num_End=@func_Num_End, func_Cargo=@func_Cargo, fk_Cep_cep=@fk_Cep_cep where Func_CPF=@func_Cpf", con.ConectarBD());
@@ -101,29 +105,31 @@ namespace GAME_WAVE___SISTEMA_ASP_NET.Controllers
             cmd.ExecuteNonQuery;
             cmd.DesconectarBD();
         }
+        */
         
         //ABAIXO ESTÁ OS MÉTODOS QUE DELETA DAS CLASSES DISPONÍVEIS
         
-        public void DelCliente(Classe_Cliente client)
+        public void DelCliente(Classe_Cliente clientcpf)
         {
-            var deletacl = String.Format("delete from TBCliente where cli_Cpf = {0}", codcl);
-            MySqlCommand cmd = new MySqlCommand(deletacl, con.ConectarBD());
+            var deletacl = String.Format("delete from TBCliente where cli_Cpf = {0}", clientcpf);
+            MySqlCommand cmd = new MySqlCommand(deletacl, conectar.ConectarBD());
             cmd.ExecuteReader();
         }
-        
+        /*
         public void DelFuncionario(Classe_Funcionario funcio)
         {
             var deletafn = String.Format("delete from TBFuncionario where func_Cod = {0}", codfn);
-            MySqlCommand cmd = new MySqlCommand(deletafn, con.ConectarBD());
+            MySqlCommand cmd = new MySqlCommand(deletafn, conectar.ConectarBD());
             cmd.ExecuteReader();
         }
         
         public void DelProduto(Classe_Produto produt)
         {
             var deletapd = String.Format("delete from TBProduto where Cod_Prod = {0}", codpd;
-            MySqlCommand cmd = new MySqlCommand(deletapd, con.ConectarBD());
+            MySqlCommand cmd = new MySqlCommand(deletapd, conectar.ConectarBD());
             cmd.ExecuteReader();
         }
+        */
         
         //INÍCIO DAS CONSULTAS DAS CLASSES DISPONÍVEIS
          
@@ -131,17 +137,19 @@ namespace GAME_WAVE___SISTEMA_ASP_NET.Controllers
         //APENAS LISTA OS CLIENTES                                 
         public List<Classe_Cliente> ListarCli()
         {
-            MySqlCommand cmd = new MySqlCommand("Select*from TBCliente", con.ConectarBD());
+            MySqlCommand cmd = new MySqlCommand("Select*from TBCliente", conectar.ConectarBD());
             var dadoscli = cmd.ExecuteReader();
             return ListarCliente(dadoscli);
         }
         
         //MÉTODO PARA LISTAR OS CLIENTES POR CPF
 
-        public Classe_Cliente ListarCliCpf(numeric cpf)
+        public Classe_Cliente ListarCliCpf(decimal cpf)
         {
-            MySqlCommand cmd = new MySqlCommand("select * from TBCliente where cli_cpf = {0}", cpf, con.ConectarBD());
-            cmd.ExecuteReader();
+            var comando = String.Format("select * from TBCliente where cli_cpf = {0}", cpf);
+            MySqlCommand cmd = new MySqlCommand(comando, conectar.ConectarBD());
+            var ClienCpf = cmd.ExecuteReader();
+            return ListarCliente(ClienCpf).FirstOrDefault();
         }
                                          
         //MÉTODO PARA LISTAR TODOS OS CLIENTES DO BD
@@ -152,11 +160,12 @@ namespace GAME_WAVE___SISTEMA_ASP_NET.Controllers
             {
                 var CliTemp = new Classe_Cliente()
                 {
-                    cli_cpf = numeric.Parse(dr["Cli_cpf"].ToString()),
-                    cli_Nome = dr["Cli_nome"].ToString(),
-                    cli_NumEnd = int.Parse(dr["Cli_numEnd"].ToString()),
-                    cli_email = dr["Cli_tel"].ToString(),
-                    fk_Cep_cep = dr["Cep"].ToString(),
+                    Cli_cpf = decimal.Parse(dr["Cli_cpf"].ToString()),
+                    Cli_nome = dr["Cli_nome"].ToString(),
+                    Cli_numEnd = Int16.Parse(dr["Cli_numEnd"].ToString()),
+                    Cli_email = dr["Cli_email"].ToString(),
+                    Cli_tel = decimal.Parse(dr["Cli_tel"].ToString()),
+                    //fk_Cep_cep = dr["Cep"].ToString(),
                 };
                 ListCli.Add(CliTemp);
             }
@@ -167,7 +176,7 @@ namespace GAME_WAVE___SISTEMA_ASP_NET.Controllers
                                          
         //FIM DA CLASSE CLIENTE
         //ÍNICIO DA CLASSE FUNCIONÁRIO
-        
+        /*
         //APENAS O MÉTODO DA LISTA DE FUNCIONÁRIO                                
         public List<Classe_Funcionario> ListarFuncio()
         {
@@ -250,5 +259,6 @@ namespace GAME_WAVE___SISTEMA_ASP_NET.Controllers
             dr.Close();
             return ListProd;
         }
+        */
     }
 }
