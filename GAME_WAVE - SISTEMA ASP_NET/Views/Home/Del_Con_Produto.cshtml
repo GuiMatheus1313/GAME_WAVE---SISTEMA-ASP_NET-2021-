@@ -42,7 +42,7 @@
                 </th>
                 
                 <th>
-                    @Html.DisplayNameFor(model => model.Prod_valor
+                    @Html.DisplayNameFor(model => model.Prod_valor)
                 </th>
            </tr>
             
@@ -70,20 +70,20 @@
                     </td>
                     
                     <td>
-                        @Html.DisplayFor(modelItem => item.Func_datanasc)
+                        @Html.DisplayFor(modelItem => item.Prod_anolanc)
                     </td>
                     
                     <td>
-                        @Html.DisplayFor(modelItem => item.Func_cargo)
+                        @Html.DisplayFor(modelItem => item.Prod_faixaeta)
                     </td>
                     
                     <td>
-                        @Html.DisplayFor(modelItem => item.Cep)
+                        @Html.DisplayFor(modelItem => item.Prod_valor)
                     </td>
                     
                     <td>
-                        @Html.ActionLink("Alterar", "AltFuncioIndex", null, new { cd = item.Func_cod }, new { @class = "btn btn-primary-xs"})
-                        @Html.ActionLink("Excluir", "Del_Con_Funcionario", null, new { cd = item.Func_cod }, new { @class = "btn btn-danger-xs"})
+                        @Html.ActionLink("Alterar", "AltProdutoIndex", null, new { cd = item.Cod_prod }, new { @class = "btn btn-primary-xs"})
+                        @Html.ActionLink("Excluir", "Del_Con_Produto", null, new { cd = item.Cod_prod }, new { @class = "btn btn-danger-xs"})
                     </td>
             </tr>
             }
