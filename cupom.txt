@@ -71,5 +71,25 @@
             </th>
             
             <th>
-                @Html.DisplayNameFor(model => model.Cupom_cod)
+                @Html.DisplayNameFor(model => model.DescontoCupom)
             </th>
+	</tr>
+	
+	@foreach (var item in Model)
+	{
+	<tr>
+		<td>
+			@Html.DisplayNameFor(modelItem => item.Cupom_cod)
+		</td>
+		
+		<td>
+			@Html.DisplayNameFor(modelItem => item.DescontoCupom)
+		</td>
+		
+		<td>
+			@Html.ActionLink("Alterar", "AltCupom", null, new { cup = item.Cupom_cod }, new { @class = "btn btn-primary-xs"})
+			@Html.ActionLink("Excluir", "DelCupom", null, new { cup = item.Cupom_cod }, new { @class = "btn btn-danger-xs"})
+		</td>
+	</tr>
+	}
+	</table>
