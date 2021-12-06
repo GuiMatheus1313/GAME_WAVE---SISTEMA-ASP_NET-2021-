@@ -122,12 +122,20 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Classe_Cliente.cs" />
+    <Compile Include="Models\Classe_Cupom.cs" />
+    <Compile Include="Models\Classe_Delivery.cs" />
     <Compile Include="Models\Classe_Funcionario.cs" />
+    <Compile Include="Models\Classe_ItemPedido.cs" />
+    <Compile Include="Models\Classe_ItemServico.cs" />
     <Compile Include="Models\Classe_Produto.cs" />
+    <Compile Include="Models\Classe_Servico.cs" />
+    <Compile Include="Models\Classe_Teste.cs" />
+    <Compile Include="Models\Classe_Venda.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositorio\Acoes.cs" />
     <Compile Include="Repositorio\Conexaosql.cs" />
@@ -148,6 +156,7 @@
     <Content Include="Content\Images\Produto_Altera.png" />
     <Content Include="Content\Images\Produto_deleta e consulta.png" />
     <Content Include="Content\Images\Validação.png" />
+    <Content Include="Content\parte_login.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -186,6 +195,8 @@
     <Content Include="Views\Home\CadClienteIndex.cshtml" />
     <Content Include="Views\Home\CadFuncioIndex.cshtml" />
     <Content Include="Views\Home\CadProdutoIndex.cshtml" />
+    <Content Include="Views\Home\AtividadeSucedida.cshtml" />
+    <Content Include="Views\Login\LoginIndex.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

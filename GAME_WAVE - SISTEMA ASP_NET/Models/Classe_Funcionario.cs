@@ -12,7 +12,7 @@ namespace GAME_WAVE___SISTEMA_ASP_NET.Models
         
         
         [Display(Name = "Nome do Funcionário")]
-        [StringLength(50, MinimumLength = 2, ErrorMessage = "O campo deve conter o mínimo entre 2 a 7 caracteres")]
+        [StringLength(50, MinimumLength = 2, ErrorMessage = "O campo deve conter o mínimo entre 2 a 50 caracteres")]
         [Required(ErrorMessage = "Este campo é obrigatório")]
         public string Func_nome { get; set;}
         
@@ -35,7 +35,7 @@ namespace GAME_WAVE___SISTEMA_ASP_NET.Models
         [Display(Name = "Data de Nascimento do Funcionário")]
         [DisplayFormat(DataFormatString = "{0:dd/MM/YYYY}", ApplyFormatInEditMode = true)]
         [Required(ErrorMessage = "Este campo é obrigatório")]
-        public DateTime Func_datanasc { get; set; }
+        public DateTime Func_datanasc 
         {
             get
             {
@@ -82,7 +82,12 @@ namespace GAME_WAVE___SISTEMA_ASP_NET.Models
         public string Cep { get; set; }
         
         [Display(Name = "Número do Longradouro")]
-        [Required, ErrorMessage = "Este campo é obrigatório")]
+        [Required(ErrorMessage = "Este campo é obrigatório")]
         public Int16 Func_num_end { get; set; }
+
+        [Display(Name = "Senha do Funcionário")]
+        [StringLength(30, MinimumLength = 8, ErrorMessage = "O campo deve conter o mínimo entre 8 a 30 caracteres")]
+        [Required(ErrorMessage = "Este campo é obrigatório")]
+        public string Func_senha { get; set; }
     }
 }

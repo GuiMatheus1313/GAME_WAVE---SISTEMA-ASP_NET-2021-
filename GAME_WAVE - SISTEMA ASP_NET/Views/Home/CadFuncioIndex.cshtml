@@ -13,43 +13,83 @@
     @using (Html.BeginForm("CadFuncio", "Home", FormMethod.Post))
     {
         @Html.ValidationSummary(true)
-        <fildset>
-            <div class="editor-label" style="font-size: 30px;">
-                @Html.LabelFor(m => m.Func_nome)
-            </div>
+    <fildset>
+        <div class="editor-label" style="font-size: 30px;">
+            @Html.LabelFor(m => m.Func_nome)
+        </div>
 
-            <div class="editor-field">
-                @Html.EditorFor(m => m.Func_nome)
-                @Html.ValidationMessageFor(m => m.Func_nome)
-            </div>
+        <div class="editor-field">
+            @Html.EditorFor(m => m.Func_nome)
+            @Html.ValidationMessageFor(m => m.Func_nome)
+        </div>
 
-            <div class="editor-label" style="font-size: 30px; margin-left: 400px; margin-top: -73px;">
-                @Html.LabelFor(m => m.Func_num_end)
-            </div>
+        <div class="editor-label" style="font-size: 30px; margin-left: 400px; margin-top: -73px;">
+            @Html.LabelFor(m => m.Func_cpf)
+        </div>
 
-            <div class="editor-field" style="margin-left: 400px; ">
-                @Html.EditorFor(m => m.Func_num_end)
-                @Html.ValidationMessageFor(m => m.Func_num_end)
-            </div>
+        <div class="editor-field" style="margin-left: 400px; ">
+            @Html.EditorFor(m => m.Func_cpf)
+            @Html.ValidationMessageFor(m => m.Func_cpf)
+        </div>
 
-            <div class="editor-label" style="font-size: 30px; margin-top: 50px;">
-                @Html.LabelFor(m => m.Func_cargo)
-            </div>
+        <div class="editor-label" style="font-size: 30px; margin-top: 50px;">
+            @Html.LabelFor(m => m.Func_tel)
+        </div>
 
-            <div class="editor-field">
-                @Html.EditorFor(m => m.Func_cargo)
-                @Html.ValidationMessageFor(m => m.Func_cargo)
-            </div>
+        <div class="editor-field">
+            @Html.EditorFor(m => m.Func_tel)
+            @Html.ValidationMessageFor(m => m.Func_tel)
+        </div>
 
-            <div class="editor-label" style="font-size: 30px; margin-left: 400px; margin-top: -73px;">
-                @Html.LabelFor(m => m.Func_datanasc)
-            </div>
+        <div class="editor-label" style="font-size: 30px; margin-left: 400px; margin-top: -73px;">
+            @Html.LabelFor(m => m.Func_email)
+        </div>
 
-            <div class="editor-field" style="margin-left: 400px; ">
-                @Html.EditorFor(m => m.Func_datanasc)
-                @Html.ValidationMessageFor(m => m.Func_datanasc)
-            </div>
-        </fildset>
+        <div class="editor-field" style="margin-left: 400px; ">
+            @Html.EditorFor(m => m.Func_email)
+            @Html.ValidationMessageFor(m => m.Func_email)
+        </div>
+
+        <div class="editor-label" style="font-size: 30px; margin-top: 50px;">
+            @Html.LabelFor(m => m.Func_datanasc)
+        </div>
+
+        <div class="editor-field">
+            @Html.EditorFor(m => m.Func_datanasc)
+            @Html.ValidationMessageFor(m => m.Func_datanasc)
+        </div>
+
+        <div class="editor-label" style="font-size: 30px; margin-left: 400px; margin-top: -73px;">
+            @Html.LabelFor(m => m.Func_cargo)
+        </div>
+
+        <div class="editor-field" style="margin-left: 400px; ">
+            @Html.EditorFor(m => m.Func_cargo)
+            @Html.ValidationMessageFor(m => m.Func_cargo)
+        </div>
+
+        <div class="editor-label" style="font-size: 30px; margin-top: 50px;">
+            @Html.LabelFor(m => m.Func_num_end)
+        </div>
+
+        <div class="editor-field">
+            @Html.EditorFor(m => m.Func_num_end)
+            @Html.ValidationMessageFor(m => m.Func_num_end)
+        </div>
+
+        <div class="editor-label" style="font-size: 30px; margin-left: 400px; margin-top: -73px;">
+            @Html.LabelFor(m => m.Func_senha)
+        </div>
+
+        <div class="editor-field" style="margin-left: 400px; ">
+            @Html.EditorFor(m => m.Func_senha)
+            @Html.ValidationMessageFor(m => m.Func_senha)
+        </div>
+
+        <div>
+            <br /> <input type="submit" value="Cadastrar" name="btnenviar" />
+        </div>
+    </fildset>
     }
 </div>
 

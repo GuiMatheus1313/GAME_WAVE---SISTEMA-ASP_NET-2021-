@@ -1,31 +1,144 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CodePen - Sistema Sidebar</title>
+    <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css'>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <!-- partial:index.partial.html -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark">
+        <a class="navbar-brand" href="#">Logo</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav mr-auto sidenav" id="navAccordion">
+                <li class="nav-item active" onclick="abreBoxVemda()">
+                    <a class="nav-link" href="#">Venda</a>
+                </li>
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-</div>
+                <li class="nav-item">
+                    <a class="nav-link nav-link-collapse" href="#" id="hasSubItems" data-toggle="collapse"
+                       data-target="#collapseSubItems1">Produto</a>
+                    <ul class="nav-second-level collapse" id="collapseSubItems1" data-parent="#navAccordion">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <span class="nav-link-text">Novo</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <span class="nav-link-text">Lista</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+                <li class="nav-item">
+                    <a class="nav-link nav-link-collapse" href="#" id="hasSubItems" data-toggle="collapse"
+                       data-target="#collapseSubItems2" aria-controls="collapseSubItems2" aria-expanded="false">Cliente</a>
+                    <ul class="nav-second-level collapse" id="collapseSubItems2" data-parent="#navAccordion">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <span class="nav-link-text">Novo</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <span class="nav-link-text">Listar</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link nav-link-collapse" href="#" id="hasSubItems" data-toggle="collapse"
+                       data-target="#collapseSubItems4" aria-controls="collapseSubItems4" aria-expanded="false">Funcionario</a>
+                    <ul class="nav-second-level collapse" id="collapseSubItems4" data-parent="#navAccordion">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <span class="nav-link-text">Listar</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <span class="nav-link-text">Novo</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Agenda</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="conteudo">
+        <section class="jumbotron jumbotron-fluid" id="banner">
+            <div class="container">
+                <div class="row align-items-center">
+                    <!-- conteudo da esquerda -->
+                    <div class="col-md-5 col-sm-6 mobile-flex">
+                        <div class=" title mb-2">
+                            <p class="subject">OLa Funcionario</p>
+                        </div>
+                        <h3 class="mb-4">Bom dia o que deseja fazer agora?</h3>
+                    </div>
+                    <!-- imagem da direita -->
+                    <div class="col-md-6 col-sm-6 pt-7 pt-sm-0">
+                        <div class="center-block img-responsive" id="imgBanner">
+                            <div class="image-zone">
+                                <img class="right-image" src="hello.svg" alt="Icon empresa banner" width="110%">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="container" id="loginForm">
+            <div class="row">
+                <div class="fecha" onclick="FechaBoxVemda()">X</div>
+                <div class="col-lg-12 col-md-8 login-box">
+                    <div class="login-title text-center mb-3" id="title">
+                        Para iniciar uma venda inclua o CPF do Cliente
+                    </div>
+                    <div class="col-lg-12 login-form">
+                        <form name="frmCpf" method="post" action="venda.html">
+                            <div class="form-group">
+                                <label class="form-control-label" id="lblCpf" for="txtcpfCli">CPF</label>
+                                <input type="text" id="txtcpfCli" class="form-control" name="txtcpfCli" required id="txtcpfCli">
+                            </div>
+                            <button type="submit" class="btn btn-outline-primary" id="Btninicio">iniciar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="container">
+                <div class="text-center">
+                    <span>CopyRight@2021</span>
+                </div>
+            </div>
+        </footer>
     </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-    </div>
-</div>
+    <!-- partial -->
+    <script src='https://code.jquery.com/jquery-3.4.1.slim.min.js'></script>
+    <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js'></script>
+    <script src="./script.js"></script>
+    <script>function abreBoxVemda() {
+      document.getElementById("loginForm").style.display = "block";
+    }
+
+    function FechaBoxVemda() {
+      document.getElementById("loginForm").style.display = "none";
+    }</script>
+</body>
+</html>

@@ -1,7 +1,103 @@
-﻿
+﻿<!DOCTYPE HTML>
+<html lang="pt-br">
+@model GAME_WAVE___SISTEMA_ASP_NET.Models.Classe_Produto
 @{
     ViewBag.Title = "CadProdutoIndex";
 }
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="~/Content/background_imagens.css" />
 
-<h2>CadProdutoIndex</h2>
+
+</head>
+<body>
+    <legend> Cadastro de Produto</legend>
+
+    <div class="container" id="bgcadcliente">
+
+        @using (Html.BeginForm("CadProduto", "Home", FormMethod.Post))
+        {
+            @Html.ValidationSummary(true)
+            <fildset>
+                <div class="editor-label" style="font-size: 30px;">
+                    @Html.LabelFor(m => m.Cod_prod)
+                </div>
+
+                <div class="editor-field">
+                    @Html.EditorFor(m => m.Cod_prod)
+                    @Html.ValidationMessageFor(m => m.Cod_prod)
+                </div>
+
+                <div class="editor-label" style="font-size: 30px; margin-left: 400px; margin-top: -73px;">
+                    @Html.LabelFor(m => m.Prod_nome)
+                </div>
+
+                <div class="editor-field" style="margin-left: 400px;">
+                    @Html.EditorFor(m => m.Prod_nome)
+                    @Html.ValidationMessageFor(m => m.Prod_nome)
+                </div>
+
+                <div class="editor-label" style="font-size: 30px;">
+                    @Html.LabelFor(m => m.Prod_tipo)
+                </div>
+
+                <div class="editor-field">
+                    @Html.EditorFor(m => m.Prod_tipo)
+                    @Html.ValidationMessageFor(m => m.Prod_tipo)
+                </div>
+
+                <div class="editor-label" style="font-size: 30px; margin-left: 400px; margin-top: -73px;">
+                    @Html.LabelFor(m => m.Prod_quant_estoque)
+                </div>
+
+                <div class="editor-field" style="margin-left: 400px; ">
+                    @Html.EditorFor(m => m.Prod_quant_estoque)
+                    @Html.ValidationMessageFor(m => m.Prod_quant_estoque)
+                </div>
+
+                <div class="editor-label" style="font-size: 30px;">
+                    @Html.LabelFor(m => m.Prod_desc)
+                </div>
+
+                <div class="editor-field">
+                    @Html.EditorFor(m => m.Prod_desc)
+                    @Html.ValidationMessageFor(m => m.Prod_desc)
+                </div>
+
+                <div class="editor-label" style="font-size: 30px; margin-left: 400px; margin-top: -73px;">
+                    @Html.LabelFor(m => m.Prod_anolanc)
+                </div>
+
+                <div class="editor-field" style="margin-left: 400px; ">
+                    @Html.EditorFor(m => m.Prod_anolanc)
+                    @Html.ValidationMessageFor(m => m.Prod_anolanc)
+                </div>
+
+                <div class="editor-label" style="font-size: 30px;">
+                    @Html.LabelFor(m => m.Prod_faixaeta)
+                </div>
+
+                <div class="editor-field">
+                    @Html.EditorFor(m => m.Prod_faixaeta)
+                    @Html.ValidationMessageFor(m => m.Prod_faixaeta)
+                </div>
+
+                <div class="editor-label" style="font-size: 30px; margin-left: 400px; margin-top: -73px;">
+                    @Html.LabelFor(m => m.Prod_valor)
+                </div>
+
+                <div class="editor-field" style="margin-left: 400px; ">
+                    @Html.EditorFor(m => m.Prod_valor)
+                    @Html.ValidationMessageFor(m => m.Prod_valor)
+                </div>
+
+                <div>
+                    <br /> <input type="submit" value="Cadastrar" name="btnenviar" href="@Html.ActionLink("", "Index", "Home")" />
+                </div>
+            </fildset>
+        }
+    </div>
+</body>
+</html>
+
 

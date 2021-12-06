@@ -70,8 +70,8 @@
                 </td>
                 
                 <td>
-                    @Html.ActionLink("Alterar", "AltClienteIndex", null, new { cd = item.Cli_cpf }, new { @class = "btn btn-primary-xs"})
-                    @Html.ActionLink("Excluir", "Den_Con_Cliente", null, new { cd = item.Cli_cpf }, new { @class = "btn btn-danger-xs"})
+                    @Html.ActionLink("Alterar", "AltCliente", null, new { cpf = item.Cli_cpf }, new { @class = "btn btn-primary-xs"})
+                    @Html.ActionLink("Excluir", "DelCliente", null, new { cpf = item.Cli_cpf }, new { @class = "btn btn-danger-xs"})
                 </td>
         </tr>
         }
