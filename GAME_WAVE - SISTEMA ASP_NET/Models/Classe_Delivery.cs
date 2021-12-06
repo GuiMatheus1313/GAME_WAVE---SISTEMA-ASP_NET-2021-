@@ -27,9 +27,15 @@ namespace GAME_WAVE___SISTEMA_ASP_NET.Models
         }
         private DateTime? deli_Data = null;
 
-
+        [Display(Name = "CPF do Cliente")]
+        [RegularExpression(@"^(\d{2}\.?\d{3}\.?\d{3}\/?\d{4}-?\d{2}|\d{3}\.?\d{3}\.?\d{3}-?\d{2})$", ErrorMessage = "O formato do CPF está incorreto")]
+        [StringLength(14, MinimumLength = 14, ErrorMessage = "O campo deve conter 14 caracteres")]
+        [Required(ErrorMessage = "Este campo é obrigatório")]
         public string Fk_Cliente_Cli_cpf { get; set; }
 
-        public Int32 Fk_Venda_Ven_Cid { get; set; }
+        [Display(Name = "Código da venda")]
+        [StringLength(2, MinimumLength = 1, ErrorMessage = "O campo deve conter o código da venda")]
+        [Required(ErrorMessage = "Este campo é obrigatório")]
+        public Int32 Fk_Venda_Ven_Cod { get; set; }
     }
 }
