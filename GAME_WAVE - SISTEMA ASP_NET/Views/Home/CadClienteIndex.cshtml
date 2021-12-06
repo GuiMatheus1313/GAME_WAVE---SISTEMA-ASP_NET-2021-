@@ -20,7 +20,9 @@
         {
             @Html.ValidationSummary(true)
         <fildset>
-            <div class="editor-label" style="font-size: 30px;">
+            
+            
+            <div class="editor-label" style="font-size: 30px; margin-left: 400px; margin-top: -73px;">
                 @Html.LabelFor(m => m.Cli_cpf)
             </div>
 
@@ -37,30 +39,75 @@
                 @Html.EditorFor(m => m.Cli_nome)
                 @Html.ValidationMessageFor(m => m.Cli_nome)
             </div>
-
+            
             <div class="editor-label" style="font-size: 30px;">
+                 @Html.LabelFor(m => m.Nome_uf)
+            </div>
+            
+            <div class="editor-field">
+                @Html.EditorFor(m => m.Nome_uf)
+                @Html.ValidationMessageFor(m => m.Nome_uf)
+            </div>
+            
+            <div class="editor-label" style="font-size: 30px; margin-left: 400px; margin-top: -73px;">
+                @Html.LabelFor(m => m.Nome_cidade)
+            </div>
+            
+            <div class="editor-field" style="margin-left:400px;">
+                @Html.EditorFor(m => m.Nome_cidade)
+                @Html.ValidationMessageFor(m => m.Nome_cidade)
+            </div>
+            
+            <div class="editor-label" style="font-size: 30px;">
+                @Html.LabelFor(m => m.Nome_bairro)
+            </div>
+            
+            <div class="editor-field">
+                @Html.EditorFor(m => m.Nome_bairro)
+                @Html.ValidationMessageFor(m => m.Nome_bairro)
+            </div>
+            
+            <div class="editor-label" style="font-size: 30px; margin-left: 400px; margin-top: -73px;">
+                @Html.LabelFor(m => m.Logradouro)
+            </div>
+            
+            <div class="editor-field" style="margin-left:400px;">
+                @Html.EditorFor(m => m.Logradouro)
+                @Html.ValidationMessageFor(m => m.Logradouro)
+            </div>
+            
+            <div class="editor-label" styçe="font-size: 30px">
+                @Html.LabelFor(m => m.Cep)
+            </div>
+            
+            <div class="editor-field">
+                @Html.EditorFor(m => m.Cep)
+                @Html.ValidationMessageFor(m => m.Cep)
+            </div>
+
+            <div class="editor-label" style="font-size: 30px; margin-left: 400px; margin-top: -73px;">
                 @Html.LabelFor(m => m.Cli_numEnd)
             </div>
 
-            <div class="editor-field">
+            <div class="editor-field" style="margin-left:400px;">
                 @Html.EditorFor(m => m.Cli_numEnd)
                 @Html.ValidationMessageFor(m => m.Cli_numEnd)
             </div>
 
-            <div class="editor-label" style="font-size: 30px; margin-left: 400px; margin-top: -73px;">
+            <div class="editor-label" style="font-size: 30px;">
                 @Html.LabelFor(m => m.Cli_email)
             </div>
 
-            <div class="editor-field" style="margin-left: 400px; ">
+            <div class="editor-field">
                 @Html.EditorFor(m => m.Cli_email)
                 @Html.ValidationMessageFor(m => m.Cli_email)
             </div>
 
-            <div class="editor-label" style="font-size: 30px;">
+            <div class="editor-label" style="font-size: 30px; margin-left: 400px; margin-top: -73px;">
                 @Html.LabelFor(m => m.Cli_tel)
             </div>
 
-            <div class="editor-field">
+            <div class="editor-field" style="margin-left:400px;">
                 @Html.EditorFor(m => m.Cli_tel)
                 @Html.ValidationMessageFor(m => m.Cli_tel)
             </div>
