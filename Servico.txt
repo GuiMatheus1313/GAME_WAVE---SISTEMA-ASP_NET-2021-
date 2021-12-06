@@ -1,0 +1,138 @@
+<!DOCTYPE HTML>
+<html lang="pt-br">
+@model GAME_WAVE___SISTEMA_ASP_NET.Models.Classe_Servico
+@{
+    ViewBag.Title = "CadServicoIndex";
+}
+
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="" />
+
+
+</head>
+<body>
+    <legend> Cadastro do Servico</legend>
+
+    <div class="container" id="">
+
+        @using (Html.BeginForm("CadServico", "Home", FormMethod.Post))
+        {
+            @Html.ValidationSummary(true)
+        <fildset>
+            
+            
+            <div class="editor-label" style="font-size: 30px;">
+                @Html.LabelFor(m => m.Desc_Serv)
+            </div>
+
+            <div class="editor-field">
+                @Html.EditorFor(m => m.Desc_Serv)
+                @Html.ValidationMessageFor(m => m.Desc_Serv)
+            </div>
+
+            <div class="editor-label" style="font-size: 30px; margin-left: 400px; margin-top: -73px;">
+                @Html.LabelFor(m => m.Prod_Serv)
+            </div>
+
+            <div class="editor-field" style="margin-left: 400px;">
+                @Html.EditorFor(m => m.Prod_Serv)
+                @Html.ValidationMessageFor(m => m.Prod_Serv)
+            </div>
+
+		<div class="editor-label" style="font-size: 30px;">
+                @Html.LabelFor(m => m.DateSaida)
+            </div>
+
+            <div class="editor-field">
+                @Html.EditorFor(m => m.DateSaida)
+                @Html.ValidationMessageFor(m => m.DateSaida)
+            </div>
+	
+		<div class="editor-label" style="font-size: 30px; margin-left: 400px; margin-top: -73px;">
+                @Html.LabelFor(m => m.Valor_servico)
+            </div>
+
+            <div class="editor-field" style="margin-left: 400px;">
+                @Html.EditorFor(m => m.Valor_servico)
+                @Html.ValidationMessageFor(m => m.Fk_Produto_Cod_Prod)
+            </div>
+		<div>
+                <br /> <input type="submit" value="Cadastrar" name="btnenviar" />
+            </div>
+		}
+</body>
+</html>
+
+
+/*PARTE DE CONSULTA*/
+@model IEnumerable<GAME_WAVE___SISTEMA_ASP_NET.Models.Classe_Teste>
+<!DOCTYPE HTML>
+<html lang="pt-br">
+@{
+    ViewBag.Title = "Del_Con_Teste";
+}
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="" />
+
+
+</head>
+<body>
+<h2>Del_Con_Teste</h2>
+
+    <table class="table">
+        <tr>
+
+	    <th>
+		@Html.DisplayNameFor(model => model.Agen_Cod)
+	    </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Age_DtRetirada)
+            </th>
+            
+            <th>
+                @Html.DisplayNameFor(model => model.Age_Desc)
+            </th>
+
+	    <th>
+                @Html.DisplayNameFor(model => model.Fk_Cliente_Cli_cpf)
+            </th>
+
+	    <th>
+                @Html.DisplayNameFor(model => model.Fk_Produto_Cod_Prod)
+            </th>
+	</tr>
+	
+	@foreach (var item in Model)
+	{
+	<tr>
+		<td>
+			@Html.DisplayNameFor(modelItem => item.Agen_Cod)
+		</td>
+		
+		<td>
+			@Html.DisplayNameFor(modelItem => item.Age_DtRetirada)
+		</td>
+
+		<td>
+			@Html.DisplayNameFor(modelItem => item.Age_Desc)
+		</td>
+
+		<td>
+			@Html.DisplayNameFor(modelItem => item.Fk_Cliente_Cli_cpf)
+		</td>
+		
+		<td>
+			@Html.DisplayNameFor(modelItem => item.Fk_Produto_Cod_Prod)
+		
+		<td>
+			@Html.ActionLink("Alterar", "AltCupom", null, new { cup = item.Cupom_cod }, new { @class = "btn btn-primary-xs"})
+			@Html.ActionLink("Excluir", "DelCupom", null, new { cup = item.Cupom_cod }, new { @class = "btn btn-danger-xs"})
+		</td>
+	</tr>
+	}
+	</table>
+</body>
+</html>
