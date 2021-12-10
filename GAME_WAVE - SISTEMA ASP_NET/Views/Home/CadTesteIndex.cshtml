@@ -1,0 +1,71 @@
+﻿<!DOCTYPE HTML>
+<html lang="pt-br">
+@model GAME_WAVE___SISTEMA_ASP_NET.Models.Classe_Teste
+@{
+    ViewBag.Title = "Cadastro do Test Drive";
+}
+
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="" />
+
+
+</head>
+<body>
+    <br />
+    <br />
+    <legend> Cadastro do Test Drive</legend>
+
+    <div class="container" id="">
+
+        @using (Html.BeginForm("CadTeste", "Home", FormMethod.Post))
+        {
+            @Html.ValidationSummary(true)
+            <fieldset>
+
+                <div class="editor-label" style="font-size: 30px;">
+                    @Html.LabelFor(m => m.Age_DtRetirada)
+                </div>
+
+                <div class="editor-field">
+                    @Html.EditorFor(m => m.Age_DtRetirada)
+                    @Html.ValidationMessageFor(m => m.Age_DtRetirada)
+                </div>
+
+                <div class="editor-label" style="font-size: 30px; margin-left: 500px; margin-top: -73px;">
+                    @Html.LabelFor(m => m.Age_Desc)
+                </div>
+
+                <div class="editor-field" style="margin-left: 500px;">
+                    @Html.EditorFor(m => m.Age_Desc)
+                    @Html.ValidationMessageFor(m => m.Age_Desc)
+                </div>
+
+                <div class="editor-label" style="font-size: 30px;">
+                    @Html.LabelFor(m => m.Fk_Cliente_Cli_cpf)
+                </div>
+
+                <div class="editor-field">
+                    @Html.EditorFor(m => m.Fk_Cliente_Cli_cpf)
+                    @Html.ValidationMessageFor(m => m.Fk_Cliente_Cli_cpf)
+                </div>
+
+                <div class="editor-label" style="font-size: 30px; margin-left: 500px; margin-top: -73px;">
+                    @Html.LabelFor(m => m.Fk_Produto_Cod_Prod)
+                </div>
+
+                <div class="editor-field" style="margin-left: 500px;">
+                    @Html.EditorFor(m => m.Fk_Produto_Cod_Prod)
+                    @Html.ValidationMessageFor(m => m.Fk_Produto_Cod_Prod)
+                </div>
+                <div>
+                    <br /> <input type="submit" value="Cadastrar" name="btnenviar" />
+                </div>
+            </fieldset>
+            @section Scripts{
+                @Scripts.Render("~/bundles/jqueryval");
+            }
+        }
+</body>
+</html>
+

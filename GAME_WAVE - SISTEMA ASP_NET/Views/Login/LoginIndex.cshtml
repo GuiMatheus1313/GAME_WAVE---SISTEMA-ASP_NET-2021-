@@ -1,20 +1,26 @@
 ﻿@model GAME_WAVE___SISTEMA_ASP_NET.Models.Classe_Funcionario
+@{ 
+    Layout = null;
+}
+
 @{
-    ViewBag.Title = "LoginIndex";
+    ViewBag.Title = "Página Login";
 }
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>CodePen - Sistema Sidebar</title>
     <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css'>
     <link rel="stylesheet" href="~/Content/parte_login.css" />
+
+   
 </head>
-<body>
+<body style="">
     <div class="global-container">
         <div class="card login-form">
             <div class="card-body">
-                <h3 class="card-title text-center">Log in to Codepen</h3>
+                <!--<h3 class="card-title text-center">Log in to Codepen</h3>-->
+                <img src="~/Content/Images/gamewave.gif" width="280px"; style="margin-left: 4px;" />
                 <div class="card-text">
                     <!--
                     <div class="alert alert-danger alert-dismissible fade show" role="alert">Incorrect username or password.</div> -->
@@ -24,7 +30,9 @@
                         <!-- to error: add class "has-danger" -->
                         <div class="form-group">
                             @Html.LabelFor(m => m.Func_cpf)
+                            <br />
                             @Html.EditorFor(m => m.Func_cpf)
+
 
                         </div>
 
@@ -35,8 +43,8 @@
                         <br />
                         <div class="form-group">
                             @Html.LabelFor(m => m.Func_senha)
-                            @Html.EditorFor(m => m.Func_senha)
-
+                            @Html.PasswordFor(m => m.Func_senha)
+                      
                         </div>
 
                         <div class="form-group">
@@ -44,7 +52,7 @@
 
                         </div>
 
-                        <button type="submit" class="btn btn-primary btn-block" value="Entrar"></button>
+                        <input type="submit" class="btn btn-primary btn-block" style="height:50px;" value="Entrar"></input>
                     </form>
                     }
                 </div>
@@ -55,3 +63,4 @@
 
 
 </body>
+</html>

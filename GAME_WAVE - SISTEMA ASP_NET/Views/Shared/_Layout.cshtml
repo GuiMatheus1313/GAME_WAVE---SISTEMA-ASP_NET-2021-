@@ -52,6 +52,8 @@
             color: white;
             padding: 10px;
             border: none;
+            margin-left: 750px;
+            margin-top: 10px;
         }
 
         #cadastrobarra {
@@ -82,33 +84,40 @@
     </style>
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar navbar-expand-lg navbar-inverse navbar-fixed-top  navbar-dark bg-dark">
         <div class="container">
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <div>
+                    <ul class="nav navbar-nav" style="font-family">
+                        <li><img src="~/Content/Images/Logoclientegamewave (1).png" width="65px;" /></li>
+                            <li>@Html.ActionLink("GAME WAVE - PÁGINA INICIAL", "Index", "Home")</li>
+                            <li>
+                                <button id="lateral" class="abrebtn" onClick="openNav()">☰</button>
+                            </li>
+                        </ul>
+                </div>
+                
 
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <!--
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+            -->
 
                 </button>
                 <!--
-            @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-        -->
-                <button id="lateral" class="abrebtn" onClick="openNav()">☰</button>
+        @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+    -->
+                <!--<button id="lateral" class="abrebtn" onClick="openNav()">☰</button>-->
             </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                </ul>
-            </div>
+            
+
 
 
             <div id="barralateral" class="sidebar">
                 <a href="javascript:void(0)" class="fechabtn" onclick="closeNav()">X</a>
-                  <p>Utilize os botões abaixo para realizar as funções necessárias! </p>
+                <p>Utilize os botões abaixo para realizar as funções necessárias! </p>
                 <div class="dropdown dropdown-menu-right">
                     <button type="button" class="btn btn-glyphicon glyphicon-plus dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="width: 300px; text-align: left; font-family: Calibri; font-weight: bold;">
                         Cadastrar
@@ -116,30 +125,36 @@
                     <div id="cadastrobarra" class="dropdown-menu" style="margin-right: 10px;">
                         <button class="dropdown-item">@Html.ActionLink("Cliente", "CadClienteIndex", "Home")</button><br />
                         <button class="dropdown-item">@Html.ActionLink("Produto", "CadProdutoIndex", "Home")</button><br>
-                        <button class="dropdown-item">@Html.ActionLink("Funcionário", "CadFuncioIndex", "Home")</button>
+                        <button class="dropdown-item">@Html.ActionLink("Funcionário", "CadFuncioIndex", "Home")</button> <br />
+                        <button class="dropdown-item">@Html.ActionLink("Cupom", "CadCupomIndex", "Home")</button><br />
+                        <button class="dropdown-item">@Html.ActionLink("Test Drive", "CadTesteIndex", "Home")</button><br />
+
+
+
                     </div>
                 </div>
                 <br />
-                <div class="dropdown dropdown-menu-right">
-                    <button type="button" class="btn btn-glyphicon glyphicon-pencil dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="width: 300px; text-align: left; font-family: Calibri; font-weight: bold;">
-                        Alterar
-                    </button>
-                    <div id="cadastrobarra" class="dropdown-menu" style="margin-right: 10px;">
-                        <button class="dropdown-item">@Html.ActionLink("Cliente", "AltCliente", "Home")</button><br />
-                        <button class="dropdown-item">@Html.ActionLink("Produto", "AltProduto", "Home")</button><br>
-                        <button class="dropdown-item">@Html.ActionLink("Funcionário", "AltFuncio", "Home")</button>
-                    </div>
-                </div>
                 <br />
                 <div class="dropdown dropdown-menu-right">
-                    <button type="button" class="btn btn-glyphicon glyphicon-search dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="width: 300px; text-align: left; font-family: Calibri; font-weight: bold;">
-                        Consultar<br >------------<br />Deletar
+                    <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="width: 300px; text-align: left; font-family: Calibri; font-weight: bold; height: 190px;">
+                        Consultar<br>------------<br />Alterar<br>------------<br />Deletar
                     </button>
                     <div id="cadastrobarra" class="dropdown-menu" style="margin-right: 10px;">
                         <button class="dropdown-item">@Html.ActionLink("Cliente", "Del_Con_Cliente", "Home")</button><br />
                         <button class="dropdown-item">@Html.ActionLink("Produto", "Del_Con_Produto", "Home")</button><br>
-                        <button class="dropdown-item">@Html.ActionLink("Funcionário", "Del_Con_Funcio", "Home")</button>
+                        <button class="dropdown-item">@Html.ActionLink("Funcionário", "Del_Con_Funcio", "Home")</button><br />
+                        <button class="dropdown-item">@Html.ActionLink("Cupom", "Del_Con_Cupom", "Home")</button><br />
+                        <button class="dropdown-item">@Html.ActionLink("Test Drive", "Del_Con_Teste", "Home")</button><br />
+
                     </div>
+                </div>
+
+                <div class="dropdown">
+                    <button type="button" class="btn" style="width: 300px; text-align: center; font-family: Calibri; font-weight: bold; margin-top: 100px;">
+                        @Html.ActionLink("Logout", "Sair", "Login")
+                    </button>
+                    
+
                 </div>
             </div>
         </div>
@@ -159,7 +174,7 @@
 
     <script>
         function openNav() {
-                document.getElementById("barralateral").style.width = "350px";
+                document.getElementById("barralateral").style.width = "400px";
 
           
 

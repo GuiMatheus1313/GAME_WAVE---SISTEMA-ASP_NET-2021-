@@ -1,5 +1,6 @@
 ﻿html, body {
     height: 100%;
+    background-image: linear-gradient(to right, #c200c2, black);
 }
 
 .global-container {
@@ -14,6 +15,7 @@ form {
     padding-top: 10px;
     font-size: 14px;
     margin-top: 30px;
+    height: 240px;
 }
 
 .card-title {

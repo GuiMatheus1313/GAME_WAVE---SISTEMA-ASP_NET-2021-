@@ -1,70 +1,83 @@
-﻿@model GAME_WAVE___SISTEMA_ASP_NET.Models.Classe_Cliente
+﻿<!DOCTYPE HTML>
+<html lang="pt-br">
+@model GAME_WAVE___SISTEMA_ASP_NET.Models.Classe_Cliente
 @{
-    ViewBag.Title = "AltCliente";
+    ViewBag.Title = "Alteração do Cliente";
 }
 <head>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="~/Content/background_imagens.css" />
+    <link rel="stylesheet" href="~/Content/" />
 
 
 </head>
-<legend> Alteração do Cliente</legend>
+<body>
+    <br />
+    <br />
+    <legend> <b>Alteração do Cliente</b></legend>
 
-<div class="container" id="bgaltcliente">
-    @using (Html.BeginForm())
-    {
-        @Html.AntiForgeryToken()
-        <fildset>
-            <div class="editor-label" style="font-size: 30px;">
-                @Html.LabelFor(m => m.Cli_cpf, htmlAttributes: new { @class = "control-label col-md-2" })
-            </div>
+    <div class="container" id="">
+        @using (Html.BeginForm("AltCliente", "Home", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
 
-            <div class="editor-field">
-                @Html.EditorFor(m => m.Cli_cpf, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(m => m.Cli_cpf, "", new { @class = "text-danger" })
-            </div>
 
-            <div class="editor-label" style="font-size: 30px; margin-left: 400px; margin-top: -73px;">
-                @Html.LabelFor(m => m.Cli_nome, htmlAttributes: new { @class = "control-label col-md-2" })
-            </div>
+            <fildset>
 
-            <div class="editor-field" style="margin-left: 400px;">
-                @Html.EditorFor(m => m.Cli_nome, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(m => m.Cli_nome, "", new { @class = "text-danger" })
-            </div>
 
-            <div class="editor-label" style="font-size: 30px;">
-                @Html.LabelFor(m => m.Cli_numEnd, htmlAttributes: new { @class = "control-label col-md-2" })
-            </div>
+                <div class="editor-label" style="font-size: 30px;">
+                    @Html.LabelFor(m => m.Cli_cpf, htmlAttributes: new { @class = "" })
+                </div>
 
-            <div class="editor-field">
-                @Html.EditorFor(m => m.Cli_numEnd, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(m => m.Cli_numEnd, "", new { @class = "text-danger" })
-            </div>
+                <div class="editor-field">
+                    @Html.EditorFor(m => m.Cli_cpf, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(m => m.Cli_cpf, "", new { @class = "" })
+                </div>
 
-            <div class="editor-label" style="font-size: 30px; margin-left: 400px; margin-top: -73px;">
-                @Html.LabelFor(m => m.Cli_email, htmlAttributes: new { @class = "control-label col-md-2" })
-            </div>
+                <div class="editor-label" style="font-size: 30px; margin-left: 500px; margin-top: -73px;">
+                    @Html.LabelFor(m => m.Cli_nome, htmlAttributes: new { @class = "" })
+                </div>
 
-            <div class="editor-field" style="margin-left: 400px; ">
-                @Html.EditorFor(m => m.Cli_email, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(m => m.Cli_email, "", new { @class = "text-danger" })
-            </div>
+                <div class="editor-field" style="margin-left: 500px; ">
+                    @Html.EditorFor(m => m.Cli_nome, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(m => m.Cli_nome, "", new { @class = "" })
+                </div>
 
-            <div class="editor-label" style="font-size: 30px;">
-                @Html.LabelFor(m => m.Cli_tel, htmlAttributes: new { @class = "control-label col-md-2" })
-            </div>
+                <div class="editor-label" style="font-size: 30px;">
+                    @Html.LabelFor(m => m.Cli_numEnd, htmlAttributes: new { @class = "" })
+                </div>
 
-            <div class="editor-field">
-                @Html.EditorFor(m => m.Cli_tel, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(m => m.Cli_tel, "", new { @class = "text-danger" })
-            </div>
+                <div class="editor-field" style="">
+                    @Html.EditorFor(m => m.Cli_numEnd, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(m => m.Cli_numEnd, "", new { @class = "" })
+                </div>
 
-            <div>
-                <br /> <input type="submit" value="Cadastrar" name="btnenviar" />
-            </div>
-        </fildset>
-    }
-</div>
+                <div class="editor-label" style="font-size: 30px; margin-left: 500px; margin-top: -73px;">
+                    @Html.LabelFor(m => m.Cli_email, htmlAttributes: new { @class = "" })
+                </div>
 
-</div>
+                <div class="editor-field" style="margin-left: 500px;">
+                    @Html.EditorFor(m => m.Cli_email, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(m => m.Cli_email, "", new { @class = "" })
+                </div>
+
+                <div class="editor-label" style="font-size: 30px;">
+                    @Html.LabelFor(m => m.Cli_tel, htmlAttributes: new { @class = "" })
+                </div>
+
+                <div class="editor-field" style="">
+                    @Html.EditorFor(m => m.Cli_tel, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(m => m.Cli_tel, "", new { @class = "" })
+                </div>
+
+                <div>
+                    <br /> <input type="submit" value="Alterar" name="btnenviar" />
+                </div>
+            </fildset>
+            @section Scripts{
+                @Scripts.Render("~/bundles/jqueryval");
+            }
+        }
+
+    </div>
+</body>
+</html>

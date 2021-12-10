@@ -1,0 +1,74 @@
+﻿@model IEnumerable<GAME_WAVE___SISTEMA_ASP_NET.Models.Classe_Teste>
+<!DOCTYPE HTML>
+<html lang="pt-br">
+@{
+    ViewBag.Title = "Consulta dos Test Drives";
+}
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="" />
+
+
+</head>
+<body>
+    <center><h2>Lista dos test drives registrados</h2></center>
+    <br />
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Agen_Cod)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Age_DtRetirada)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Age_Desc)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Fk_Cliente_Cli_cpf)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Fk_Produto_Cod_Prod)
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Agen_Cod)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Age_DtRetirada)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Age_Desc)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Fk_Cliente_Cli_cpf)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Fk_Produto_Cod_Prod)
+
+                <td>
+                    @Html.ActionLink("Alterar", "AltTeste", null, new { test = item.Agen_Cod }, new { @class = "btn btn-primary" })
+                    @Html.ActionLink("Excluir", "DelTeste", null, new { testcod = item.Agen_Cod }, new { @class = "btn btn-danger" })<br />
+                    @Html.ActionLink("Cliente", "Del_Con_Cliente", null, new { cpf = item.Fk_Cliente_Cli_cpf }, new { @class = "btn btn-info" })
+                    @Html.ActionLink("Produto", "Del_Con_Produto", null, new { produ = item.Fk_Produto_Cod_Prod }, new { @class = "btn btn-info" })
+
+
+                </td>
+            </tr>
+        }
+    </table>
+</body>
+</html>
+
