@@ -56,7 +56,7 @@ namespace GAME_WAVE___SISTEMA_ASP_NET.Models
         private DateTime? dateSaida = null;
 
 
-        public decimal Valor_servico { get; set; }
+        public float Valor_servico { get; set; }
 
         public Int32 Fk_Funcionario_Func_Cod { get; set; }
     }
