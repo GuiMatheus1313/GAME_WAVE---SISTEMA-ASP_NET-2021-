@@ -7,84 +7,62 @@
 <head>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="~/Content/background_imagens.css" />
-
-
+    <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css'>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" type="text/css" href="~/Content/StyleListItens.css">
 </head>
 <body>
-    <center><h2>Lista dos serviços presentes</h2></center>
+    <div class="container">
+        <div class="table-wrapper">
+            <div class="table-title">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <h2>Lista de Serviço</h2>
+                    </div>
+                    <div class="col-sm-6">
+                        <a href="@Url.Action("CadServicoIndex","Home")" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Novo</span></a>
+                    </div>
+                </div>
+            </div>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>@Html.DisplayNameFor(model => model.Cod_Serv)</th>
+                        <th>@Html.DisplayNameFor(model => model.Desc_Serv)</th>
+                        <th>@Html.DisplayNameFor(model => model.Prod_Serv)</th>
+                        <th>@Html.DisplayNameFor(model => model.DateEntre)</th>
+                        <th>@Html.DisplayNameFor(model => model.DateSaida)</th>
+                        <th>@Html.DisplayNameFor(model => model.Valor_servico)</th>
+                        <th>@Html.DisplayNameFor(model => model.Fk_Funcionario_Func_Cod)</th>
+                    </tr>
+                </thead>
 
-    <br />
-    <table class="table">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Cod_Serv)
-            </th>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(modelItem => item.Cod_Serv)</td>
+                            <td>@Html.DisplayFor(modelItem => item.Desc_Serv)</td>
+                            <td>@Html.DisplayFor(modelItem => item.Prod_Serv)</td>
+                            <td>@Html.DisplayFor(modelItem => item.DateEntre)</td>
+                            <td>@Html.DisplayFor(modelItem => item.DateSaida)</td>
+                            <td>@Html.DisplayFor(modelItem => item.Valor_servico)</td>
+                            <td>@Html.DisplayFor(modelItem => item.Fk_Funcionario_Func_Cod)</td>     
 
-            <th>
-                @Html.DisplayNameFor(model => model.Desc_Serv)
-            </th>
+                            <td>
+                                <a href="@Url.Action("AltServico", new {serv = item.Cod_Serv})" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+                                <a href="@Url.Action("DelServico", new {serv = item.Cod_Serv})" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+                            </td>
+                       </tr>
+                    }
+                </tbody>
 
-            <th>
-                @Html.DisplayNameFor(model => model.Prod_Serv)
-            </th>
+            </table>
+        </div>
+    </div>
 
-            <th>
-                @Html.DisplayNameFor(model => model.DateEntre)
-            </th>
-
-            <th>
-                @Html.DisplayNameFor(model => model.DateSaida)
-            </th>
-
-            <th>
-                @Html.DisplayNameFor(model => model.Valor_servico)
-            </th>
-
-            <th>
-                @Html.DisplayNameFor(model => model.Fk_Funcionario_Func_Cod)
-            </th>
-
-            <th></th>
-        </tr>
-
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Cod_Serv)
-                </td>
-
-                <td>
-                    @Html.DisplayFor(modelItem => item.Desc_Serv)
-                </td>
-
-                <td>
-                    @Html.DisplayFor(modelItem => item.Prod_Serv)
-                </td>
-
-                <td>
-                    @Html.DisplayFor(modelItem => item.DateEntre)
-                </td>
-
-                <td>
-                    @Html.DisplayFor(modelItem => item.DateSaida)
-                </td>
-
-                <td>
-                    @Html.DisplayFor(modelItem => item.Valor_servico)
-                </td>
-
-                <td>
-                    @Html.DisplayFor(modelItem => item.Fk_Funcionario_Func_Cod)
-                </td>
-
-                <td>
-                    @Html.ActionLink("Alterar", "AltServico", null, new { serv = item.Cod_Serv }, new { @class = "btn btn-primary" })
-                    @Html.ActionLink("Excluir", "DelServico", null, new { serv = item.Cod_Serv }, new { @class = "btn btn-danger" })
-                </td>
-            </tr>
-        }
-    </table>
 </body>
 </html>
+
 

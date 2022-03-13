@@ -15,7 +15,7 @@ namespace GAME_WAVE___SISTEMA_ASP_NET.Models
 
         [Required(ErrorMessage = "Este campo é obrigatório")]
         [Display(Name = "Data de retirada")]
-        [DisplayFormat(DataFormatString = "{0:dd/MM/YYYY}", ApplyFormatInEditMode = true)]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         public DateTime Age_DtRetirada
         {
             get

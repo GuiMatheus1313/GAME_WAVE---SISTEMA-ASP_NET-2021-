@@ -6,41 +6,50 @@
 }
 <head>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="" />
-
-
+    <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css'>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" type="text/css" href="~/Content/StyleListItens.css">
 </head>
 <body>
-    <center><h2>Lista dos cupons presentes</h2></center>
-    <br />
+    <div class="container">
+        <div class="table-wrapper">
+            <div class="table-title">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <h2>Lista de Cupom</h2>
+                    </div>
+                    <div class="col-sm-6">
+                        <a href="@Url.Action("CadCupomIndex","Home")" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Novo</span></a>
+                    </div>
+                </div>
+            </div>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>@Html.DisplayNameFor(model => model.Cupom_cod)</th>
+                        <th>@Html.DisplayNameFor(model => model.DescontoCupom)</th>
+                    </tr>
+                </thead>
 
-    <table class="table">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Cupom_cod)
-            </th>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(modelItem => item.Cupom_cod)</td>
+                            <td>@Html.DisplayFor(modelItem => item.DescontoCupom)</td>
 
-            <th>
-                @Html.DisplayNameFor(model => model.DescontoCupom)
-            </th>
-        </tr>
+                            <td>
+                                <a href="@Url.Action("AltCupom", new {produ = item.Cupom_cod})" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+                                <a href="@Url.Action("DelCupom", new {produ = item.Cupom_cod})" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
 
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Cupom_cod)
-                </td>
+            </table>
+        </div>
+    </div>
 
-                <td>
-                    @Html.DisplayFor(modelItem => item.DescontoCupom)
-                </td>
-
-                <td>
-                    @Html.ActionLink("Alterar", "AltCupom", null, new { cupom = item.Cupom_cod }, new { @class = "btn btn-primary" })
-                    @Html.ActionLink("Excluir", "DelCupom", null, new { cupom = item.Cupom_cod }, new { @class = "btn btn-danger" })
-                </td>
-            </tr>
-        }
-    </table>
-
+</body>
+</html>
