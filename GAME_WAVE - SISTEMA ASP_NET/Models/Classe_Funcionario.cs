@@ -33,23 +33,10 @@ namespace GAME_WAVE___SISTEMA_ASP_NET.Models
 
         [Required(ErrorMessage = "Este campo é obrigatório")]
         [Display(Name = "Data de Nascimento")]
-        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime Func_datanasc 
-        {
-            get
-            {
-                return this.func_datanasc.HasValue
-                    ? this.func_datanasc.Value
-                    : DateTime.Now;
-            }
-            
-            set
-            {
-                this.func_datanasc = value;
-            }
-        }
-        
-            private DateTime? func_datanasc = null;
+        {get; set;}
+              
 
         [Required(ErrorMessage = "Este campo é obrigatório")]
         [Display(Name = "Cargo")]
@@ -82,7 +69,7 @@ namespace GAME_WAVE___SISTEMA_ASP_NET.Models
         public string Cep { get; set; }
 
         [Required(ErrorMessage = "Este campo é obrigatório")]
-        [Display(Name = "Número do Logradouro")]
+        [Display(Name = "Número")]
         public Int16 Func_num_end { get; set; }
 
         [Required(ErrorMessage = "Este campo é obrigatório")]
@@ -90,6 +77,7 @@ namespace GAME_WAVE___SISTEMA_ASP_NET.Models
         [StringLength(30, MinimumLength = 8, ErrorMessage = "O campo deve conter entre 8 a 30 caracteres")]
         public string Func_senha { get; set; }
 
+        [Display(Name = "CEP")]
         public string FK_cep_cep { get; set; 
         }
     }

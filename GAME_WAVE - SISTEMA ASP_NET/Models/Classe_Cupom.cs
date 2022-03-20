@@ -15,7 +15,7 @@ namespace GAME_WAVE___SISTEMA_ASP_NET.Models
         public string Cupom_cod { get; set; }
 
         [Required(ErrorMessage = "Este campo é obrigatório!")]
-        [Display(Name = "Quantidade de Desconto")]
+        [Display(Name = "Quantidade de Desconto( % )")]
         public float DescontoCupom { get; set; }
     }
 }

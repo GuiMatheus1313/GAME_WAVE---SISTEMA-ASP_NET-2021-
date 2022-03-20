@@ -6,32 +6,33 @@
 <head>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="~/Content/parte_sucesso.css" />
+    <style>
+        nav{
+            display:none;
+        }
 
+        footer {
+            display: none;
+        }
+    </style>
 </head>
 <body>
-    <div class="background"></div>
     <div class="container">
         <div class="row">
             <div class="modalbox success col-sm-8 col-md-6 col-lg-5 center animate">
+                <!--icon-->
                 <div class="icon">
                     <span class="glyphicon glyphicon-ok"></span>
                 </div>
-                <!--/.icon-->
+
                 <h1>Ação feita com sucesso</h1>
-                <p>
-                    Utilize o botão de menu na barra acima para voltar em outros locais
-                </p>
-                
             </div>
-            <!--/.success-->
         </div>
-        <!--/.row-->
     </div>
-    <!--/.container-->
     <script>
-        $(document).ready(function() {
-		$('.redo').click(function() {
-			$('.success, .error').toggle();
-		});
-    });
+        window.setTimeout(function () {
+            window.location.href = '/Home/Index';
+        }, 2000);
     </script>
+</body>
+</html>

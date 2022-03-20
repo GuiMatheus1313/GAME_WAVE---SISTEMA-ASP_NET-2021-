@@ -11,8 +11,8 @@ namespace GAME_WAVE___SISTEMA_ASP_NET.Models
     {
         [Required(ErrorMessage = "Este campo é obrigatório")]
         [Display(Name = "CPF")]
-        [StringLength(14, MinimumLength = 14, ErrorMessage = "O campo deve conter 14 caracteres")]
-        [RegularExpression(@"^(\d{2}\.?\d{3}\.?\d{3}\/?\d{4}-?\d{2}|\d{3}\.?\d{3}\.?\d{3}-?\d{2})$", ErrorMessage = "O formato está incorreto")]
+        [StringLength(11, MinimumLength = 11, ErrorMessage = "O campo deve conter 14 caracteres")]
+        //[RegularExpression(@"^(\d{2}\.?\d{3}\.?\d{3}\/?\d{4}-?\d{2}|\d{3}\.?\d{3}\.?\d{3}-?\d{2})$", ErrorMessage = "O formato está incorreto")]
         public string Cli_cpf { get; set; }
 
         [Required(ErrorMessage = "Este campo é obrigatório")]
@@ -45,19 +45,22 @@ namespace GAME_WAVE___SISTEMA_ASP_NET.Models
         public string Nome_bairro { get; set; }
 
         [Required(ErrorMessage = "Este campo é obrigatório")]
-        [Display(Name = "Logradouro")]
+        [Display(Name = "Endereço")]
         [MaxLength(100, ErrorMessage = "O campo deve conter o máximo de 100 caracteres")]
         public string Logradouro { get; set; }
 
         [Required(ErrorMessage = "Este campo é obrigatório")]
         [Display(Name = "CEP")]
-        [RegularExpression(@"^\d{5}-\d{3}$", ErrorMessage = "O formato está incorreto")]
+        //[RegularExpression(@"^\d{5}-\d{3}$", ErrorMessage = "O formato está incorreto")]
         public string Cep { get; set; }
 
         [Required(ErrorMessage = "Este campo é obrigatório")]
-        [Display(Name = "Número do Logradouro")]
+        [Display(Name = "Número")]
         public Int16 Cli_numEnd { get; set; }
 
         public string FK_cep_cep { get; set; }
+
+   
     }
+
 }

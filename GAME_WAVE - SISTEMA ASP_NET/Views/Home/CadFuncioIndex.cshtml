@@ -6,144 +6,149 @@
 }
 <head>
     <meta charset="utf-8" />
-    
-
-
+    <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css'>
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css'>
+    <link rel="stylesheet" href="~/Content/StyleForm.css" />
+    <style>
+        .form-control {
+            padding: 5px;
+            height: 30px;
+            font-size: 1.4rem;
+        }
+    </style>
 </head>
 <body>
-    <br />
-    <br />
-    <legend> Cadastro do Funcionário</legend>
-    <div class="container" id="">
-        @using (Html.BeginForm("CadFuncio", "Home", FormMethod.Post))
-        {
-            @Html.ValidationSummary(true)
-            <fildset>
-                <div class="editor-label" style="font-size: 30px;">
-                    @Html.LabelFor(m => m.Func_nome)
-                </div>
-
-                <div class="editor-field">
-                    @Html.EditorFor(m => m.Func_nome)
-                    @Html.ValidationMessageFor(m => m.Func_nome)
-                </div>
-
-                <div class="editor-label" style="font-size: 30px; margin-left: 500px; margin-top: -73px;">
-                    @Html.LabelFor(m => m.Func_cpf)
-                </div>
-
-                <div class="editor-field" style="margin-left: 500px; ">
-                    @Html.EditorFor(m => m.Func_cpf)
+    <div class="container">
+        <br>
+        <h1 align="center"> Cadastro do Funcionário</h1>
+            @using (Html.BeginForm("CadFuncio", "Home", FormMethod.Post))
+            {
+                @Html.ValidationSummary(true)
+    <form class="form">
+        <div class="row">
+            <!-- Dados Pessoais func-->
+            <div class="col-md-3">
+                <fieldset class="form-group">
+                    <label class="form-label" id="label">@Html.LabelFor(m => m.Func_cpf)</label>
+                    @Html.TextBoxFor(m => m.Func_cpf, new { @class = "form-control" })
                     @Html.ValidationMessageFor(m => m.Func_cpf)
-                </div>
+                </fieldset>
+            </div>
 
-                <div class="editor-label" style="font-size: 30px;">
-                    @Html.LabelFor(m => m.Func_tel)
-                </div>
+            <div class="col-md-3">
+                <fieldset class="form-group">
+                    <label class="form-lbl" id="label">@Html.LabelFor(m => m.Func_nome)</label>
+                    @Html.TextBoxFor(m => m.Func_nome, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.Func_nome)
+                </fieldset>
+            </div>
+        </div>
 
-                <div class="editor-field">
-                    @Html.EditorFor(m => m.Func_tel)
-                    @Html.ValidationMessageFor(m => m.Func_tel)
-                </div>
-
-                <div class="editor-label" style="font-size: 30px; margin-left: 500px; margin-top: -73px;">
-                    @Html.LabelFor(m => m.Func_email)
-                </div>
-
-                <div class="editor-field" style="margin-left: 500px; ">
-                    @Html.EditorFor(m => m.Func_email)
+        <!--  -->
+        <div class="row">
+            <div class="col-md-3">
+                <fieldset class="form-group">
+                    <label class="form-lbl" id="label">@Html.LabelFor(m => m.Func_email)</label>
+                    @Html.TextBoxFor(m => m.Func_email, new { @class = "form-control" })
                     @Html.ValidationMessageFor(m => m.Func_email)
-                </div>
+                </fieldset>
+            </div>
 
-                <div class="editor-label" style="font-size: 30px;">
-                    @Html.LabelFor(m => m.Func_datanasc)
-                </div>
+            <div class="col-md-3">
+                <fieldset class="form-group">
+                    <label class="form-lbl" id="label">@Html.LabelFor(m => m.Func_tel)</label>
+                    @Html.TextBoxFor(m => m.Func_tel, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.Func_tel)
+                </fieldset>
+            </div>
 
-                <div class="editor-field">
-                    @Html.EditorFor(m => m.Func_datanasc)
+            <div class="col-md-3">
+                <fieldset class="form-group">
+                    <label class="form-lbl" id="label">@Html.LabelFor(m => m.Func_datanasc)</label>
+                    @Html.TextBoxFor(m => m.Func_datanasc, new { @class = "form-control" })
                     @Html.ValidationMessageFor(m => m.Func_datanasc)
-                </div>
+                </fieldset>
+            </div>
+        </div>
 
-                <div class="editor-label" style="font-size: 30px; margin-left: 500px; margin-top: -73px;">
-                    @Html.LabelFor(m => m.Func_cargo)
-                </div>
-
-                <div class="editor-field" style="margin-left: 500px; ">
-                    @Html.EditorFor(m => m.Func_cargo)
+        <!-- CArgo e senha -->
+        <div class="row">
+            <div class="col-md-3">
+                <fieldset class="form-group">
+                    <label class="form-lbl" id="label">@Html.LabelFor(m => m.Func_cargo)</label>
+                    @Html.TextBoxFor(m => m.Func_cargo, new { @class = "form-control" })
                     @Html.ValidationMessageFor(m => m.Func_cargo)
-                </div>
+                </fieldset>
+            </div>
 
-                <div class="editor-label" style="font-size: 30px;">
-                    @Html.LabelFor(m => m.Nome_uf)
-                </div>
-
-                <div class="editor-field">
-                    @Html.EditorFor(m => m.Nome_uf)
-                    @Html.ValidationMessageFor(m => m.Nome_uf)
-                </div>
-
-                <div class="editor-label" style="font-size: 30px; margin-left: 500px; margin-top: -73px;">
-                    @Html.LabelFor(m => m.Nome_cidade)
-                </div>
-
-                <div class="editor-field" style="margin-left: 500px;">
-                    @Html.EditorFor(m => m.Nome_cidade)
-                    @Html.ValidationMessageFor(m => m.Nome_cidade)
-                </div>
-
-                <div class="editor-label" style="font-size: 30px;">
-                    @Html.LabelFor(m => m.Nome_bairro)
-                </div>
-
-                <div class="editor-field">
-                    @Html.EditorFor(m => m.Nome_bairro)
-                    @Html.ValidationMessageFor(m => m.Nome_bairro)
-                </div>
-
-                <div class="editor-label" style="font-size: 30px; margin-left: 500px; margin-top: -73px;">
-                    @Html.LabelFor(m => m.Logradouro)
-                </div>
-
-                <div class="editor-field" style="margin-left: 500px;">
-                    @Html.EditorFor(m => m.Logradouro)
-                    @Html.ValidationMessageFor(m => m.Logradouro)
-                </div>
-
-                <div class="editor-label" style="font-size: 30px">
-                    @Html.LabelFor(m => m.Cep)
-                </div>
-
-                <div class="editor-field">
-                    @Html.EditorFor(m => m.Cep)
-                    @Html.ValidationMessageFor(m => m.Cep)
-                </div>
-
-                <div class="editor-label" style="font-size: 30px; margin-left: 500px; margin-top: -73px;">
-                    @Html.LabelFor(m => m.Func_num_end)
-                </div>
-
-                <div class="editor-field" style="margin-left: 500px;">
-                    @Html.EditorFor(m => m.Func_num_end)
-                    @Html.ValidationMessageFor(m => m.Func_num_end)
-                </div>
-
-                <div class="editor-label" style="font-size: 30px;">
-                    @Html.LabelFor(m => m.Func_senha)
-                </div>
-
-                <div class="editor-field">
-                    @Html.PasswordFor(m => m.Func_senha)
+            <div class="col-md-3">
+                <fieldset class="form-group">
+                    <label class="form-lbl" id="label">@Html.LabelFor(m => m.Func_senha)</label>
+                    @Html.TextBoxFor(m => m.Func_senha, new { @class = "form-control" })
                     @Html.ValidationMessageFor(m => m.Func_senha)
+                </fieldset>
+            </div>
+        </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <fieldset class="form-group">
+                        <label class="form-lbl" id="label">@Html.LabelFor(m => m.Cep)</label>
+                        @Html.TextBoxFor(m => m.Cep, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Cep)
+                    </fieldset>
+                </div>
+            
+                <div class="col-md-3">
+                    <fieldset class="form-group">
+                        <label class="form-lbl" id="label">@Html.LabelFor(m => m.Nome_uf)</label>
+                        @Html.TextBoxFor(m => m.Nome_uf, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Nome_uf)
+                    </fieldset>
                 </div>
 
-                <div>
-                    <br /> <input type="submit" value="Cadastrar" name="btnenviar" />
+                <div class="col-md-3">
+                    <fieldset class="form-group">
+                        <label class="form-lbl" id="label">@Html.LabelFor(m => m.Nome_cidade)</label>
+                        @Html.TextBoxFor(m => m.Nome_cidade, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Nome_cidade)
+                    </fieldset>
                 </div>
-            </fildset>
-            @section Scripts{
-                @Scripts.Render("~/bundles/jqueryval");
+
+                <div class="col-md-3">
+                    <fieldset class="form-group">
+                        <label class="form-lbl" id="label">@Html.LabelFor(m => m.Nome_bairro)</label>
+                        @Html.TextBoxFor(m => m.Nome_bairro, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Nome_bairro)
+                    </fieldset>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-3">
+                    <fieldset class="form-group">
+                        <label class="form-lbl" id="label">@Html.LabelFor(m => m.Logradouro)</label>
+                        @Html.TextBoxFor(m => m.Logradouro, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Logradouro)
+                    </fieldset>
+                </div>
+
+                <div class="col-md-1">
+                    <fieldset class="form-group">
+                        <label class="form-lbl" id="label">@Html.LabelFor(m => m.Func_num_end)</label>
+                        @Html.TextBoxFor(m => m.Func_num_end, " ", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Func_num_end)
+                    </fieldset>
+                </div>
+            </div>
+
+            <div>
+                <br /> <input class="btn btn-primary" id="button" type="submit" value="Cadastrar" name="btnenviar" />
+            </div>
+    </form>
+                @section Scripts{
+                    @Scripts.Render("~/bundles/jqueryval")
+                }
             }
-        }
-    </div>
+        </div>
 </body>
 </html>

@@ -7,123 +7,130 @@
 
 <head>
     <meta charset="utf-8" />
-
-
+    <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css'>
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css'>
+    <link rel="stylesheet" href="~/Content/StyleForm.css" />
+    <style>
+        .form-control {
+            padding: 5px;
+            height: 30px;
+            font-size: 1.4rem;
+        }
+    </style>
 </head>
 <body>
-    <br />
-    <br />
-    <legend> Cadastro do Cliente</legend>
-
-    <div class="container" id="bgcadcliente">
-
+    <div class="container">
+        <h1 align="center">Cadastro do Cliente</h1>
+        <br>
         @using (Html.BeginForm("CadCliente", "Home", FormMethod.Post))
         {
             @Html.ValidationSummary(true)
-            <fildset>
 
+            <form class="form">
+                <div class="row">
+                    <div class="col-md-3">
+                        <fieldset class="form-group">
+                            <label class="form-label" id="label">@Html.LabelFor(m => m.Cli_cpf)</label>
+                                @Html.TextBoxFor(m => m.Cli_cpf, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.Cli_cpf)
+                           
+                        </fieldset>
+                    </div>
 
-                <div class="editor-label" style="font-size: 30px;">
-                    @Html.LabelFor(m => m.Cli_cpf)
+                    <div class="col-md-3">
+                        <fieldset class="form-group">
+                            <label class="form-lbl" id="label">@Html.LabelFor(m => m.Cli_nome)</label>
+                            @Html.TextBoxFor(m => m.Cli_nome, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.Cli_nome)
+                        </fieldset>
+                    </div>
                 </div>
 
-                <div class="editor-field">
-                    @Html.EditorFor(m => m.Cli_cpf)
-                    @Html.ValidationMessageFor(m => m.Cli_cpf)
+                <!--  -->
+                <div class="row">
+                    <div class="col-md-3">
+                        <fieldset class="form-group">
+                            <label class="form-lbl" id="label">@Html.LabelFor(m => m.Cli_email)</label>
+                            @Html.TextBoxFor(m => m.Cli_email, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.Cli_email)
+                        </fieldset>
+                    </div>
+
+                    <div class="col-md-3">
+                        <fieldset class="form-group">
+                            <label class="form-lbl" id="label">@Html.LabelFor(m => m.Cli_tel)</label>
+                            @Html.TextBoxFor(m => m.Cli_tel, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.Cli_tel)
+                        </fieldset>
+                    </div>
                 </div>
 
-                <div class="editor-label" style="font-size: 30px; margin-left: 500px; margin-top: -73px;">
-                    @Html.LabelFor(m => m.Cli_nome)
+                <div class="row">
+                    <div class="col-md-3">
+                        <fieldset class="form-group">
+                            <label class="form-lbl" id="label">@Html.LabelFor(m => m.Cep)</label>
+                            @Html.TextBoxFor(m => m.Cep, new { @class = "form-control", onkeyup = "Mask(this)" })
+                            @Html.ValidationMessageFor(m => m.Cep)
+                        </fieldset>
+                    </div>
                 </div>
 
-                <div class="editor-field" style="margin-left: 500px;">
-                    @Html.EditorFor(m => m.Cli_nome)
-                    @Html.ValidationMessageFor(m => m.Cli_nome)
+                <div class="row">
+                    <div class="col-md-3">
+                        <fieldset class="form-group">
+                            <label class="form-lbl" id="label">@Html.LabelFor(m => m.Nome_uf)</label>
+                            @Html.TextBoxFor(m => m.Nome_uf, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.Nome_uf)
+                        </fieldset>
+                    </div>
+
+                    <div class="col-md-3">
+                        <fieldset class="form-group">
+                            <label class="form-lbl" id="label">@Html.LabelFor(m => m.Nome_cidade)</label>
+                            @Html.TextBoxFor(m => m.Nome_cidade, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.Nome_cidade)
+                        </fieldset>
+                    </div>
+
+                    <div class="col-md-3">
+                        <fieldset class="form-group">
+                            <label class="form-lbl" id="label">@Html.LabelFor(m => m.Nome_bairro)</label>
+                            @Html.TextBoxFor(m => m.Nome_bairro, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.Nome_bairro)
+                        </fieldset>
+                    </div>
                 </div>
 
-                <div class="editor-label" style="font-size: 30px;">
-                    @Html.LabelFor(m => m.Nome_uf)
-                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <fieldset class="form-group">
+                            <label class="form-lbl" id="label">@Html.LabelFor(m => m.Logradouro)</label>
+                            @Html.TextBoxFor(m => m.Logradouro, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.Logradouro) 
+                        </fieldset>
+                    </div>
 
-                <div class="editor-field">
-                    @Html.EditorFor(m => m.Nome_uf)
-                    @Html.ValidationMessageFor(m => m.Nome_uf)
+                    <div class="col-md-1">
+                        <fieldset class="form-group">
+                            <label class="form-lbl" id="label">@Html.LabelFor(m => m.Cli_numEnd)</label>
+                            @Html.TextBoxFor(m => m.Cli_numEnd, " ", new { @class = "form-control"})
+                            @Html.ValidationMessageFor(m => m.Cli_numEnd)
+                        </fieldset>
+                    </div>
                 </div>
-
-                <div class="editor-label" style="font-size: 30px; margin-left: 500px; margin-top: -73px;">
-                    @Html.LabelFor(m => m.Nome_cidade)
-                </div>
-
-                <div class="editor-field" style="margin-left:500px;">
-                    @Html.EditorFor(m => m.Nome_cidade)
-                    @Html.ValidationMessageFor(m => m.Nome_cidade)
-                </div>
-
-                <div class="editor-label" style="font-size: 30px;">
-                    @Html.LabelFor(m => m.Nome_bairro)
-                </div>
-
-                <div class="editor-field">
-                    @Html.EditorFor(m => m.Nome_bairro)
-                    @Html.ValidationMessageFor(m => m.Nome_bairro)
-                </div>
-
-                <div class="editor-label" style="font-size: 30px; margin-left: 500px; margin-top: -73px;">
-                    @Html.LabelFor(m => m.Logradouro)
-                </div>
-
-                <div class="editor-field" style="margin-left:500px;">
-                    @Html.EditorFor(m => m.Logradouro)
-                    @Html.ValidationMessageFor(m => m.Logradouro)
-                </div>
-
-                <div class="editor-label" style="font-size: 30px">
-                    @Html.LabelFor(m => m.Cep)
-                </div>
-
-                <div class="editor-field">
-                    @Html.EditorFor(m => m.Cep)
-                    @Html.ValidationMessageFor(m => m.Cep)
-                </div>
-
-                <div class="editor-label" style="font-size: 30px; margin-left: 500px; margin-top: -73px;">
-                    @Html.LabelFor(m => m.Cli_numEnd)
-                </div>
-
-                <div class="editor-field" style="margin-left:500px;">
-                    @Html.EditorFor(m => m.Cli_numEnd)
-                    @Html.ValidationMessageFor(m => m.Cli_numEnd)
-                </div>
-
-                <div class="editor-label" style="font-size: 30px;">
-                    @Html.LabelFor(m => m.Cli_email)
-                </div>
-
-                <div class="editor-field">
-                    @Html.EditorFor(m => m.Cli_email)
-                    @Html.ValidationMessageFor(m => m.Cli_email)
-                </div>
-
-                <div class="editor-label" style="font-size: 30px; margin-left: 500px; margin-top: -73px;">
-                    @Html.LabelFor(m => m.Cli_tel)
-                </div>
-
-                <div class="editor-field" style="margin-left:500px;">
-                    @Html.EditorFor(m => m.Cli_tel)
-                    @Html.ValidationMessageFor(m => m.Cli_tel)
-                </div>
-
                 <div>
-                    <br /> <input type="submit" value="Cadastrar" name="btnenviar" />
+                    <br /> <input class="btn btn-primary" id="button" type="submit" value="Cadastrar" name="btnenviar" />
                 </div>
-            </fildset>
+            </form>
+
             @section Scripts{
-                @Scripts.Render("~/bundles/jqueryval");
+                @Scripts.Render("~/bundles/jqueryval");             
             }
         }
     </div>
+  
 </body>
-</html>
+   </html>
 
 
 

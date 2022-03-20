@@ -10,6 +10,12 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" type="text/css" href="~/Content/StyleListItens.css">
+    <style>
+        .table-wrapper{
+            width:80%;
+            margin: 2% 0% 2% 25%;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -40,8 +46,8 @@
                             <td>@Html.DisplayFor(modelItem => item.DescontoCupom)</td>
 
                             <td>
-                                <a href="@Url.Action("AltCupom", new {produ = item.Cupom_cod})" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                                <a href="@Url.Action("DelCupom", new {produ = item.Cupom_cod})" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+                                <a href="@Url.Action("AltCupom", new {cupom = item.Cupom_cod})" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+                                <a href="@Url.Action("DelCupom", new {cupom = item.Cupom_cod})" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
                             </td>
                         </tr>
                     }

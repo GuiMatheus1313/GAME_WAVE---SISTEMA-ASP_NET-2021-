@@ -22,7 +22,7 @@ namespace GAME_WAVE___SISTEMA_ASP_NET.Models
         public string Prod_Serv { get; set; }
 
         [Display(Name = "Data de Entrada")]
-        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
         [Required(ErrorMessage = "Este campo é obrigatório")]
         public DateTime DateEntre
         {
@@ -30,7 +30,7 @@ namespace GAME_WAVE___SISTEMA_ASP_NET.Models
             {
                 return this.dateEntre.HasValue
                     ? this.dateEntre.Value
-                    : DateTime.Now;
+                    : DateTime.Today;
             }
 
             set
@@ -43,7 +43,7 @@ namespace GAME_WAVE___SISTEMA_ASP_NET.Models
 
 
         [Display(Name = "Data de Retirada")]
-        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
         [Required(ErrorMessage = "Este campo é obrigatório")]
         public DateTime DateSaida
         {
@@ -51,7 +51,7 @@ namespace GAME_WAVE___SISTEMA_ASP_NET.Models
             {
                 return this.dateSaida.HasValue
                     ? this.dateSaida.Value
-                    : DateTime.Now;
+                    : DateTime.Today.AddDays(7);
             }
 
             set

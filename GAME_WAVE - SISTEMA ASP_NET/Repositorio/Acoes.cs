@@ -61,7 +61,7 @@ namespace GAME_WAVE___SISTEMA_ASP_NET.Repositorio
             cmd.ExecuteNonQuery();
             conectar.DesconectarBD();
         }
-        
+
         
         public void CadastrarFuncio(Classe_Funcionario fun)
         {

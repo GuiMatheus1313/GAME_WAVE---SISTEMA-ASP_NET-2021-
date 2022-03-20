@@ -7,90 +7,94 @@
 <head>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="~/Content/background_imagens.css" />
-
-
+    <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css'>
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css'>
+    <link rel="stylesheet" href="~/Content/StyleForm.css" />
+    <style>
+        .form-control {
+            padding: 5px;
+            height: 30px;
+            font-size: 1.4rem;
+        }
+    </style>
 </head>
 <body>
-    <br />
-    <br />
-    <legend> Cadastro de Produto</legend>
-
-    <div class="container" id="">
+    <div class="container">
+        <br>
+        <h1 align="center"> Cadastro do Produto</h1>
 
         @using (Html.BeginForm("CadProduto", "Home", FormMethod.Post))
         {
             @Html.ValidationSummary(true)
-            <fildset>
+            <form class="form">
+                <div class="row">
+                    <div class="col-md-4">
+                        <fieldset class="form-group">
+                            <label class="form-label" id="label">@Html.LabelFor(m => m.Prod_nome)</label>
+                            @Html.TextBoxFor(m => m.Prod_nome, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.Prod_nome)
+                        </fieldset>
+                    </div>
 
-                <div class="editor-label" style="font-size: 30px;">
-                    @Html.LabelFor(m => m.Prod_nome)
+                    <div class="col-md-3">
+                        <fieldset class="form-group">
+                            <label class="form-lbl" id="label">@Html.LabelFor(m => m.Prod_tipo)</label>
+                            @Html.TextBoxFor(m => m.Prod_tipo, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.Prod_tipo)
+                        </fieldset>
+                    </div>
+
+                    <div class="col-ms-2">
+                        <fieldset class="form-group">
+                            <label class="form-lbl" id="label">@Html.LabelFor(m => m.Prod_quant_estoque)</label>
+                            @Html.TextBoxFor(m => m.Prod_quant_estoque, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.Prod_quant_estoque)
+                        </fieldset>
+                    </div>
                 </div>
 
-                <div class="editor-field" style="">
-                    @Html.EditorFor(m => m.Prod_nome)
-                    @Html.ValidationMessageFor(m => m.Prod_nome)
+                <div class="row">
+                    <div class="col">
+                        <fieldset class="form-group">
+                            <label class="form-lbl" id="label">@Html.LabelFor(m => m.Prod_desc)</label>
+                            @Html.TextAreaFor(m => m.Prod_desc, new { @class = "form-control", TextMode = "MultiLine", Rows = "4" })
+                            @Html.ValidationMessageFor(m => m.Prod_desc)
+                        </fieldset>
+                    </div>
                 </div>
 
-                <div class="editor-label" style="font-size: 30px; margin-left: 500px; margin-top: -73px;">
-                    @Html.LabelFor(m => m.Prod_tipo)
-                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <fieldset class="form-group">
+                            <label class="form-lbl" id="label">@Html.LabelFor(m => m.Prod_anolanc)</label>
+                            @Html.TextBoxFor(m => m.Prod_anolanc, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.Prod_anolanc)
+                        </fieldset>
+                    </div>
 
-                <div class="editor-field" style="margin-left: 500px;">
-                    @Html.EditorFor(m => m.Prod_tipo)
-                    @Html.ValidationMessageFor(m => m.Prod_tipo)
-                </div>
+                    <div class="col-md-2">
+                        <fieldset class="form-group">
+                            <label class="form-lbl" id="label">@Html.LabelFor(m => m.Prod_faixaeta)</label>
+                            @Html.TextBoxFor(m => m.Prod_faixaeta, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.Prod_faixaeta)
+                        </fieldset>
+                    </div>
 
-                <div class="editor-label" style="font-size: 30px;">
-                    @Html.LabelFor(m => m.Prod_quant_estoque)
-                </div>
-
-                <div class="editor-field" style="">
-                    @Html.EditorFor(m => m.Prod_quant_estoque)
-                    @Html.ValidationMessageFor(m => m.Prod_quant_estoque)
-                </div>
-
-                <div class="editor-label" style="font-size: 30px; margin-left: 500px; margin-top: -73px;">
-                    @Html.LabelFor(m => m.Prod_desc)
-                </div>
-
-                <div class="editor-field" style="margin-left: 500px;">
-                    @Html.EditorFor(m => m.Prod_desc)
-                    @Html.ValidationMessageFor(m => m.Prod_desc)
-                </div>
-
-                <div class="editor-label" style="font-size: 30px;">
-                    @Html.LabelFor(m => m.Prod_anolanc)
-                </div>
-
-                <div class="editor-field" style="">
-                    @Html.EditorFor(m => m.Prod_anolanc)
-                    @Html.ValidationMessageFor(m => m.Prod_anolanc)
-                </div>
-
-                <div class="editor-label" style="font-size: 30px; margin-left: 500px; margin-top: -73px;">
-                    @Html.LabelFor(m => m.Prod_faixaeta)
-                </div>
-
-                <div class="editor-field" style="margin-left: 500px;">
-                    @Html.EditorFor(m => m.Prod_faixaeta)
-                    @Html.ValidationMessageFor(m => m.Prod_faixaeta)
-                </div>
-
-                <div class="editor-label" style="font-size: 30px;">
-                    @Html.LabelFor(m => m.Prod_valor)
-                </div>
-
-                <div class="editor-field" style="">
-                    @Html.EditorFor(m => m.Prod_valor)
-                    @Html.ValidationMessageFor(m => m.Prod_valor)
+                    <div class="col-md-3">
+                        <fieldset class="form-group">
+                            <label class="form-lbl" id="label">@Html.LabelFor(m => m.Prod_valor)</label>
+                            @Html.TextBoxFor(m => m.Prod_valor," ", new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.Prod_valor)
+                        </fieldset>
+                    </div>
                 </div>
 
                 <div>
-                    <br /> <input type="submit" value="Cadastrar" name="btnenviar" />
+                    <br /> <input class="btn btn-primary" id="button" type="submit" value="Cadastrar" name="btnenviar" />
                 </div>
-            </fildset>
+            </form>
             @section Scripts{
-                @Scripts.Render("~/bundles/jqueryval");
+                @Scripts.Render("~/bundles/jqueryval")
             }
         }
     </div>

@@ -7,76 +7,74 @@
 <head>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="~/Content/" />
-
+    <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css'>
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css'>
+    <link rel="stylesheet" href="~/Content/StyleForm.css" />
 
 </head>
 <body>
-    <br />
-    <br />
-    <legend> <b>Alteração do Cliente</b></legend>
+    <div class="container">
+        <h1> <b>Alteração do Cliente</b></h1>
 
-    <div class="container" id="">
         @using (Html.BeginForm("AltCliente", "Home", FormMethod.Post))
         {
             @Html.AntiForgeryToken()
 
+    <form class="form">
+        <div class="row">
+            <div class="col-md-3">
+                <fieldset class="form-group">
+                    <label class="form-label" id="label">@Html.LabelFor(m => m.Cli_cpf)</label>
+                    <div id="campo" class="form-control">
+                        @Html.TextBoxFor(m => m.Cli_cpf)
+                        @Html.ValidationMessageFor(m => m.Cli_cpf)
+                    </div>
+                </fieldset>
+            </div>
 
-            <fildset>
+            <div class="col-md-3">
+                <fieldset class="form-group">
+                    <label class="form-lbl">@Html.LabelFor(m => m.Cli_nome)</label>
+                    @Html.TextBoxFor(m => m.Cli_nome, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.Cli_nome)
+                </fieldset>
+            </div>
+        </div>
 
+        <div class="row">
+            <div class="col-md-3">
+                <fieldset class="form-group">
+                    <label class="form-lbl" id="label">@Html.LabelFor(m => m.Cli_email)</label>
+                    @Html.TextBoxFor(m => m.Cli_email, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.Cli_email)
+                </fieldset>
+            </div>
 
-                <div class="editor-label" style="font-size: 30px;">
-                    @Html.LabelFor(m => m.Cli_cpf, htmlAttributes: new { @class = "" })
-                </div>
+            <div class="col-md-3">
+                <fieldset class="form-group">
+                    <label class="form-lbl" id="label">@Html.LabelFor(m => m.Cli_tel)</label>
+                    @Html.TextBoxFor(m => m.Cli_tel, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.Cli_tel)
+                </fieldset>
+            </div>
 
-                <div class="editor-field">
-                    @Html.EditorFor(m => m.Cli_cpf, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(m => m.Cli_cpf, "", new { @class = "" })
-                </div>
+            <div class="col-md-1">
+                <fieldset class="form-group">
+                    <label class="form-lbl" id="label">@Html.LabelFor(m => m.Cli_numEnd)</label>
+                    @Html.TextBoxFor(m => m.Cli_numEnd, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.Cli_numEnd)
+                </fieldset>
+            </div>
+        </div>
 
-                <div class="editor-label" style="font-size: 30px; margin-left: 500px; margin-top: -73px;">
-                    @Html.LabelFor(m => m.Cli_nome, htmlAttributes: new { @class = "" })
-                </div>
-
-                <div class="editor-field" style="margin-left: 500px; ">
-                    @Html.EditorFor(m => m.Cli_nome, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(m => m.Cli_nome, "", new { @class = "" })
-                </div>
-
-                <div class="editor-label" style="font-size: 30px;">
-                    @Html.LabelFor(m => m.Cli_numEnd, htmlAttributes: new { @class = "" })
-                </div>
-
-                <div class="editor-field" style="">
-                    @Html.EditorFor(m => m.Cli_numEnd, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(m => m.Cli_numEnd, "", new { @class = "" })
-                </div>
-
-                <div class="editor-label" style="font-size: 30px; margin-left: 500px; margin-top: -73px;">
-                    @Html.LabelFor(m => m.Cli_email, htmlAttributes: new { @class = "" })
-                </div>
-
-                <div class="editor-field" style="margin-left: 500px;">
-                    @Html.EditorFor(m => m.Cli_email, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(m => m.Cli_email, "", new { @class = "" })
-                </div>
-
-                <div class="editor-label" style="font-size: 30px;">
-                    @Html.LabelFor(m => m.Cli_tel, htmlAttributes: new { @class = "" })
-                </div>
-
-                <div class="editor-field" style="">
-                    @Html.EditorFor(m => m.Cli_tel, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(m => m.Cli_tel, "", new { @class = "" })
-                </div>
-
-                <div>
-                    <br /> <input type="submit" value="Alterar" name="btnenviar" />
-                </div>
-            </fildset>
-            @section Scripts{
-                @Scripts.Render("~/bundles/jqueryval");
+        <div>
+            <br /> <input class="btn btn-primary" id="button" type="submit" value="Alterar" name="btnenviar" />
+        </div>
+    </form>
+                @section Scripts{
+                    @Scripts.Render("~/bundles/jqueryval");
+                }
             }
-        }
 
     </div>
 </body>
