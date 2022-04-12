@@ -16,6 +16,10 @@
             height: 30px;
             font-size: 1.4rem;
         }
+
+        #txtArea{
+            width:80%;
+        }
     </style>
 </head>
 <body>
@@ -57,7 +61,7 @@
                     <div class="col">
                         <fieldset class="form-group">
                             <label class="form-lbl" id="label">@Html.LabelFor(m => m.Prod_desc)</label>
-                            @Html.TextAreaFor(m => m.Prod_desc, new { @class = "form-control", TextMode = "MultiLine", Rows = "4" })
+                            @Html.TextAreaFor(m => m.Prod_desc, new { @class = "form-control", @id="txtArea", TextMode = "MultiLine", Rows = "4" })
                             @Html.ValidationMessageFor(m => m.Prod_desc)
                         </fieldset>
                     </div>

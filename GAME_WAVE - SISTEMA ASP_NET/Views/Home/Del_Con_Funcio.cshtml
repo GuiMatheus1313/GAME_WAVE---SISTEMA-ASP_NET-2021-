@@ -53,8 +53,8 @@
                             <td>@Html.DisplayFor(modelItem => item.FK_cep_cep)</td>
 
                             <td>
-                                <a href="@Url.Action("AltFuncio", new {cdfunc = item.Func_cod})" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                                <a href="@Url.Action("DelFuncio", new {cdfunc = item.Func_cod})" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+                                <a href="@Url.Action("AltFuncio", null, new { cdfun = item.Func_cod })" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+                                <a href="@Url.Action("DelFuncio", null, new { cdfun = item.Func_cod })" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
                             </td>
                         </tr>
                     }

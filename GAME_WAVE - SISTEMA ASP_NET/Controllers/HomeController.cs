@@ -137,7 +137,7 @@ namespace GAME_WAVE___SISTEMA_ASP_NET.Controllers
         }
 
         [HttpGet]
-        public ActionResult AltFuncio(Int16 cdfun)
+        public ActionResult AltFuncio(short cdfun)
         {
             var cdfuncio = ac.ListarFuncProd(cdfun);
             if (cdfuncio == null)
@@ -156,7 +156,7 @@ namespace GAME_WAVE___SISTEMA_ASP_NET.Controllers
         }
 
         [HttpGet]
-        public ActionResult AltProduto(Int16 produ)
+        public ActionResult AltProduto(short produ)
         {
             var cdprod = ac.ListarProdCod(produ);
             if (cdprod == null)

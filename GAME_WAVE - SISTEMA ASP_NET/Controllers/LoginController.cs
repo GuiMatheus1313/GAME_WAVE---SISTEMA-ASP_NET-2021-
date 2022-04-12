@@ -31,7 +31,7 @@ namespace GAME_WAVE___SISTEMA_ASP_NET.Controllers
             }
             else
             {
-                return RedirectToAction("LoginIndex", "Login");
+                return RedirectToAction("Index", "Home");
             }
         }
 

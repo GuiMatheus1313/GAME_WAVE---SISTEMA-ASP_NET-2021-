@@ -10,6 +10,7 @@
     <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css'>
     <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css'>
     <link rel="stylesheet" href="~/Content/StyleForm.css" />
+    <script src="~/Scripts/Mask.js" type="text/javascript"></script>
     <style>
         .form-control {
             padding: 5px;
@@ -49,7 +50,7 @@
                     <div class="col-md-3">
                         <fieldset class="form-group">
                             <label class="form-lbl" id="label">@Html.LabelFor(m => m.DateEntre)</label>
-                            @Html.TextBoxFor(m => m.DateEntre, new { @class = "form-control" })
+                            @Html.TextBoxFor(m => m.DateEntre, new { @class = "form-control", onkeypress = "MaskDate(this)" })
                             @Html.ValidationMessageFor(m => m.DateEntre)
                         </fieldset>
                     </div>
@@ -57,7 +58,7 @@
                     <div class="col-md-3">
                         <fieldset class="form-group">
                             <label class="form-lbl" id="label">@Html.LabelFor(m => m.DateSaida)</label>
-                            @Html.TextBoxFor(m => m.DateSaida, new { @class = "form-control" })
+                            @Html.TextBoxFor(m => m.DateSaida, new { @class = "form-control", onkeypress = "MaskDate(this)" })
                             @Html.ValidationMessageFor(m => m.DateSaida)
                         </fieldset>
                     </div>
