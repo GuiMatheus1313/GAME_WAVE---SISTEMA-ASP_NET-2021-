@@ -33,7 +33,7 @@ namespace GAME_WAVE___SISTEMA_ASP_NET.Models
 
         [Required(ErrorMessage = "Este campo é obrigatório")]
         [Display(Name = "Data de Nascimento")]
-        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/YYYY}", ApplyFormatInEditMode = true)]
         public DateTime Func_datanasc 
         {
             get

@@ -61,8 +61,10 @@
                 <td>
                     @Html.ActionLink("Alterar", "AltTeste", null, new { test = item.Agen_Cod }, new { @class = "btn btn-primary" })
                     @Html.ActionLink("Excluir", "DelTeste", null, new { testcod = item.Agen_Cod }, new { @class = "btn btn-danger" })<br />
-                    @Html.ActionLink("Cliente", "EncontraCli", null, new { cpf = item.Fk_Cliente_Cli_cpf }, new { @class = "btn btn-info" })
-                    @Html.ActionLink("Produto", "EncontraProd", null, new { produ = item.Fk_Produto_Cod_Prod }, new { @class = "btn btn-info" })
+                    @Html.ActionLink("Cliente", "Del_Con_Cliente", null, new { cpf = item.Fk_Cliente_Cli_cpf }, new { @class = "btn btn-info" })
+                    @Html.ActionLink("Produto", "Del_Con_Produto", null, new { produ = item.Fk_Produto_Cod_Prod }, new { @class = "btn btn-info" })
+
+
                 </td>
             </tr>
         }
