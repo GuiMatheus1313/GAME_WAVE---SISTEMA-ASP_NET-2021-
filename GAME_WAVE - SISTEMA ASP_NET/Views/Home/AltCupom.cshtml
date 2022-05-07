@@ -1,0 +1,64 @@
+﻿<!DOCTYPE HTML>
+<html lang="pt-br">
+@model GAME_WAVE___SISTEMA_ASP_NET.Models.Classe_Cupom
+@{
+    ViewBag.Title = "Alteração do Cupom";
+}
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="~/Content/background_imagens.css" />
+    <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css'>
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css'>
+    <link rel="stylesheet" href="~/Content/StyleForm.css" />
+    <style>
+        .form-control {
+            padding: 5px;
+            height: 30px;
+            font-size: 1.4rem;
+        }
+
+        form{
+            margin:5% 0% 5% 20%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 align="center"> <b>Alterar Cupom</b></h1>
+            @using (Html.BeginForm("AltCupom", "Home", FormMethod.Post))
+            {
+                @Html.AntiForgeryToken()
+    <form class="form">
+        <div class="row">
+            <div class="col-md-3">
+                <fieldset class="form-group">
+                    <label class="form-label" id="label">@Html.LabelFor(m => m.Cupom_cod)</label>
+                    @Html.TextBoxFor(m => m.Cupom_cod, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.Cupom_cod)
+                </fieldset>
+            </div>
+
+            <div class="col-md-3">
+                <fieldset class="form-group">
+                    <label class="form-lbl" id="label">@Html.LabelFor(m => m.DescontoCupom)</label>
+                    @Html.TextBoxFor(m => m.DescontoCupom, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.DescontoCupom)
+                </fieldset>
+            </div>
+        </div>
+
+
+        <div>
+            <br /> <input class="btn btn-primary" id="button"  type="submit" value="Alterar" name="btnenviar" />
+        </div>
+    </form>
+                @section Scripts{
+                    @Scripts.Render("~/bundles/jqueryval");
+                }
+            }
+
+        </div>
+</body>
+</html>
+
+

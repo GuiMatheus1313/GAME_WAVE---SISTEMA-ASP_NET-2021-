@@ -1,0 +1,78 @@
+﻿
+<!DOCTYPE html>
+<html lang="pt-br">
+@{
+    ViewBag.Title = "Página Inicial";
+}
+<head>
+    <meta charset="UTF-8">
+    <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css'>
+    <link rel="stylesheet" type="text/css" href="~/Content/Site.css">
+</head>
+
+<body>
+    <!-- partial:index.partial.html -->
+
+    <div class="conteudo">
+        <section class="jumbotron jumbotron-fluid" id="banner">
+            <div class="container">
+                <div class="row align-items-center">
+                    <!-- conteudo da esquerda -->
+                    <div class="col-md-5 col-sm-6 mobile-flex">
+                        <div class=" title mb-2">
+                            <p class="subject">Olá, funcionário!</p>
+                        </div>
+                        <h3 class="mb-4">Utilize o botão na barra ao topo para realizar suas tarefas!</h3>
+                    </div>
+                    <!-- imagem da direita -->
+                    <div class="col-md-6 col-sm-6 pt-7 pt-sm-0">
+                        <div class="center-block img-responsive" id="imgBanner">
+                            <div class="image-zone">
+                                <img class="right-image" src="~/Content/Images/gamewave.gif" alt="Icon empresa banner" width="110%">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--
+        <div class="container" id="loginForm">
+            <div class="row">
+                <div class="fecha" onclick="FechaBoxVemda()">X</div>
+                <div class="col-lg-12 col-md-8 login-box">
+                    <div class="login-title text-center mb-3" id="title">
+                        Para iniciar uma venda inclua o CPF do Cliente
+                    </div>
+                    <div class="col-lg-12 login-form">
+                        <form name="frmCpf" method="post" action="venda.html">
+                            <div class="form-group">
+                                <label class="form-control-label" id="lblCpf" for="txtcpfCli">CPF</label>
+                                <input type="text" id="txtcpfCli" class="form-control" name="txtcpfCli" required id="txtcpfCli">
+                            </div>
+                            <button type="submit" class="btn btn-outline-primary" id="Btninicio">iniciar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+            -->
+
+
+    </div>
+    <!-- partial -->
+    <!--
+    <script src='https://code.jquery.com/jquery-3.4.1.slim.min.js'></script>
+    <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js'></script>
+    <script src="./script.js"></script>
+    <script>
+    function abreBoxVemda() {
+            document.getElementById("loginForm").style.display = "block";
+        }
+
+        function FechaBoxVemda() {
+            document.getElementById("loginForm").style.display = "none";
+        }</script>
+        -->
+</body>
+</html>

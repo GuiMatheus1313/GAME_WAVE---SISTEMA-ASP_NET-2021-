@@ -1,0 +1,64 @@
+﻿<!DOCTYPE HTML>
+<html lang="pt-br">
+@model GAME_WAVE___SISTEMA_ASP_NET.Models.Classe_Cupom
+@{
+    ViewBag.Title = "Cadastro do Cupom";
+}
+
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="~/Content/background_imagens.css" />
+    <link rel="stylesheet" href="~/Content/StyleForm.css" />
+    <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css'>
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css'>
+    <style>
+        .form-control {
+            padding: 5px;
+            height: 30px;
+            font-size: 1.4rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <br>
+        <h1 align="center">Adicionar Cupom</h1>
+        <br>
+
+        @using (Html.BeginForm("CadCupom", "Home", FormMethod.Post))
+        {
+            @Html.ValidationSummary(true)
+
+            <form class="form">
+                <div class="row">
+                    <div class="col-md-3">
+                        <fieldset class="form-group">
+                            <label class="form-label" id="label">@Html.LabelFor(m => m.Cupom_cod)</label>
+                            @Html.TextBoxFor(m => m.Cupom_cod, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.Cupom_cod)
+                        </fieldset>
+                    </div>
+
+                    <div class="col-md-3">
+                        <fieldset class="form-group">
+                            <label class="form-label" id="label">@Html.LabelFor(m => m.DescontoCupom)</label>
+                            @Html.TextBoxFor(m => m.DescontoCupom, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.DescontoCupom)
+                        </fieldset>
+                    </div>
+                </div>
+                      
+                        <div class="row">
+                            <div class="col-md-3">
+                                <input class="btn btn-primary" id="button" type="submit" value="Cadastrar" name="btnenviar" />
+                            </div>
+                        </div>
+            </form>
+            @section Scripts{
+                @Scripts.Render("~/bundles/jqueryval")
+            }
+        }
+    </div>
+</body>
+</html>
+

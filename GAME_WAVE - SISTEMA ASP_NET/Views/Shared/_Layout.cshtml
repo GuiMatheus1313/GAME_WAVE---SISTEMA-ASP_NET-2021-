@@ -1,0 +1,104 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <!-- Fazeremes
+        **Arrumar cor da iperLink
+        ** Arrumar respancividade
+        **Tela Inical mais Otimizada
+        **Loing Mais bonito
+        -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - GAME WAVE - SUA LOJA GEEKER FAVORITA</title>
+    @Scripts.Render("~/bundles/modernizr")
+    @Styles.Render("~/Content/css")
+    <style>
+        * {
+            font-family: Calibri;
+        }
+
+        .navbar-nav > .active > a {
+            background-color: #C0C0C0;
+            color: green;
+        }
+
+        body {
+            padding: 0px;
+        }
+
+        .navbar {
+            height: 80px;
+            margin-top: 0px;
+        }
+
+        #navbarItem {
+            font-size: 16px;
+            padding: 5px;
+            margin-left: 16px;
+        }
+
+        .dropdown-menu {
+            margin-left: 30px;
+            color: black;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <!--  -->
+    <!----------------Header-------------->
+    <nav class="navbar navbar-dark bg-dark navbar-expand-sm">
+        <!--Logo-->
+        <a class="navbar-brand" href="@Url.Action("Index","Home")">
+            <img src="~/Content/Images/Logoclientegamewave (1).png" style="width:65px;" />
+        </a>
+
+        <!--Respansividade-->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-list-3" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!--Itens -->
+        <div class="collapse navbar-collapse" id="navbar-list-3">
+            <ul class="navbar-nav">
+                <!-- Clinte -->
+                <li class="nav-item" id="navbarItem">                 
+                    @Html.ActionLink("Clinte", "Del_Con_Cliente", "Home")                 
+                </li>
+
+                <!-- Funionario -->
+                <li class="nav-item" id="navbarItem">
+                    @Html.ActionLink("Funionario", "Del_Con_Funcio", "Home")
+                </li>
+
+                <!-- Produto  -->
+                <li class="nav-item" id="navbarItem">
+                   @Html.ActionLink("Produto", "Del_Con_Produto", "Home")
+                </li>
+
+                <!-- Serviço  -->
+                <li class="nav-item" id="navbarItem">
+                   @Html.ActionLink("Serviço", "Del_Con_Servico", "Home")
+                </li>
+
+                <!-- Cupons  -->
+                <li class="nav-item" id="navbarItem">                
+                        @Html.ActionLink("Cupom", "Del_Con_Cupom", "Home")
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; GAME WAVE @DateTime.Now.Year - TODOS OS DIREITOS RESERVADOS </p>
+        </footer>
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

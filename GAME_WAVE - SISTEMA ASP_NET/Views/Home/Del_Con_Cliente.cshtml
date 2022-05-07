@@ -1,0 +1,69 @@
+﻿@model IEnumerable<GAME_WAVE___SISTEMA_ASP_NET.Models.Classe_Cliente>
+<!DOCTYPE HTML>
+<html lang="pt-br">
+@{
+    ViewBag.Title = "Consulta dos Clientes";
+}
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="~/Content/background_imagens.css" />
+    <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css'>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" type="text/css" href="~/Content/StyleListItens.css">
+    <style>
+        .table-wrapper {
+           align-self:center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="table-wrapper justify-content-center">
+            <div class="table-title">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <h2>Lista dos clientes</h2>
+                    </div>
+                    <div class="col-sm-6">
+                        <a href="@Url.Action("CadClienteIndex","Home")" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Novo</span></a>
+                    </div>
+                </div>
+            </div>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>@Html.DisplayNameFor(model => model.Cli_cpf)</th>
+                        <th>@Html.DisplayNameFor(model => model.Cli_nome)</th>
+                        <th>@Html.DisplayNameFor(model => model.Cep)</th>
+                        <th>@Html.DisplayNameFor(model => model.Cli_email)</th>
+                        <th>@Html.DisplayNameFor(model => model.Cli_tel)</th>
+                        <th>@Html.DisplayNameFor(model => model.Cli_numEnd)</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @foreach (var item in Model)
+                     {
+                        <tr>
+                            <td>@Html.DisplayFor(modelItem => item.Cli_cpf)</td>
+                            <td>@Html.DisplayFor(modelItem => item.Cli_nome)</td>
+                            <td>@Html.DisplayFor(modelItem => item.FK_cep_cep)</td>
+                            <td>@Html.DisplayFor(modelItem => item.Cli_email)</td>
+                            <td>@Html.DisplayFor(modelItem => item.Cli_tel)</td>
+                            <td>@Html.DisplayFor(modelItem => item.Cli_numEnd)</td>
+
+                            <td>
+                                <a href="@Url.Action("AltCliente", new {cpf = item.Cli_cpf})"class="edit" data-toggle="modal" ><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+                                <a href="@Url.Action("DelCliente", new {cpf = item.Cli_cpf})" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+                            </td>
+                        </tr>
+                     }
+                </tbody>
+                    
+            </table>
+        </div>
+    </div>
+</body>
+</html>
+

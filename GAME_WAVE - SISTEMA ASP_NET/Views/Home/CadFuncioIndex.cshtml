@@ -1,0 +1,156 @@
+﻿<!DOCTYPE HTML>
+<html lang="pt-br">
+@model GAME_WAVE___SISTEMA_ASP_NET.Models.Classe_Funcionario
+@{
+    ViewBag.Title = "Cadastro de Funcionário";
+}
+<head>
+    <meta charset="utf-8" />
+    <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css'>
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css'>
+    <link rel="stylesheet" href="~/Content/StyleForm.css" />
+    <script src="~/Scripts/Mask.js" type="text/javascript"></script>
+    <style>
+        .form-control {
+            padding: 5px;
+            height: 30px;
+            font-size: 1.4rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <br>
+        <h1 align="center"> Cadastro do Funcionário</h1>
+            @using (Html.BeginForm("CadFuncio", "Home", FormMethod.Post))
+            {
+                @Html.ValidationSummary(true)
+    <form class="form">
+        <div class="row">
+            <!-- Dados Pessoais func-->
+            <div class="col-md-3">
+                <fieldset class="form-group">
+                    <label class="form-label" id="label">@Html.LabelFor(m => m.Func_cpf)</label>
+                    @Html.TextBoxFor(m => m.Func_cpf, new { @class = "form-control", onkeyup = "MaskCpf(this)" })
+                    @Html.ValidationMessageFor(m => m.Func_cpf)
+                </fieldset>
+            </div>
+
+            <div class="col-md-3">
+                <fieldset class="form-group">
+                    <label class="form-lbl" id="label">@Html.LabelFor(m => m.Func_nome)</label>
+                    @Html.TextBoxFor(m => m.Func_nome, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.Func_nome)
+                </fieldset>
+            </div>
+        </div>
+
+        <!--  -->
+        <div class="row">
+            <div class="col-md-3">
+                <fieldset class="form-group">
+                    <label class="form-lbl" id="label">@Html.LabelFor(m => m.Func_email)</label>
+                    @Html.TextBoxFor(m => m.Func_email, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.Func_email)
+                </fieldset>
+            </div>
+
+            <div class="col-md-3">
+                <fieldset class="form-group">
+                    <label class="form-lbl" id="label">@Html.LabelFor(m => m.Func_tel)</label>
+                    @Html.TextBoxFor(m => m.Func_tel,"0", new { @class = "form-control", onkeypress = "MaskTel(this)" })
+                    @Html.ValidationMessageFor(m => m.Func_tel)
+                </fieldset>
+            </div>
+
+            <div class="col-md-3">
+                <fieldset class="form-group">
+                    <label class="form-lbl" id="label">@Html.LabelFor(m => m.Func_datanasc)</label>
+                    @Html.TextBoxFor(m => m.Func_datanasc, new { @class = "form-control", onkeypress = "MaskDate(this)" })
+                    @Html.ValidationMessageFor(m => m.Func_datanasc)
+                </fieldset>
+            </div>
+        </div>
+
+        <!-- CArgo e senha -->
+        <div class="row">
+            <div class="col-md-3">
+                <fieldset class="form-group">
+                    <label class="form-lbl" id="label">@Html.LabelFor(m => m.Func_cargo)</label>
+                    @Html.TextBoxFor(m => m.Func_cargo, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.Func_cargo)
+                </fieldset>
+            </div>
+
+            <div class="col-md-3">
+                <fieldset class="form-group">
+                    <label class="form-lbl" id="label">@Html.LabelFor(m => m.Func_senha)</label>
+                    @Html.TextBoxFor(m => m.Func_senha, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.Func_senha)
+                </fieldset>
+            </div>
+        </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <fieldset class="form-group">
+                        <label class="form-lbl" id="label">@Html.LabelFor(m => m.Cep)</label>
+                        @Html.TextBoxFor(m => m.Cep, new { @class = "form-control", onkeyup = "MaskCep(this)" })
+                        @Html.ValidationMessageFor(m => m.Cep)
+                    </fieldset>
+                </div>
+            
+                <div class="col-md-3">
+                    <fieldset class="form-group">
+                        <label class="form-lbl" id="label">@Html.LabelFor(m => m.Nome_uf)</label>
+                        @Html.TextBoxFor(m => m.Nome_uf, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Nome_uf)
+                    </fieldset>
+                </div>
+
+                <div class="col-md-3">
+                    <fieldset class="form-group">
+                        <label class="form-lbl" id="label">@Html.LabelFor(m => m.Nome_cidade)</label>
+                        @Html.TextBoxFor(m => m.Nome_cidade, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Nome_cidade)
+                    </fieldset>
+                </div>
+
+                <div class="col-md-3">
+                    <fieldset class="form-group">
+                        <label class="form-lbl" id="label">@Html.LabelFor(m => m.Nome_bairro)</label>
+                        @Html.TextBoxFor(m => m.Nome_bairro, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Nome_bairro)
+                    </fieldset>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-3">
+                    <fieldset class="form-group">
+                        <label class="form-lbl" id="label">@Html.LabelFor(m => m.Logradouro)</label>
+                        @Html.TextBoxFor(m => m.Logradouro, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Logradouro)
+                    </fieldset>
+                </div>
+
+                <div class="col-md-1">
+                    <fieldset class="form-group">
+                        <label class="form-lbl" id="label">@Html.LabelFor(m => m.Func_num_end)</label>
+                        @Html.TextBoxFor(m => m.Func_num_end, "", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Func_num_end)
+                    </fieldset>
+                </div>
+            </div>
+
+            <div>
+                <br /> <input class="btn btn-primary" id="button" type="submit" value="Cadastrar" name="btnenviar" />
+            </div>
+    </form>
+                @section Scripts{
+                    @Scripts.Render("~/bundles/jqueryval")
+                }
+            }
+        </div>
+ 
+</body>
+</html>
