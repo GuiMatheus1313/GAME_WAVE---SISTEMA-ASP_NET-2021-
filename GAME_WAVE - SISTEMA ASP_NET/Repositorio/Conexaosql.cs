@@ -8,7 +8,7 @@ namespace GAME_WAVE___SISTEMA_ASP_NET.Repositorio
 {
     public class Conexaosql
     {
-        MySqlConnection conexao = new MySqlConnection("Server=localhost;Database=BDLojaJogos_tcm;user=root; pwd=PLMjy_579");
+        MySqlConnection conexao = new MySqlConnection("Server=localhost;Database=BDLojaJogos_tcm;user=root;pwd= guiguiba");
         public static string msg; 
         
         public MySqlConnection ConectarBD()

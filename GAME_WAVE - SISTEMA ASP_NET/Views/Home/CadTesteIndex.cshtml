@@ -7,64 +7,65 @@
 
 <head>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="~/Content/" />
-    <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css'>
-    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css'>
-    <link rel="stylesheet" href="~/Content/StyleForm.css" />
+    <link rel="stylesheet" href="" />
+
+
 </head>
 <body>
-    <div class="container">
-        <h1> <b>Teste Drive</b></h1>
+    <br />
+    <br />
+    <legend> Cadastro do Test Drive</legend>
+
+    <div class="container" id="">
 
         @using (Html.BeginForm("CadTeste", "Home", FormMethod.Post))
         {
             @Html.ValidationSummary(true)
-            <form class="form">
-                <div class="row">
-                    <div class="col-md-3">
-                        <fieldset class="form-group">
-                            <label class="form-label" id="label">@Html.LabelFor(m => m.Age_DtRetirada)</label>
-                            @Html.TextBoxFor(m => m.Age_DtRetirada, new { @class = "form-control", })
-                            @Html.ValidationMessageFor(m => m.Age_DtRetirada)
-                        </fieldset>
-                    </div>
+            <fieldset>
 
-                    <div class="col-md-3">
-                        <fieldset class="form-group">
-                            <label class="form-lbl">@Html.LabelFor(m => m.Age_Desc)</label>
-                            @Html.TextBoxFor(m => m.Age_Desc, new { @class = "form-control" })
-                            @Html.ValidationMessageFor(m => m.Age_Desc)
-                        </fieldset>
-                    </div>
+                <div class="editor-label" style="font-size: 30px;">
+                    @Html.LabelFor(m => m.Age_DtRetirada)
                 </div>
 
-                <div class="row">
-                    <div class="col-md-3">
-                        <fieldset class="form-group">
-                            <label class="form-lbl" id="label">@Html.LabelFor(m => m.Fk_Cliente_Cli_cpf)</label>
-                            @Html.TextBoxFor(m => m.Fk_Cliente_Cli_cpf, new { @class = "form-control" })
-                            @Html.ValidationMessageFor(m => m.Fk_Cliente_Cli_cpf)
-                        </fieldset>
-                    </div>
-
-                    <div class="col-md-3">
-                        <fieldset class="form-group">
-                            <label class="form-lbl" id="label">@Html.LabelFor(m => m.Fk_Produto_Cod_Prod)</label>
-                            @Html.TextBoxFor(m => m.Fk_Produto_Cod_Prod, new { @class = "form-control" })
-                            @Html.ValidationMessageFor(m => m.Fk_Produto_Cod_Prod)
-                        </fieldset>
-                    </div>
+                <div class="editor-field">
+                    @Html.EditorFor(m => m.Age_DtRetirada)
+                    @Html.ValidationMessageFor(m => m.Age_DtRetirada)
                 </div>
 
+                <div class="editor-label" style="font-size: 30px; margin-left: 500px; margin-top: -73px;">
+                    @Html.LabelFor(m => m.Age_Desc)
+                </div>
+
+                <div class="editor-field" style="margin-left: 500px;">
+                    @Html.EditorFor(m => m.Age_Desc)
+                    @Html.ValidationMessageFor(m => m.Age_Desc)
+                </div>
+
+                <div class="editor-label" style="font-size: 30px;">
+                    @Html.LabelFor(m => m.Fk_Cliente_Cli_cpf)
+                </div>
+
+                <div class="editor-field">
+                    @Html.EditorFor(m => m.Fk_Cliente_Cli_cpf)
+                    @Html.ValidationMessageFor(m => m.Fk_Cliente_Cli_cpf)
+                </div>
+
+                <div class="editor-label" style="font-size: 30px; margin-left: 500px; margin-top: -73px;">
+                    @Html.LabelFor(m => m.Fk_Produto_Cod_Prod)
+                </div>
+
+                <div class="editor-field" style="margin-left: 500px;">
+                    @Html.EditorFor(m => m.Fk_Produto_Cod_Prod)
+                    @Html.ValidationMessageFor(m => m.Fk_Produto_Cod_Prod)
+                </div>
                 <div>
                     <br /> <input type="submit" value="Cadastrar" name="btnenviar" />
                 </div>
-            </form>
+            </fieldset>
             @section Scripts{
                 @Scripts.Render("~/bundles/jqueryval");
             }
         }
-    </div>
 </body>
 </html>
 

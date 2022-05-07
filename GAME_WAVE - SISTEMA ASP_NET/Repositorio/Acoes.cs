@@ -61,19 +61,19 @@ namespace GAME_WAVE___SISTEMA_ASP_NET.Repositorio
             cmd.ExecuteNonQuery();
             conectar.DesconectarBD();
         }
-
+        
         
         public void CadastrarFuncio(Classe_Funcionario fun)
         {
-            MySqlCommand cmd = new MySqlCommand("call SPInsertFunc (@vNome_uf,@vNome_Cidade,@vNome_bairro, @vCep, @vLogradouro,@vFunc_Nome,@vFunc_CPF,@vFunc_Tel,@vFunc_Email,@vFunc_DataNasc,@vFunc_Num_End,@vFunc_Cargo, @vFunc_senha)", conectar.ConectarBD());
+            MySqlCommand cmd = new MySqlCommand("call SPInsertFunc (@vNome_uf,@vNome_Cidade,@vNome_bairro,@vFK_cep_cep,@vLogradouro,@vFunc_Nome,@vFunc_CPF,@vFunc_Tel,@vFunc_Email,@vFunc_DataNasc,@vFunc_Num_End,@vFunc_Cargo, @vFunc_senha)", conectar.ConectarBD());
             cmd.Parameters.Add("@vNome_uf", MySqlDbType.VarChar).Value = fun.Nome_uf;
             cmd.Parameters.Add("@vNome_Cidade", MySqlDbType.VarChar).Value = fun.Nome_cidade;
             cmd.Parameters.Add("@vNome_bairro", MySqlDbType.VarChar).Value = fun.Nome_bairro;
-            cmd.Parameters.Add("@vCep", MySqlDbType.VarChar).Value = fun.Cep;
+            cmd.Parameters.Add("@vFK_cep_cep", MySqlDbType.VarChar).Value = fun.Cep;
             cmd.Parameters.Add("@vLogradouro", MySqlDbType.VarChar).Value = fun.Logradouro;
             cmd.Parameters.Add("@vFunc_Nome", MySqlDbType.VarChar).Value = fun.Func_nome;
             cmd.Parameters.Add("@vFunc_CPF", MySqlDbType.VarChar).Value = fun.Func_cpf;
-            cmd.Parameters.Add("@vFunc_Tel", MySqlDbType.VarChar).Value = fun.Func_tel;
+            cmd.Parameters.Add("@vFunc_Tel", MySqlDbType.LongBlob).Value = fun.Func_tel;
             cmd.Parameters.Add("@vFunc_Email", MySqlDbType.VarChar).Value = fun.Func_email;
             cmd.Parameters.Add("@vFunc_DataNasc", MySqlDbType.DateTime).Value = fun.Func_datanasc;
             cmd.Parameters.Add("@vFunc_Num_End", MySqlDbType.Int32).Value = fun.Func_num_end;
@@ -92,7 +92,7 @@ namespace GAME_WAVE___SISTEMA_ASP_NET.Repositorio
             cmd.Parameters.Add("@vProd_Desc", MySqlDbType.VarChar).Value = prod.Prod_desc;
             cmd.Parameters.Add("@vProd_AnoLanc", MySqlDbType.VarChar).Value = prod.Prod_anolanc;
             cmd.Parameters.Add("@vProd_FaixaEta", MySqlDbType.VarChar).Value = prod.Prod_faixaeta;
-            cmd.Parameters.Add("@vProd_Valor", MySqlDbType.Float).Value = prod.Prod_valor;
+            cmd.Parameters.Add("@vProd_Valor", MySqlDbType.Decimal).Value = prod.Prod_valor;
             cmd.ExecuteNonQuery();
             conectar.DesconectarBD();
         }
@@ -186,7 +186,7 @@ namespace GAME_WAVE___SISTEMA_ASP_NET.Repositorio
             cmd.Parameters.Add("@prod_Desc", MySqlDbType.VarChar).Value = produ.Prod_desc;
             cmd.Parameters.Add("@prod_AnoLanc", MySqlDbType.VarChar).Value = produ.Prod_anolanc;
             cmd.Parameters.Add("@prod_FaixaEta", MySqlDbType.VarChar).Value = produ.Prod_faixaeta;
-            cmd.Parameters.Add("@prod_Valor", MySqlDbType.Float).Value = produ.Prod_valor;
+            cmd.Parameters.Add("@prod_Valor", MySqlDbType.Decimal).Value = produ.Prod_valor;
             cmd.Parameters.Add("@cod_prod", MySqlDbType.Int16).Value = produ.Cod_prod;
             cmd.ExecuteNonQuery();
             conectar.DesconectarBD();
@@ -215,8 +215,7 @@ namespace GAME_WAVE___SISTEMA_ASP_NET.Repositorio
         
         public void AltServico(Classe_Servico serv)
         {
-            MySqlCommand cmd = new MySqlCommand("update TBServico set desc_Serv=@desc_Serv, prod_Serv=@prod_Serv, dateEntre=@DateEntre, dateSaida=@DateSaida, valor_servico=@valor_servico, fk_Funcionario_Func_Cod=@FK_Funcionario_Func_Cod WHERE cod_Serv=@cod_Serv", conectar.ConectarBD());
-            cmd.Parameters.Add("@cod_Serv", MySqlDbType.Int32).Value = serv.Cod_Serv;
+            MySqlCommand cmd = new MySqlCommand("update TBServico set desc_Serv=@desc_Serv, prod_Serv=@prod_Serv, dateEntre=@DateEntre, dateSaida=@DateSaida, valor_servico=@valor_servico, fk_Funcionario_Func_Cod=@FK_Funcionario_Func_Cod", conectar.ConectarBD());
             cmd.Parameters.Add("@desc_Serv", MySqlDbType.VarChar).Value = serv.Desc_Serv;
             cmd.Parameters.Add("@prod_Serv", MySqlDbType.VarChar).Value = serv.Prod_Serv;
             cmd.Parameters.Add("@DateEntre", MySqlDbType.Date).Value = serv.DateEntre;
@@ -254,7 +253,7 @@ namespace GAME_WAVE___SISTEMA_ASP_NET.Repositorio
 
         public void DelCupom(string cupom)
         {
-            var deletacp = String.Format("delete from TBCupom where cupom_cod ='{0}'", cupom);
+            var deletacp = String.Format("call SPDeleteCupom ('{0}')", cupom);
             MySqlCommand cmd = new MySqlCommand(deletacp, conectar.ConectarBD());
             cmd.ExecuteReader();
         }
@@ -355,7 +354,7 @@ namespace GAME_WAVE___SISTEMA_ASP_NET.Repositorio
                     Func_cod = Int16.Parse(dr["Func_cod"].ToString()),
                     Func_nome = dr["Func_nome"].ToString(),
                     Func_cpf = dr["Func_cpf"].ToString(),
-                    Func_tel = dr["Func_tel"].ToString(),
+                    Func_tel = long.Parse(dr["Func_tel"].ToString()),
                     Func_email = dr["Func_email"].ToString(),
                     Func_datanasc = DateTime.Parse(dr["Func_datanasc"].ToString()),
                     Func_num_end = Int16.Parse(dr["Func_num_end"].ToString()),
@@ -452,6 +451,8 @@ namespace GAME_WAVE___SISTEMA_ASP_NET.Repositorio
             dr.Close();
             return ListCup;
         }
+
+        /**/
 
         public List<Classe_Servico> ListarServ()
         {

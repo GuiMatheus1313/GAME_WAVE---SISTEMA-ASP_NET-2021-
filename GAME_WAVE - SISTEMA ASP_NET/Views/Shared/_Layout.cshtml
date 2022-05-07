@@ -1,95 +1,167 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <!-- Fazeremes
-        **Arrumar cor da iperLink
-        ** Arrumar respancividade
-        **Tela Inical mais Otimizada
-        **Loing Mais bonito
-        -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - GAME WAVE - SUA LOJA GEEKER FAVORITA</title>
-    @Scripts.Render("~/bundles/modernizr")
     @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+
+    
     <style>
-        * {
-            font-family: Calibri;
+        .sidebar {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #3d3d3d;
+            overflow-x: hidden;
+            transition: 0.2s;
+            padding-top: 60px;
         }
 
-        .navbar-nav > .active > a {
-            background-color: #C0C0C0;
-            color: green;
-        }
+            .sidebar button {
+                padding: 6px 6px 6px 18px;
+                text-decoration: none;
+                font-size: 23px;
+                background-color: white;
+                display: block;
+                width: 100%;
+                height: 100px;
+            }
 
-        body {
-            padding: 0px;
-        }
+                .sidebar button:hover {
+                    color: #545454;
+                }
 
-        .navbar {
-            height: 80px;
-            margin-top: 0px;
-        }
+            .sidebar .fechabtn {
+                position: absolute;
+                top: 0;
+                right: 25px;
+                font-size: 40px;
+                margin-left: 100px;
+            }
 
-        #navbarItem {
-            font-size: 16px;
-            padding: 5px;
-            margin-left: 16px;
-        }
-
-        .dropdown-menu {
-            margin-left: 30px;
-            color: black;
+        .abrebtn {
+            font-size: 20px;
+            cursor: pointer;
+            background-color: #545454;
+            color: white;
             padding: 10px;
+            border: none;
+            margin-left: 750px;
+            margin-top: 10px;
+        }
+
+        #cadastrobarra {
+            position: relative;
+            float: right;
+            margin-top: -110px;
+            width: 50px;
+            background-color: #222222;
+        }
+
+        #cadastrobarra button {
+            width: 150px;
+            height: 40px;
+            text-decoration: none;
+            color: #ffffff;
+            background-color: #262626;
+            border: none;
+            font-family: Calibri;
+            font-weight: bold;
+            }
+
+        #barralateral p {
+            font-family: Calibri;
+            font-weight: bold;
+            color: #ffffff;
+            font-size: 20px;
         }
     </style>
 </head>
-
 <body>
-    <!--  -->
-    <!----------------Header-------------->
-    <nav class="navbar navbar-dark bg-dark navbar-expand-sm">
-        <!--Logo-->
-        <a class="navbar-brand" href="@Url.Action("Index","Home")">
-            <img src="~/Content/Images/Logoclientegamewave (1).png" style="width:65px;" />
-        </a>
+    <div class="navbar navbar-expand-lg navbar-inverse navbar-fixed-top  navbar-dark bg-dark">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <ul class="nav navbar-nav" style="font-family">
+                        <li><img src="~/Content/Images/Logoclientegamewave (1).png" width="65px;" /></li>
+                            <li>@Html.ActionLink("GAME WAVE - PÁGINA INICIAL", "Index", "Home")</li>
+                            <li>
+                                <button id="lateral" class="abrebtn" onClick="openNav()">☰</button>
+                            </li>
+                        </ul>
+                </div>
+                
 
-        <!--Respansividade-->
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-list-3" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <!--
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+            -->
 
-        <!--Itens -->
-        <div class="collapse navbar-collapse" id="navbar-list-3">
-            <ul class="navbar-nav">
-                <!-- Clinte -->
-                <li class="nav-item" id="navbarItem">                 
-                    @Html.ActionLink("Clinte", "Del_Con_Cliente", "Home")                 
-                </li>
+                </button>
+                <!--
+        @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+    -->
+                <!--<button id="lateral" class="abrebtn" onClick="openNav()">☰</button>-->
+            </div>
+            
 
-                <!-- Funionario -->
-                <li class="nav-item" id="navbarItem">
-                    @Html.ActionLink("Funionario", "Del_Con_Funcio", "Home")
-                </li>
 
-                <!-- Produto  -->
-                <li class="nav-item" id="navbarItem">
-                   @Html.ActionLink("Produto", "Del_Con_Produto", "Home")
-                </li>
 
-                <!-- Serviço  -->
-                <li class="nav-item" id="navbarItem">
-                   @Html.ActionLink("Serviço", "Del_Con_Servico", "Home")
-                </li>
+            <div id="barralateral" class="sidebar">
+                <a href="javascript:void(0)" class="fechabtn" onclick="closeNav()">X</a>
+                <p>Utilize os botões abaixo para realizar as funções necessárias! </p>
+                <div class="dropdown dropdown-menu-right">
+                    <button type="button" class="btn btn-glyphicon glyphicon-plus dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="width: 300px; text-align: left; font-family: Calibri; font-weight: bold;">
+                        Cadastrar
+                    </button>
+                    <div id="cadastrobarra" class="dropdown-menu" style="margin-right: 10px;">
+                        <button class="dropdown-item">@Html.ActionLink("Cliente", "CadClienteIndex", "Home")</button><br />
+                        <button class="dropdown-item">@Html.ActionLink("Produto", "CadProdutoIndex", "Home")</button><br>
+                        <button class="dropdown-item">@Html.ActionLink("Funcionário", "CadFuncioIndex", "Home")</button> <br />
+                        <button class="dropdown-item">@Html.ActionLink("Cupom", "CadCupomIndex", "Home")</button><br />
+                        <button class="dropdown-item">@Html.ActionLink("Serviço", "CadServicoIndex","Home")</button> <br />
+                        <button class="dropdown-item">@Html.ActionLink("Test Drive", "CadTesteIndex", "Home")</button><br />
 
-                <!-- Cupons  -->
-                <li class="nav-item" id="navbarItem">                
-                        @Html.ActionLink("Cupom", "Del_Con_Cupom", "Home")
-                </li>
-            </ul>
+
+
+                    </div>
+                </div>
+                <br />
+                <br />
+                <div class="dropdown dropdown-menu-right">
+                    <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="width: 300px; text-align: left; font-family: Calibri; font-weight: bold; height: 190px;">
+                        Consultar<br>------------<br />Alterar<br>------------<br />Deletar
+                    </button>
+                    <div id="cadastrobarra" class="dropdown-menu" style="margin-right: 10px;">
+                        <button class="dropdown-item">@Html.ActionLink("Cliente", "Del_Con_Cliente", "Home")</button><br />
+                        <button class="dropdown-item">@Html.ActionLink("Produto", "Del_Con_Produto", "Home")</button><br>
+                        <button class="dropdown-item">@Html.ActionLink("Funcionário", "Del_Con_Funcio", "Home")</button><br />
+                        <button class="dropdown-item">@Html.ActionLink("Cupom", "Del_Con_Cupom", "Home")</button><br />
+                        <button class="dropdown-item">@Html.ActionLink("Serviço", "Del_Con_Servico", "Home")</button> <br />
+                        <button class="dropdown-item">@Html.ActionLink("Test Drive", "Del_Con_Teste", "Home")</button><br />
+
+                    </div>
+                </div>
+
+                <div class="dropdown">
+                    <button type="button" class="btn" style="width: 300px; text-align: center; font-family: Calibri; font-weight: bold; margin-top: 100px;">
+                        @Html.ActionLink("Logout", "Sair", "Login")
+                    </button>
+                    
+
+                </div>
+            </div>
         </div>
-    </nav>
-
+    
+    </div>
     <div class="container body-content">
         @RenderBody()
         <hr />
@@ -97,8 +169,28 @@
             <p>&copy; GAME WAVE @DateTime.Now.Year - TODOS OS DIREITOS RESERVADOS </p>
         </footer>
     </div>
+
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
+
+    <script>
+        function openNav() {
+                document.getElementById("barralateral").style.width = "400px";
+
+          
+
+            
+        }
+
+        function closeNav() {
+            document.getElementById("barralateral").style.width = "0px";
+
+        }
+
+
+                    
+
+    </script>
 </body>
 </html>

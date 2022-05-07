@@ -7,64 +7,90 @@
 <head>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="~/Content/background_imagens.css" />
-    <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css'>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" type="text/css" href="~/Content/StyleListItens.css">
+
+
 </head>
 <body>
-    <div class="container">
-        <div class="table-wrapper">
-            <div class="table-title">
-                <div class="row">
-                    <div class="col-sm-6">
-                        <h2>Lista de Produtos</h2>
-                    </div>
-                    <div class="col-sm-6">
-                        <a href="@Url.Action("CadProdutoIndex","Home")" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Novo</span></a>
-                    </div>
-                </div>
-            </div>
-            <table class="table table-hover">
-                <thead>
-                    <tr>
-                        <th>@Html.DisplayNameFor(model => model.Cod_prod)</th>
-                        <th>@Html.DisplayNameFor(model => model.Prod_nome)</th>
-                        <th>@Html.DisplayNameFor(model => model.Prod_tipo)</th>
-                        <th>@Html.DisplayNameFor(model => model.Prod_quant_estoque)</th>
-                        <th>@Html.DisplayNameFor(model => model.Prod_desc)</th>
-                        <th>@Html.DisplayNameFor(model => model.Prod_anolanc)</th>
-                        <th>@Html.DisplayNameFor(model => model.Prod_faixaeta)</th>
-                        <th>@Html.DisplayNameFor(model => model.Prod_valor)</th>
-                    </tr>
-                </thead>
+    <br />
+    <br />
+    <center><h2>Lista dos produtos registrados</h2></center>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Cod_prod)
+            </th>
 
-                <tbody>
-                    @foreach (var item in Model)
-                    {
-                    <tr>
-                        <td>@Html.DisplayFor(modelItem => item.Cod_prod)</td>
-                        <td>@Html.DisplayFor(modelItem => item.Prod_nome)</td>
-                        <td>@Html.DisplayFor(modelItem => item.Prod_tipo)</td>
-                        <td>@Html.DisplayFor(modelItem => item.Prod_quant_estoque)</td>
-                        <td>@Html.DisplayFor(modelItem => item.Prod_desc)</td>
-                        <td>@Html.DisplayFor(modelItem => item.Prod_anolanc)</td>
-                        <td>@Html.DisplayFor(modelItem => item.Prod_faixaeta)</td>
-                        <td>@Html.DisplayFor(modelItem => item.Prod_valor)</td>
+            <th>
+                @Html.DisplayNameFor(model => model.Prod_nome)
+            </th>
 
-                        <td>
-                            <a href="@Url.Action("AltProduto", new {produ = item.Cod_prod})" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                        </td>
-                        <td>
-                            <a href="@Url.Action("DelProduto", new {produ = item.Cod_prod})" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-                        </td>
-                    </tr>
-                    }
-                </tbody>
+            <th>
+                @Html.DisplayNameFor(model => model.Prod_tipo)
+            </th>
 
-            </table>
-        </div>
-    </div>
+            <th>
+                @Html.DisplayNameFor(model => model.Prod_quant_estoque)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Prod_desc)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Prod_anolanc)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Prod_faixaeta)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Prod_valor)
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cod_prod)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Prod_nome)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Prod_tipo)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Prod_quant_estoque)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Prod_desc)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Prod_anolanc)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Prod_faixaeta)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Prod_valor)
+                </td>
+
+                <td>
+                    @Html.ActionLink("Alterar", "AltProduto", null, new { produ = item.Cod_prod }, new { @class = "btn btn-primary" })
+                    @Html.ActionLink("Excluir", "DelProduto", null, new { produ = item.Cod_prod }, new { @class = "btn btn-danger" })
+                </td>
+            </tr>
+        }
+    </table>
 
 </body>
 </html>

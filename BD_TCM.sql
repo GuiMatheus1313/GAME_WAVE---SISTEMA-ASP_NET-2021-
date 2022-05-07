@@ -20,7 +20,7 @@ CREATE TABLE TBBairro (
 );
 
 CREATE TABLE TBCep (
-    cep VARCHAR(9) PRIMARY KEY,
+    cep VARCHAR(11) PRIMARY KEY,
     logradouro VARCHAR(100) NOT NULL,
     fk_Estado_Id_uf INT NOT NULL,
     fk_Cidade_ID_Cidade INT NOT NULL,
@@ -31,8 +31,7 @@ CREATE TABLE TBCep (
 );
 
 CREATE TABLE TBCupom (
-	idCupom INT PRIMARY KEY auto_increment,
-    txtCupom VARCHAR(20) NOT NULL,
+    cupom_cod VARCHAR(20) PRIMARY KEY,
     descontoCupom float NOT NULL
 );
 
@@ -42,8 +41,8 @@ CREATE TABLE TBCliente (
     cli_Nome VARCHAR(100) NOT NULL,
     cli_NumEnd INT NOT NULL,
     cli_email VARCHAR(100) NOT NULL,
-    cli_tel varchar(14) NOT NULL,
-    fk_Cep_cep VARCHAR(9) NOT NULL,
+    cli_tel long NOT NULL,
+    fk_Cep_cep VARCHAR(11) NOT NULL,
     CONSTRAINT FK_Cliente_Cep FOREIGN KEY (fk_Cep_cep) REFERENCES TBCep (cep)
 );
 
@@ -51,15 +50,16 @@ CREATE TABLE TBFuncionario (
     func_Cod INT PRIMARY KEY auto_increment,
     func_Nome VARCHAR(100) NOT NULL,
     func_CPF varchar(14) unique NOT NULL,
-    func_Tel varchar(14) NOT NULL,
+    func_Tel long NOT NULL,
     func_Email VARCHAR(100) NOT NULL,
-    func_DataNasc DATETIME NOT NULL,
+    func_DataNasc DATE NOT NULL,
     func_Num_End INT NOT NULL,
     func_Cargo VARCHAR(30) NOT NULL,
     func_senha varchar(10) not null,
-    fk_Cep_cep VARCHAR(9) NOT NULL,
+    fk_Cep_cep VARCHAR(11) NOT NULL,
     CONSTRAINT FK_Funcionario_Cep FOREIGN KEY (fk_Cep_cep) REFERENCES TBCep (cep)
 );
+
 
 CREATE TABLE TBProduto (
     cod_Prod INT PRIMARY KEY auto_increment,
@@ -101,8 +101,8 @@ CREATE TABLE TBVenda (
     forma_Pag VARCHAR(30) NOT NULL,
     valorTotal DECIMAL(7,2) NOT NULL,
     fk_Cliente_Cli_cpf varchar(14) NOT NULL,
-    fk_Cupom_cupom_id int,
-    CONSTRAINT fK_Cupom_venda FOREIGN KEY (fk_Cupom_cupom_id) REFERENCES tbCupom (idCupom),
+    fk_Cupom_cupom_cod VARCHAR(20),
+    CONSTRAINT fK_Cupom_venda FOREIGN KEY (fk_Cupom_cupom_cod) REFERENCES tbCupom (cupom_cod),
     CONSTRAINT fK_Venda_Cliente FOREIGN KEY (fk_Cliente_Cli_cpf) REFERENCES TBCliente (cli_cpf)
 );
 
@@ -135,7 +135,7 @@ CREATE TABLE TBDelivery (
 );
 
 ##cUPOM
-insert into TBCupom( txtCupom,descontoCupom )  values('MENOS10', 10),
+insert into TBCupom  values('MENOS10', 10),
 ("MENOS1", 1),
 ("MENOS5", 5);
 
@@ -197,9 +197,9 @@ $$
 ##CADASTRO CLIENTE
 
 delimiter $$
-CREATE PROCEDURE SPInsertCliente(vNome_uf VARCHAR(2), vNome_Cidade VARCHAR(50), vNome_bairro VARCHAR(100), vCep VARCHAR(9), 
+CREATE PROCEDURE SPInsertCliente(vNome_uf VARCHAR(2), vNome_Cidade VARCHAR(50), vNome_bairro VARCHAR(100), vCep VARCHAR(11), 
 								vLogradouro VARCHAR(100), vCli_cpf varchar(14), vCli_Nome VARCHAR(100), vCli_NumEnd INT, 
-                                vCli_email VARCHAR(100), vCli_tel varchar(14))
+                                vCli_email VARCHAR(100), vCli_tel long)
 begin
 	if  not exists(select nome_uf from TBEstado where nome_uf  = vNome_uf LIMIT 1) then 
 		insert into tbEstado (nome_uf) Values(vNome_uf);
@@ -224,12 +224,11 @@ begin
 end;
 $$
 
-
 ##CADASTRO FUNCIONARIO
 delimiter $$
-CREATE PROCEDURE SPInsertFunc(vNome_uf VARCHAR(2), vNome_Cidade VARCHAR(50), vNome_bairro VARCHAR(100), vCep VARCHAR(9), 
-								vLogradouro VARCHAR(100), vFunc_Nome VARCHAR(100), vFunc_CPF varchar(14), vFunc_Tel varchar(14),
-								vFunc_Email VARCHAR(100), vFunc_DataNasc DATETIME, vFunc_Num_End INT, vFunc_Cargo VARCHAR(30), vFunc_senha varchar(20))
+CREATE PROCEDURE SPInsertFunc(vNome_uf VARCHAR(2), vNome_Cidade VARCHAR(50), vNome_bairro VARCHAR(100), vCep VARCHAR(11), 
+								vLogradouro VARCHAR(100), vFunc_Nome VARCHAR(100), vFunc_CPF varchar(14), vFunc_Tel long,
+								vFunc_Email VARCHAR(100), vFunc_DataNasc DATE, vFunc_Num_End INT, vFunc_Cargo VARCHAR(30), vFunc_senha varchar(10))
 begin
 	if  not exists(select nome_uf from TBEstado where nome_uf  = vNome_uf ) then 
 		insert into tbEstado (nome_uf) Values(vNome_uf);
@@ -352,9 +351,7 @@ call SPInsertCliente('SP', 'São Paulo', 'Lapa', 05312298, 'Rua general Algusto'
 call SPInsertCliente('SP', 'Osasco', 'Novo Osasco', 53170430, 'Rua Atenas', '36065138797', 'Lucca Matheus Fernandes', 769, 'LuCCa.MF@gmail.com','12981559857');
 
 ##funcionario
-call SPInsertFunc('SP', 'São Paulo', 'Mooca', 42231612, 'Quadra QNP 16 Conjunto M', 'Antonio Carlos Lima', '397.461.330-71', 61929850375, 'giovannibento72@gmail.com','1989-12-09', 127, 'Tecnico', 'guiguiba');
-call SPInsertFunc('SP', 'São Paulo', 'Mooca', 42231-212, 'Rua Frei Damião', 'Renato Roberto da Cruz', '970.594.019-38', 11983555183, 'renato-dacruz82@gmail.com.br','1998-02-19', 245, 'Atendente', 'Palmares');
-call SPInsertFunc('CE', 'Aracaju', 'Atalaia', '60333-055', 'Avenida Lions Club', 'Elisa Luiza dos Santos', '372.254.009-75', '(11)99584-0548', 'elisaluizadossantos@gmail.com.com.br','1971-10-05', 754, 'Atendente', 'Sapatilha');
+call SPInsertFunc('SP', 'São Paulo', 'Mooca', 42231612, 'Quadra QNP 16 Conjunto M', 'Antonio Carlos Lima', 39746133071, 61929850375, 'giovannibento72@gmail.com','1989-12-09', 127, 'Tecnico', 'guiguiba');
 
 ##produto
 call SPInsertProduto('Jogo da Vida Estrela', 'tabuleiro', 10,
@@ -363,10 +360,6 @@ call SPInsertProduto('Jogo da Vida Estrela', 'tabuleiro', 10,
  call SPInsertProduto('FIFA 22', 'Jogo eletronico', 21,
 'Desenvolvido pela Electronic Arts a recriação de goleiros e goleiras leva mais compostura e consistência à posição mais importante do campo, uma nova física da bola reimagina cada passe, finalização e 
 gol e corridas explosivas fazem você sentir a aceleração dos jogadores e jogadoras de futebol com mais velocidade no jogo.', '2021', '+10', 159.99);
-call SPInsertProduto('War', 'tabuleiro', 10,
-'Jogo de geurra, boa sorte', '1990', '12', 99.99);
- 
- update TBProduto set prod_Nome='War', prod_Tipo='tabuleiro', prod_Quant_Estoque=10, prod_Desc='Jogo de geurra, Booomba', prod_AnoLanc='1990', prod_FaixaEta='12', prod_Valor= 99.99 where cod_Prod=5;
  
  ##teste
  call SPInsertTeste('Test Do Jogo Da vida',20624341038,1);

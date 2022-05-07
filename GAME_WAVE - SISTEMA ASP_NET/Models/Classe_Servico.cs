@@ -19,24 +19,48 @@ namespace GAME_WAVE___SISTEMA_ASP_NET.Models
 
         [Display(Name = "Produto do Serviço")]
         [StringLength(50, MinimumLength = 2, ErrorMessage = "O campo deve conter entre 2 a 50 caracteres")]
-        public string Prod_Serv { get; set; } 
+        public string Prod_Serv { get; set; }
 
         [Display(Name = "Data de Entrada")]
-        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         [Required(ErrorMessage = "Este campo é obrigatório")]
         public DateTime DateEntre
         {
-            get{return this.DateEntre = DateTime.Today.Date;}
+            get
+            {
+                return this.dateEntre.HasValue
+                    ? this.dateEntre.Value
+                    : DateTime.Now;
+            }
 
             set
-            {}
+            {
+                this.dateEntre = value;
+            }
         }
 
-        [Display(Name = "Data de Retirada")]
-        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
-        [Required(ErrorMessage = "Este campo é obrigatório")]
-        public DateTime DateSaida{get; set;}
+        private DateTime? dateEntre = null;
 
+
+        [Display(Name = "Data de Retirada")]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
+        [Required(ErrorMessage = "Este campo é obrigatório")]
+        public DateTime DateSaida
+        {
+            get
+            {
+                return this.dateSaida.HasValue
+                    ? this.dateSaida.Value
+                    : DateTime.Now;
+            }
+
+            set
+            {
+                this.dateSaida = value;
+            }
+        }
+
+        private DateTime? dateSaida = null;
 
         [Required(ErrorMessage = "Este campo é obrigatório")]
         [Display(Name = "Valor do Serviço")]
