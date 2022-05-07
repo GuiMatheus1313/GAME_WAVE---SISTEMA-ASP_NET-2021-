@@ -206,9 +206,6 @@
     <Content Include="Views\Home\AltCupom.cshtml" />
     <Content Include="Views\Home\Del_Con_Teste.cshtml" />
     <Content Include="Views\Home\AltTeste.cshtml" />
-    <Content Include="Views\Home\CadServicoIndex.cshtml" />
-    <Content Include="Views\Home\AltServico.cshtml" />
-    <Content Include="Views\Home\Del_Con_Servico.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

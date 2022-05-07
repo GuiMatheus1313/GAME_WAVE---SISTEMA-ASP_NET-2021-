@@ -123,7 +123,7 @@ namespace GAME_WAVE___SISTEMA_ASP_NET.Repositorio
             cmd.Parameters.Add("@vDesc_Serv", MySqlDbType.VarChar).Value = servico.Desc_Serv;
             cmd.Parameters.Add("@vProd_Serv", MySqlDbType.VarChar).Value = servico.Prod_Serv;
             cmd.Parameters.Add("@vDateSaida", MySqlDbType.Date).Value = servico.DateSaida;
-            cmd.Parameters.Add("@vValor", MySqlDbType.Float).Value = servico.Valor_servico;
+            cmd.Parameters.Add("@vValor", MySqlDbType.Decimal).Value = servico.Valor_servico;
             cmd.Parameters.Add("@vFunc_Cod", MySqlDbType.Int32).Value = servico.Fk_Funcionario_Func_Cod;
             cmd.ExecuteNonQuery();
             conectar.DesconectarBD();
@@ -215,15 +215,7 @@ namespace GAME_WAVE___SISTEMA_ASP_NET.Repositorio
         
         public void AltServico(Classe_Servico serv)
         {
-            MySqlCommand cmd = new MySqlCommand("update TBServico set desc_Serv=@desc_Serv, prod_Serv=@prod_Serv, dateEntre=@DateEntre, dateSaida=@DateSaida, valor_servico=@valor_servico, fk_Funcionario_Func_Cod=@FK_Funcionario_Func_Cod", conectar.ConectarBD());
-            cmd.Parameters.Add("@desc_Serv", MySqlDbType.VarChar).Value = serv.Desc_Serv;
-            cmd.Parameters.Add("@prod_Serv", MySqlDbType.VarChar).Value = serv.Prod_Serv;
-            cmd.Parameters.Add("@DateEntre", MySqlDbType.Date).Value = serv.DateEntre;
-            cmd.Parameters.Add("@DateSaida", MySqlDbType.Date).Value = serv.DateSaida;
-            cmd.Parameters.Add("@valor_servico", MySqlDbType.Float).Value = serv.Valor_servico;
-            cmd.Parameters.Add("@FK_Funcionario_Func_Cod", MySqlDbType.Int32).Value = serv.Fk_Funcionario_Func_Cod;
-            cmd.ExecuteNonQuery();
-            conectar.DesconectarBD();
+            MySqlCommand cmd = new MySqlCommand("update", conectar.ConectarBD());
 
         }
 
@@ -265,9 +257,9 @@ namespace GAME_WAVE___SISTEMA_ASP_NET.Repositorio
             cmd.ExecuteReader();
         }
 
-        public void DelServico (Int32 serv)
+        public void DelServico (Classe_Servico servcod)
         {
-            var deletaserv = String.Format("delete from TBServico where cod_Serv = {0}", serv);
+            var deletaserv = String.Format("delete from TBServico where cod_Serv = {0}", servcod);
             MySqlCommand cmd = new MySqlCommand(deletaserv, conectar.ConectarBD());
             cmd.ExecuteReader();
         }
@@ -454,42 +446,6 @@ namespace GAME_WAVE___SISTEMA_ASP_NET.Repositorio
 
         /**/
 
-        public List<Classe_Servico> ListarServ()
-        {
-            MySqlCommand cmd = new MySqlCommand("Select * from TBServico", conectar.ConectarBD());
-            var dadosservico = cmd.ExecuteReader();
-            return ListarServico(dadosservico);
-        }
-
-        public Classe_Servico ListarServCod(int servcod)
-        {
-            var comando = String.Format("Select * from TBServico where cod_Serv = {0}", servcod);
-            MySqlCommand cmd = new MySqlCommand(comando, conectar.ConectarBD());
-            var DadosServCod = cmd.ExecuteReader();
-            return ListarServico(DadosServCod).FirstOrDefault();
-        }
-
-        public List<Classe_Servico> ListarServico(MySqlDataReader dr)
-        {
-            var ListServ = new List<Classe_Servico>();
-            while(dr.Read())
-            {
-                var ServTemp = new Classe_Servico()
-                {
-                    Cod_Serv = Int32.Parse(dr["cod_Serv"].ToString()),
-                    Desc_Serv = dr["desc_Serv"].ToString(),
-                    Prod_Serv = dr["prod_Serv"].ToString(),
-                    DateEntre = DateTime.Parse(dr["dateEntre"].ToString()),
-                    DateSaida = DateTime.Parse(dr["dateSaida"].ToString()),
-                    Valor_servico = float.Parse(dr["valor_servico"].ToString()),
-                    Fk_Funcionario_Func_Cod = Int32.Parse(dr["fk_Funcionario_Func_Cod"].ToString())
-                };
-                ListServ.Add(ServTemp);
-            }
-            dr.Close();
-            return ListServ;
-        }
-
         public List<Classe_Teste> ListarTes()
         {
             MySqlCommand cmd = new MySqlCommand("Select * from TBTeste", conectar.ConectarBD());
@@ -525,8 +481,35 @@ namespace GAME_WAVE___SISTEMA_ASP_NET.Repositorio
             
         }
 
-       
+        public List<Classe_Servico> ListarSer()
+        {
+            MySqlCommand cmd = new MySqlCommand("Select * from vm_Servico", conectar.ConectarBD());
+            var dadosservico = cmd.ExecuteReader();
+            return ListarServico(dadosservico);
+        }
 
-        
+        public Classe_Servico ListarSerCod(int codserv)
+        {
+            var comando = String.Format("Select * from vm_Servico where cod_Serv = {0}", codserv);
+            MySqlCommand cmd = new MySqlCommand(comando, conectar.ConectarBD());
+            var DadosSerCod = cmd.ExecuteReader();
+            return ListarServico(DadosSerCod).FirstOrDefault();
+        }
+
+        public List<Classe_Servico> ListarServico(MySqlDataReader dr)
+        {
+            var ListSer = new List<Classe_Servico>();
+            while (dr.Read())
+            {
+                var SerTemp = new Classe_Servico()
+                {
+                    
+                };
+                ListSer.Add(SerTemp);
+            }
+            dr.Close();
+            return ListSer;
+
+        }
     }
 }

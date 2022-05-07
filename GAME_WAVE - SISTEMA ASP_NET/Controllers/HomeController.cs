@@ -82,7 +82,6 @@ namespace GAME_WAVE___SISTEMA_ASP_NET.Controllers
             return View(servico);
         }
 
-        [HttpPost]
         public ActionResult CadServico (Classe_Servico servico)
         {
             ac.CadastroServico(servico);
@@ -212,24 +211,6 @@ namespace GAME_WAVE___SISTEMA_ASP_NET.Controllers
             return RedirectToAction("AtividadeSucedida");
         }
 
-        [HttpGet]
-        public ActionResult AltServico(Int32 serv)
-        {
-            var cdserv = ac.ListarServCod(serv);
-            if (cdserv == null)
-            {
-                return HttpNotFound();
-            }
-            return View(cdserv);
-        }
-
-        [HttpPost]
-        public ActionResult AltServico(Classe_Servico serv)
-        {
-            ac.AltServico(serv);
-            return RedirectToAction("AtividadeSucedida");
-        }
-
 
         //FIM DAS CONTROLLERS DE ALTERAÇÃO
 
@@ -263,12 +244,6 @@ namespace GAME_WAVE___SISTEMA_ASP_NET.Controllers
         public ActionResult DelTeste (int testcod)
         {
             ac.DelTeste(testcod);
-            return RedirectToAction("AtividadeSucedida");
-        }
-
-        public ActionResult DelServico (Int32 serv)
-        {
-            ac.DelServico(serv);
             return RedirectToAction("AtividadeSucedida");
         }
 
@@ -331,14 +306,14 @@ namespace GAME_WAVE___SISTEMA_ASP_NET.Controllers
             var Todostes = Exibirtes.ListarTes();
             return View(Todostes);
         }
-        
+        /*
         public ActionResult Del_Con_Servico (Classe_Servico serv)
         {
             var Exibirser = new Acoes();
-            var Todosserv = Exibirser.ListarServ();
+            var Todosserv = Exibirser.
             return View(Todosserv);
         }
-        /*
+
         public ActionResult Del_Con_Venda (Classe_Venda vend)
         {
             var Exibirven = new Acoes();
@@ -352,8 +327,8 @@ namespace GAME_WAVE___SISTEMA_ASP_NET.Controllers
             var Todosdeli = Exibirdeli.
             return View(Todosdeli);
         }
+
         */
-        
         //FIM DAS CONTROLLERS DE CONSULTA
 
         //ESSA CONTROLLER É FEITA PARA CONFIRMAR UMA AÇÃO FEITA DAS AÇÕES, COMO CADASTRAR E ALTERAÇÃO
