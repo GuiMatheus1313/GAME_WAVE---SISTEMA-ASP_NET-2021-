@@ -2,7 +2,7 @@
 <!DOCTYPE HTML>
 <html lang="pt-br">
 @{
-    ViewBag.Title = "Consulta dos Clientes";
+    ViewBag.Title = "Del_Con_Cliente";
 }
 <head>
     <meta charset="utf-8" />
@@ -11,70 +11,69 @@
 
 </head>
 <body>
-    <center><h2>Lista dos clientes presentes</h2></center>
+<h2>Del_Con_Produto</h2>
 
-    <br />
     <table class="table">
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.Cli_cpf)
             </th>
-
+            
             <th>
                 @Html.DisplayNameFor(model => model.Cli_nome)
             </th>
-
+            
             <th>
                 @Html.DisplayNameFor(model => model.Cli_numEnd)
             </th>
-
+            
             <th>
                 @Html.DisplayNameFor(model => model.Cli_email)
             </th>
-
+            
             <th>
                 @Html.DisplayNameFor(model => model.Cli_tel)
             </th>
-
+            
             <th>
                 @Html.DisplayNameFor(model => model.Cep)
             </th>
-
+            
             <th></th>
         </tr>
-
+        
         @foreach (var item in Model)
         {
             <tr>
                 <td>
                     @Html.DisplayFor(modelItem => item.Cli_cpf)
                 </td>
-
+                
                 <td>
                     @Html.DisplayFor(modelItem => item.Cli_nome)
                 </td>
-
+                
                 <td>
                     @Html.DisplayFor(modelItem => item.Cli_numEnd)
                 </td>
-
+                
                 <td>
                     @Html.DisplayFor(modelItem => item.Cli_email)
                 </td>
-
+                
                 <td>
                     @Html.DisplayFor(modelItem => item.Cli_tel)
                 </td>
-
+                
                 <td>
-                    @Html.DisplayFor(modelItem => item.FK_cep_cep)
+                    @Html.DisplayFor(modelItem => item.Cep)
                 </td>
-
+                
                 <td>
-                    @Html.ActionLink("Alterar", "AltCliente", null, new { cpf = item.Cli_cpf }, new { @class = "btn btn-primary" })
-                    @Html.ActionLink("Excluir", "DelCliente", null, new { cpf = item.Cli_cpf }, new { @class = "btn btn-danger" })
+                    @Html.ActionLink("Alterar", "AltCliente", null, new { cpf = item.Cli_cpf }, new { @class = "btn btn-primary-xs"})
+                    @Html.ActionLink("Excluir", "DelCliente", null, new { cpf = item.Cli_cpf }, new { @class = "btn btn-danger-xs"})
                 </td>
-            </tr>
+        </tr>
         }
     </table>
 </body>

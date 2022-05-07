@@ -2,7 +2,7 @@
 <!DOCTYPE HTML>
 <html lang="pt-br">
 @{
-    ViewBag.Title = "Consulta dos produtos";
+    ViewBag.Title = "Del_Con_Produto";
 }
 <head>
     <meta charset="utf-8" />
@@ -11,9 +11,7 @@
 
 </head>
 <body>
-    <br />
-    <br />
-    <center><h2>Lista dos produtos registrados</h2></center>
+    <h2>Del_Con_Produto</h2>
     <table class="table">
         <tr>
             <th>
@@ -34,6 +32,10 @@
 
             <th>
                 @Html.DisplayNameFor(model => model.Prod_desc)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Prod_anolanc)
             </th>
 
             <th>
@@ -85,8 +87,8 @@
                 </td>
 
                 <td>
-                    @Html.ActionLink("Alterar", "AltProduto", null, new { produ = item.Cod_prod }, new { @class = "btn btn-primary" })
-                    @Html.ActionLink("Excluir", "DelProduto", null, new { produ = item.Cod_prod }, new { @class = "btn btn-danger" })
+                    @Html.ActionLink("Alterar", "AltProdutoIndex", null, new { cd = item.Cod_prod }, new { @class = "btn btn-primary-xs" })
+                    @Html.ActionLink("Excluir", "Del_Con_Produto", null, new { cd = item.Cod_prod }, new { @class = "btn btn-danger-xs" })
                 </td>
             </tr>
         }

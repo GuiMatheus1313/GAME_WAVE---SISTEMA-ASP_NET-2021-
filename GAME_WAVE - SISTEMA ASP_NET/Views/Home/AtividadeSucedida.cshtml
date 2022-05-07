@@ -1,37 +1,18 @@
 ﻿<!DOCTYPE HTML>
 <html lang="pt-br">
 @{
-    ViewBag.Title = "Atividade Sucedida";
+    ViewBag.Title = "AtividadeSucedida";
 }
 <head>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="~/Content/parte_sucesso.css" />
+    <link rel="stylesheet" href="~/Content/background_imagens.css" />
+
 
 </head>
 <body>
-    <div class="background"></div>
-    <div class="container">
-        <div class="row">
-            <div class="modalbox success col-sm-8 col-md-6 col-lg-5 center animate">
-                <div class="icon">
-                    <span class="glyphicon glyphicon-ok"></span>
-                </div>
-                <!--/.icon-->
-                <h1>Ação feita com sucesso</h1>
-                <p>
-                    Utilize o botão de menu na barra acima para voltar em outros locais
-                </p>
-                
-            </div>
-            <!--/.success-->
-        </div>
-        <!--/.row-->
+    <legend> Ação feita com Sucesso!</legend>
+
+    <div class="container" id="bgcadcliente">
+        <h2>AtividadeSucedida</h2>
+
     </div>
-    <!--/.container-->
-    <script>
-        $(document).ready(function() {
-		$('.redo').click(function() {
-			$('.success, .error').toggle();
-		});
-    });
-    </script>

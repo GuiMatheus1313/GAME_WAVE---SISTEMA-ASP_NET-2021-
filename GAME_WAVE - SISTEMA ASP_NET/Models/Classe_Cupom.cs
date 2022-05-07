@@ -2,20 +2,20 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using System.Web.Mvc;
 using System.ComponentModel.DataAnnotations;
 
 namespace GAME_WAVE___SISTEMA_ASP_NET.Models
 {
     public class Classe_Cupom
     {
-        [Required(ErrorMessage = "Este campo é obrigatório!")]
         [Display(Name = "Código do Cupom")]
-        [StringLength(12, MinimumLength = 1, ErrorMessage = "O campo deve conter entre 1 a 12 caracteres")]
-        public string Cupom_cod { get; set; }
-
+        [StringLength(3, MinimumLength = 1, ErrorMessage = "O campo deve conter o codigo de desconto!")]
         [Required(ErrorMessage = "Este campo é obrigatório!")]
-        [Display(Name = "Quantidade de Desconto")]
+        public string Cupom_cod { get; set; }
+        
+        [Display(Name = "Cupom de Desconto")]
+        [StringLength(2, MinimumLength = 5, ErrorMessage = "O campo deve conter o valor de desconto!")]
+        [Required(ErrorMessage = "Este campo é obrigatório!")]
         public float DescontoCupom { get; set; }
     }
 }

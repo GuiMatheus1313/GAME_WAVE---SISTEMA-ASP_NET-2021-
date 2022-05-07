@@ -1,95 +1,56 @@
-﻿<!DOCTYPE HTML>
-<html lang="pt-br">
-@model GAME_WAVE___SISTEMA_ASP_NET.Models.Classe_Funcionario
+﻿@model GAME_WAVE___SISTEMA_ASP_NET.Models.Classe_Funcionario
 @{
-    ViewBag.Title = "Alteração do Funcionário";
+    ViewBag.Title = "AltFuncio";
 }
 <head>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="~/Content/" />
+    <link rel="stylesheet" href="~/Content/background_imagens.css" />
 
 
 </head>
-<body>
-    <br />
-    <br />
-<legend><b>Alteração do Funcionário</b></legend>
-<div class="container" id="">
+<legend> Alteração do Funcionário</legend>
+<div class="container" id="bgaltfuncio">
     @using (Html.BeginForm("AltFuncio", "Home", FormMethod.Post))
     {
         @Html.ValidationSummary(true)
         <fildset>
             <div class="editor-label" style="font-size: 30px;">
-                @Html.LabelFor(m => m.Func_nome, htmlAttributes: new { @class = "" })
+                @Html.LabelFor(m => m.Func_nome)
             </div>
 
             <div class="editor-field">
-                @Html.EditorFor(m => m.Func_nome, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(m => m.Func_nome, "", new { @class = "" })
+                @Html.EditorFor(m => m.Func_nome)
+                @Html.ValidationMessageFor(m => m.Func_nome)
             </div>
 
             <div class="editor-label" style="font-size: 30px; margin-left: 400px; margin-top: -73px;">
-                @Html.LabelFor(m => m.Func_num_end, htmlAttributes: new { @class = "" })
+                @Html.LabelFor(m => m.Func_num_end)
             </div>
 
             <div class="editor-field" style="margin-left: 400px; ">
-                @Html.EditorFor(m => m.Func_num_end, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(m => m.Func_num_end, "", new { @class = "" })
+                @Html.EditorFor(m => m.Func_num_end)
+                @Html.ValidationMessageFor(m => m.Func_num_end)
             </div>
 
             <div class="editor-label" style="font-size: 30px; margin-top: 50px;">
-                @Html.LabelFor(m => m.Func_datanasc, htmlAttributes: new { @class = "" })
+                @Html.LabelFor(m => m.Func_datanasc)
             </div>
 
             <div class="editor-field">
-                @Html.EditorFor(m => m.Func_datanasc, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(m => m.Func_datanasc, "", new { @class = "" })
+                @Html.EditorFor(m => m.Func_datanasc)
+                @Html.ValidationMessageFor(m => m.Func_datanasc)
             </div>
 
             <div class="editor-label" style="font-size: 30px; margin-left: 400px; margin-top: -73px;">
-                @Html.LabelFor(m => m.Func_cargo, htmlAttributes: new { @class = "" })
+                @Html.LabelFor(m => m.Func_cargo)
             </div>
 
             <div class="editor-field" style="margin-left: 400px; ">
-                @Html.EditorFor(m => m.Func_cargo, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(m => m.Func_cargo, "", new { @class = "" })
-            </div>
-
-            <div class="editor-label" style="font-size: 30px; margin-top: 50px;">
-                @Html.LabelFor(m => m.Func_tel, htmlAttributes: new { @class = "" })
-            </div>
-
-            <div class="editor-field">
-                @Html.EditorFor(m => m.Func_tel, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(m => m.Func_tel, "", new { @class = "" })
-            </div>
-
-            <div class="editor-label" style="font-size: 30px; margin-left: 400px; margin-top: -73px;">
-                @Html.LabelFor(m => m.Func_email, htmlAttributes: new { @class = "" })
-            </div>
-
-            <div class="editor-field" style="margin-left: 400px; ">
-                @Html.EditorFor(m => m.Func_email, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(m => m.Func_email, "", new { @class = "" })
-            </div>
-
-            <div class="editor-label" style="font-size: 30px; margin-top: 50px;">
-                @Html.LabelFor(m => m.Func_cod, htmlAttributes: new { @class = "" })
-            </div>
-
-            <div class="editor-field" id="desabilitar">
-                @Html.EditorFor(m => m.Func_cod, new { htmlAttributes = new { @class = "form-control", @enabled = "false" } })
-                @Html.ValidationMessageFor(m => m.Func_cod, "", new { @class = "" })
-            </div>
-
-            <div>
-                <br /> <input type="submit" value="Alterar" name="btnenviar" />
+                @Html.EditorFor(m => m.Func_cargo)
+                @Html.ValidationMessageFor(m => m.Func_cargo)
             </div>
         </fildset>
-        @section Scripts{
-            @Scripts.Render("~/bundles/jqueryval");
-        }
+
 
     }
 </div>
-    

@@ -2,7 +2,7 @@
 <!DOCTYPE HTML>
 <html lang="pt-br">
 @{
-    ViewBag.Title = "Consulta dos Funcionários";
+    ViewBag.Title = "Del_Con_Funcio";
 }
 <head>
     <meta charset="utf-8" />
@@ -11,15 +11,13 @@
 
 </head>
 <body>
-    <center><h2>Lista dos Funcionários presentes</h2></center>
-    <br />
+    <h2>Del_Con_Funcio</h2>
         <table class="table">
             <tr>
                 <th>
                     @Html.DisplayNameFor(model => model.Func_cod)
-
                 </th>
-
+                
                 <th>
                     @Html.DisplayNameFor(model => model.Func_nome)
                 </th>
@@ -27,7 +25,11 @@
                 <th>
                     @Html.DisplayNameFor(model => model.Func_cpf)
                 </th>
-                        
+                
+                <th>
+                    @Html.DisplayNameFor(model => model.Func_nome)
+                </th>
+                
                 <th>
                     @Html.DisplayNameFor(model => model.Func_tel)
                 </th>
@@ -43,12 +45,10 @@
                 <th>
                     @Html.DisplayNameFor(model => model.Func_cargo)
                 </th>
-
+                
                 <th>
                     @Html.DisplayNameFor(model => model.Cep)
                 </th>
-                
-                
            </tr>
             
             @foreach (var item in Model)
@@ -83,11 +83,12 @@
                     </td>
                     
                     <td>
-                        @Html.DisplayFor(modelItem => item.FK_cep_cep)
+                        @Html.DisplayFor(modelItem => item.Cep)
                     </td>
+                    
                     <td>
-                        @Html.ActionLink("Alterar", "AltFuncio", null, new { cdfun = item.Func_cod }, new { @class = "btn btn-primary"})
-                        @Html.ActionLink("Excluir", "DelFuncio", null, new { cdfun = item.Func_cod}, new { @class = "btn btn-danger"})
+                        @Html.ActionLink("Alterar", "AltFuncioIndex", null, new { cd = item.Func_cod }, new { @class = "btn btn-primary-xs"})
+                        @Html.ActionLink("Excluir", "Del_Con_Funcionario", null, new { cd = item.Func_cod }, new { @class = "btn btn-danger-xs"})
                     </td>
             </tr>
             }
